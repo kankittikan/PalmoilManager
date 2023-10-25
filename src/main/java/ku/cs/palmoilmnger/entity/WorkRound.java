@@ -7,10 +7,9 @@ import lombok.Data;
 @Entity
 public class WorkRound {
     @Id
-    @GeneratedValue
+    @Column(length = 8)
     private String idWorkRound;
 
     private String idPlantation;
-
     private String idManager;
 }

@@ -1,5 +1,6 @@
 package ku.cs.palmoilmnger.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,7 +10,7 @@ import lombok.Data;
 @Entity
 public class Transaction {
     @Id
-    @GeneratedValue
+    @Column(length = 11)
     private String idTransaction;
 
     private String idType;

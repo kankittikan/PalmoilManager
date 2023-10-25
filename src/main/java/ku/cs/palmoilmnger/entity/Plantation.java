@@ -10,7 +10,7 @@ import lombok.Data;
 public class Plantation {
     @Id
     @GeneratedValue
-    private String idPlantation;
+    private int idPlantation;
 
     private String name;
     private String locationLink;

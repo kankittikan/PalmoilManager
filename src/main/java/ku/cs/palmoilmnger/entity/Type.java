@@ -1,6 +1,7 @@
 package ku.cs.palmoilmnger.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -8,7 +9,8 @@ import lombok.Data;
 @Entity
 public class Type {
     @Id
-    private String idType;
+    @GeneratedValue
+    private int idType;
 
     private String name;
 }

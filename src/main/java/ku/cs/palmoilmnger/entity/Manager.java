@@ -2,6 +2,7 @@ package ku.cs.palmoilmnger.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -10,7 +11,7 @@ import lombok.Data;
 public class Manager {
     @Id
     @GeneratedValue
-    private String idManager;
+    private int idManager;
 
     private String username;
     private String name;
