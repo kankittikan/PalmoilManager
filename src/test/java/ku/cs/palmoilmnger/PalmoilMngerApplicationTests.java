@@ -1,5 +1,7 @@
 package ku.cs.palmoilmnger;
 
+import ku.cs.palmoilmnger.entity.Plantation;
+import ku.cs.palmoilmnger.repository.PlantationRepository;
 import ku.cs.palmoilmnger.service.PlantationService;
 import ku.cs.palmoilmnger.service.summary.SummaryService;
 import ku.cs.palmoilmnger.service.WorkRoundService;
@@ -13,17 +15,11 @@ import java.io.IOException;
 class PalmoilMngerApplicationTests {
 
     @Autowired
-    PlantationService plantationService;
-
-    @Autowired
-    WorkRoundService workRoundService;
-
-    @Autowired
-    SummaryService summaryService;
+    PlantationRepository repository;
 
     @Test
     void insert() throws IOException {
-        summaryService.export();
+        repository.save(new Plantation());
     }
 
 }
