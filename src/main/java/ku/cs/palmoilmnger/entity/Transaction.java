@@ -3,26 +3,31 @@ package ku.cs.palmoilmnger.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 @Entity
 public class Transaction {
     @Id
-    @Column(length = 11)
-    private String idTransaction;
+    @GeneratedValue
+    private int idTransaction;
 
     @ManyToOne
     private WorkRound workRound;
 
     @ManyToOne
-    private Type type;
+    private Description description;
+
+    @ManyToOne
+    private WorkType workType;
 
     private double value;
     private String imageLink;
 
-    public Transaction(String idTransaction, WorkRound workRound, Type type, double value, String imageLink) {
-        this.idTransaction = idTransaction;
+    public Transaction(WorkRound workRound, Description description, WorkType workType, double value, String imageLink) {
         this.workRound = workRound;
-        this.type = type;
+        this.description = description;
+        this.workType = workType;
         this.value = value;
         this.imageLink = imageLink;
     }
