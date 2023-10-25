@@ -54,13 +54,11 @@ public class SummaryService {
     }
 
     private void writeTableData(PdfPTable table) {
-
         table.addCell("A");
         table.addCell("A");
         table.addCell("C");
         table.addCell("D");
         table.addCell("E");
-
     }
 
     public void export() throws DocumentException, IOException {
@@ -88,6 +86,5 @@ public class SummaryService {
         document.add(table);
 
         document.close();
-
     }
 }
