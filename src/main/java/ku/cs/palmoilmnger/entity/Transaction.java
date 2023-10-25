@@ -28,4 +28,16 @@ public class Transaction {
     private double value;
 
     private String imageLink;
+
+    public Transaction(WorkRound workRound, Description description, WorkType workType, double value, String imageLink) {
+        this.workRound = workRound;
+        this.description = description;
+        this.workType = workType;
+        this.value = value;
+        this.imageLink = imageLink;
+    }
+
+    public Transaction() {
+
+    }
 }

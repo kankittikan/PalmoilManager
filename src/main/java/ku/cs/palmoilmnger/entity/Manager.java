@@ -18,4 +18,14 @@ public class Manager {
 
     @Column(nullable = false)
     private String password;
+
+    public Manager(String username, String name, String password) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+    }
+
+    public Manager() {
+
+    }
 }

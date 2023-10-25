@@ -20,4 +20,14 @@ public class Plantation {
 
     @Column(nullable = false)
     private int numOfRaiUnit;
+
+    public Plantation(String name, String locationLink, int numOfRaiUnit) {
+        this.name = name;
+        this.locationLink = locationLink;
+        this.numOfRaiUnit = numOfRaiUnit;
+    }
+
+    public Plantation() {
+
+    }
 }

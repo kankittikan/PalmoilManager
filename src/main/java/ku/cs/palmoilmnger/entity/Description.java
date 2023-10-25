@@ -24,4 +24,15 @@ public class Description {
 
     @Column(nullable = false)
     private boolean repeatable;
+
+    public Description(String name, DescriptionType descriptionType, WorkType workType, boolean repeatable) {
+        this.name = name;
+        this.descriptionType = descriptionType;
+        this.workType = workType;
+        this.repeatable = repeatable;
+    }
+
+    public Description() {
+
+    }
 }
