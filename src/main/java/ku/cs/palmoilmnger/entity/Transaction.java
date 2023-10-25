@@ -13,26 +13,19 @@ public class Transaction {
     private int idTransaction;
 
     @ManyToOne
+    @Column(nullable = false)
     private WorkRound workRound;
 
     @ManyToOne
+    @Column(nullable = false)
     private Description description;
 
     @ManyToOne
+    @Column(nullable = false)
     private WorkType workType;
 
+    @Column(nullable = false)
     private double value;
+
     private String imageLink;
-
-    public Transaction(WorkRound workRound, Description description, WorkType workType, double value, String imageLink) {
-        this.workRound = workRound;
-        this.description = description;
-        this.workType = workType;
-        this.value = value;
-        this.imageLink = imageLink;
-    }
-
-    public Transaction() {
-
-    }
 }
