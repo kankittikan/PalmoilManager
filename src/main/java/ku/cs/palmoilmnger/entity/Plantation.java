@@ -16,14 +16,10 @@ public class Plantation {
     private String name;
 
     @Column(nullable = false)
-    private String locationLink;
-
-    @Column(nullable = false)
     private int numOfRaiUnit;
 
-    public Plantation(String name, String locationLink, int numOfRaiUnit) {
+    public Plantation(String name, int numOfRaiUnit) {
         this.name = name;
-        this.locationLink = locationLink;
         this.numOfRaiUnit = numOfRaiUnit;
     }
 
