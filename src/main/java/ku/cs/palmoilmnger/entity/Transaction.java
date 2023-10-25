@@ -1,9 +1,6 @@
 package ku.cs.palmoilmnger.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -13,6 +10,24 @@ public class Transaction {
     @Column(length = 11)
     private String idTransaction;
 
-    private String idType;
+    @ManyToOne
+    private WorkRound workRound;
+
+    @ManyToOne
+    private Type type;
+
     private double value;
+    private String imageLink;
+
+    public Transaction(String idTransaction, WorkRound workRound, Type type, double value, String imageLink) {
+        this.idTransaction = idTransaction;
+        this.workRound = workRound;
+        this.type = type;
+        this.value = value;
+        this.imageLink = imageLink;
+    }
+
+    public Transaction() {
+
+    }
 }

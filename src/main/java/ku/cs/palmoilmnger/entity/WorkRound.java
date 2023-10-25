@@ -10,6 +10,19 @@ public class WorkRound {
     @Column(length = 8)
     private String idWorkRound;
 
-    private String idPlantation;
-    private String idManager;
+    @ManyToOne
+    private Plantation plantation;
+
+    @ManyToOne
+    private Manager manager;
+
+    public WorkRound(String idWorkRound, Plantation plantation, Manager manager) {
+        this.idWorkRound = idWorkRound;
+        this.plantation = plantation;
+        this.manager = manager;
+    }
+
+    public WorkRound() {
+
+    }
 }

@@ -13,4 +13,12 @@ public class Type {
     private int idType;
 
     private String name;
+
+    public Type(String name) {
+        this.name = name;
+    }
+
+    public Type() {
+
+    }
 }

@@ -16,4 +16,14 @@ public class Manager {
     private String username;
     private String name;
     private String password;
+
+    public Manager(String username, String name, String password) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+    }
+
+    public Manager() {
+
+    }
 }
