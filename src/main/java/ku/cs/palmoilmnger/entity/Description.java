@@ -1,6 +1,7 @@
 package ku.cs.palmoilmnger.entity;
 
 import jakarta.persistence.*;
+import ku.cs.palmoilmnger.common.DescriptionType;
 import lombok.Data;
 
 @Data
@@ -14,12 +15,15 @@ public class Description {
     private WorkType workType;
 
     private String name;
+
+    @Enumerated
+    private DescriptionType descriptionType;
     private boolean repeatable;
 
-
-    public Description(String name, WorkType workType, boolean repeatable) {
-        this.name = name;
+    public Description(WorkType workType, String name, DescriptionType descriptionType, boolean repeatable) {
         this.workType = workType;
+        this.name = name;
+        this.descriptionType = descriptionType;
         this.repeatable = repeatable;
     }
 
