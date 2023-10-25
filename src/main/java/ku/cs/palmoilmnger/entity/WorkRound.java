@@ -17,4 +17,14 @@ public class WorkRound {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Manager manager;
+
+    public WorkRound(String idWorkRound, Plantation plantation, Manager manager) {
+        this.idWorkRound = idWorkRound;
+        this.plantation = plantation;
+        this.manager = manager;
+    }
+
+    public WorkRound() {
+
+    }
 }

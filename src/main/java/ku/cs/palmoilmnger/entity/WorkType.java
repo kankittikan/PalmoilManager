@@ -15,4 +15,12 @@ public class WorkType {
 
     @Column(nullable = false)
     private String name;
+
+    public WorkType(String name) {
+        this.name = name;
+    }
+
+    public WorkType() {
+
+    }
 }
