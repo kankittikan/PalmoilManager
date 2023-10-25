@@ -11,10 +11,10 @@ public class WorkRound {
     private String idWorkRound;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Plantation plantation;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Manager manager;
 }

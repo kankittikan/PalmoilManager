@@ -13,15 +13,15 @@ public class Transaction {
     private int idTransaction;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private WorkRound workRound;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Description description;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private WorkType workType;
 
     @Column(nullable = false)

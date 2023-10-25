@@ -19,7 +19,7 @@ public class Description {
     private DescriptionType descriptionType;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private WorkType workType;
 
     @Column(nullable = false)
