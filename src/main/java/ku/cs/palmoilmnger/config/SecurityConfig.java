@@ -18,6 +18,8 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/summary/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/pdf/**")).permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();

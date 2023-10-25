@@ -17,10 +17,12 @@ public class Plantation {
 
     private String name;
     private String locationLink;
+    private int numOfRaiUnit;
 
-    public Plantation(String name, String locationLink) {
+    public Plantation(String name, String locationLink, int numOfRaiUnit) {
         this.name = name;
         this.locationLink = locationLink;
+        this.numOfRaiUnit = numOfRaiUnit;
     }
 
     public Plantation() {
