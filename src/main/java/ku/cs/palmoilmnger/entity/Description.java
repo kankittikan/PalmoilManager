@@ -11,23 +11,17 @@ public class Description {
     @GeneratedValue
     private int idDescription;
 
-    @ManyToOne
-    private WorkType workType;
-
+    @Column(nullable = false)
     private String name;
 
     @Enumerated
+    @Column(nullable = false)
     private DescriptionType descriptionType;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private WorkType workType;
+
+    @Column(nullable = false)
     private boolean repeatable;
-
-    public Description(WorkType workType, String name, DescriptionType descriptionType, boolean repeatable) {
-        this.workType = workType;
-        this.name = name;
-        this.descriptionType = descriptionType;
-        this.repeatable = repeatable;
-    }
-
-    public Description() {
-
-    }
 }

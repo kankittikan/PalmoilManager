@@ -1,9 +1,6 @@
 package ku.cs.palmoilmnger.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -15,17 +12,12 @@ public class Plantation {
     @GeneratedValue
     private int idPlantation;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String locationLink;
+
+    @Column(nullable = false)
     private int numOfRaiUnit;
-
-    public Plantation(String name, String locationLink, int numOfRaiUnit) {
-        this.name = name;
-        this.locationLink = locationLink;
-        this.numOfRaiUnit = numOfRaiUnit;
-    }
-
-    public Plantation() {
-
-    }
 }
