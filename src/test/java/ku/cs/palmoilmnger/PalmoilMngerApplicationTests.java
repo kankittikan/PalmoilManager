@@ -1,8 +1,7 @@
 package ku.cs.palmoilmnger;
 
-import com.lowagie.text.DocumentException;
 import ku.cs.palmoilmnger.service.PlantationService;
-import ku.cs.palmoilmnger.service.SummaryService;
+import ku.cs.palmoilmnger.service.summary.SummaryService;
 import ku.cs.palmoilmnger.service.WorkRoundService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
