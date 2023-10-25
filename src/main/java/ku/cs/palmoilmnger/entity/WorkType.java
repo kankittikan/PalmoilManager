@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import ku.cs.palmoilmnger.common.WorkTypeName;
 import lombok.Data;
 
 @Entity
@@ -14,11 +13,10 @@ public class WorkType {
     @GeneratedValue
     private int IdWorkType;
 
-    @Enumerated
-    private WorkTypeName workTypeName;
+    private String name;
 
-    public WorkType(WorkTypeName workTypeName) {
-        this.workTypeName = workTypeName;
+    public WorkType(String name) {
+        this.name = name;
     }
 
     public WorkType() {
