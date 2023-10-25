@@ -24,7 +24,6 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/pdf/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/summary/**")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
