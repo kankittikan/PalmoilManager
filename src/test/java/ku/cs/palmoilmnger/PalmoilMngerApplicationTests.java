@@ -23,7 +23,7 @@ class PalmoilMngerApplicationTests {
     SummaryService summaryService;
 
     @Test
-    void insert() throws DocumentException, IOException {
+    void insert() throws IOException {
         summaryService.export();
     }
 

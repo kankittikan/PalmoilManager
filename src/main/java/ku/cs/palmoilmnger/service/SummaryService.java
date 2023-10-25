@@ -2,6 +2,7 @@ package ku.cs.palmoilmnger.service;
 
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
+import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
@@ -28,58 +29,47 @@ public class SummaryService {
     @Autowired
     PlantationRepository plantationRepository;
 
+    BaseFont baseFont = BaseFont.createFont("static/font/Kanit-Light.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+    Font font = new Font(baseFont, 10, Font.NORMAL);
+
+    public SummaryService() throws IOException {
+    }
+
     private void writeTableHeader(PdfPTable table) {
         PdfPCell cell = new PdfPCell();
-        cell.setBackgroundColor(Color.BLUE);
+        cell.setBackgroundColor(Color.GRAY);
         cell.setPadding(5);
 
-        Font font = FontFactory.getFont(FontFactory.COURIER);
         font.setColor(Color.WHITE);
 
-        cell.setPhrase(new Phrase("", font));
-
+        cell.setPhrase(new Phrase("ประเภทfggfdgdfg", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("E-mail", font));
-        table.addCell(cell);
-
-        cell.setPhrase(new Phrase("Full Name", font));
-        table.addCell(cell);
-
-        cell.setPhrase(new Phrase("Roles", font));
-        table.addCell(cell);
-
-        cell.setPhrase(new Phrase("Enabled", font));
+        cell.setPhrase(new Phrase("จำนวน", font));
         table.addCell(cell);
     }
 
     private void writeTableData(PdfPTable table) {
-
         table.addCell("A");
-        table.addCell("A");
-        table.addCell("C");
-        table.addCell("D");
-        table.addCell("E");
-
+        table.addCell("B");
     }
 
     public void export() throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, new FileOutputStream("storage/quarter.pdf"));
+        FontFactory.register("static/font/Kanit-Light.ttf", "Kanit");
 
         document.open();
-        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
         font.setSize(18);
-        font.setColor(Color.BLUE);
 
-        Paragraph p = new Paragraph("List of Users", font);
+        Paragraph p = new Paragraph("สรุปผลดำเนินงานรายไตรมาส", font);
         p.setAlignment(Paragraph.ALIGN_CENTER);
 
         document.add(p);
 
         PdfPTable table = new PdfPTable(2);
         table.setWidthPercentage(100f);
-        table.setWidths(new float[]{1.5f, 3.5f, 3.0f, 3.0f, 1.5f});
+        table.setWidths(new float[]{1.5f, 3.5f});
         table.setSpacingBefore(10);
 
         writeTableHeader(table);
