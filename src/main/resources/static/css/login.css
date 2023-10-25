@@ -1,0 +1,15 @@
+.form {
+  justify-content: center;
+  align-items: center;
+}
+
+.form .user{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+    margin: 10px;
+}
+
+.form .pass{
+    margin: 10px;
+}g
