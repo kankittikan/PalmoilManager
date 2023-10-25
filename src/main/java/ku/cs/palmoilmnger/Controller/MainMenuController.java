@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainMenuController {
     @RequestMapping("/menu")
     public String getMenuPage(Model model) {
+        model.addAttribute("username", "ชื่อผู้ใช้");
+        model.addAttribute("plotName", "พลุดินนา");
+        model.addAttribute("plotLo", "lorem lorem lorem");
         return "menu";
     }
 }

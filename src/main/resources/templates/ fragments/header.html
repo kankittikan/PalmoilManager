@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
   <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
   <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<h1>THis is header</h1>
+
+<nav th:fragment="header">
+  <div class="nav">
+    <ul>
+      <li style="list-style: none;">
+        <a th:href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+      </li>
+      <li style="list-style: none;">
+        <a th:href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 </body>
 </html>
