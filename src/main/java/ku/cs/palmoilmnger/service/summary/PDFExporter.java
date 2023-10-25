@@ -7,7 +7,9 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import ku.cs.palmoilmnger.common.DescriptionType;
+import ku.cs.palmoilmnger.entity.Plantation;
 import ku.cs.palmoilmnger.entity.Transaction;
+import ku.cs.palmoilmnger.entity.WorkRound;
 
 import java.awt.*;
 import java.io.FileOutputStream;
@@ -20,12 +22,16 @@ public class PDFExporter {
     private final BaseFont baseFont = BaseFont.createFont("static/font/Kanit-Light.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
     private final Font font = new Font(baseFont);
     private Report report;
+    private Plantation plantation;
+    private WorkRound workRound;
     private List<Transaction> palmTransaction;
     private List<Transaction> fertilizerTransaction;
     private List<Transaction> trimTransaction;
 
-    public PDFExporter(Report report, List<Transaction> palmTransaction, List<Transaction> fertilizerTransaction, List<Transaction> trimTransaction) throws IOException {
+    public PDFExporter(Report report, Plantation plantation, WorkRound workRound, List<Transaction> palmTransaction, List<Transaction> fertilizerTransaction, List<Transaction> trimTransaction) throws IOException {
         this.report = report;
+        this.plantation = plantation;
+        this.workRound = workRound;
         this.palmTransaction = palmTransaction;
         this.fertilizerTransaction = fertilizerTransaction;
         this.trimTransaction = trimTransaction;
@@ -68,7 +74,8 @@ public class PDFExporter {
 
     public void export() throws DocumentException, IOException {
         Document document = new Document(PageSize.A4);
-        PdfWriter.getInstance(document, new FileOutputStream("storage/quarter.pdf"));
+
+        PdfWriter.getInstance(document, new FileOutputStream("storage/pdf/summary.pdf"));
         FontFactory.register("static/font/Kanit-Light.ttf", "Kanit");
 
         document.open();
