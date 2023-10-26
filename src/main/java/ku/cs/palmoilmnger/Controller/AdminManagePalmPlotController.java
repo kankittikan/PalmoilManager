@@ -5,11 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdminManageUserController {
+public class AdminManagePalmPlotController {
 
-    @RequestMapping("/adminMenu/manageUser")
-    public String getHomePage(Model model) {
+    @RequestMapping("/adminMenu/managePalmPlot")
+    public String getManagePalmPage(Model model) {
         model.addAttribute("username", "ชื่อผู้ใช้");
-        return "manageUser";
+        return "managePalmPlot";
     }
 }

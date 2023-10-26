@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
 }
 
 /* nav */
@@ -36,11 +37,11 @@ a {
 }
 /*---*/
 
-/*main*/
 .wrapper {
     margin-top: 7rem;
     align-items: center;
 }
+/*title*/
 .wrapper .title {
     display: flex;
     justify-content: center;
@@ -48,27 +49,17 @@ a {
     text-align: center;
     font-size: 3vh;
     font-weight: bolder;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
-.wrapper .main {
+/*main*/
+.wrapper .main{
     display: flex;
     flex-direction: row;
-    margin-left: 4vh;
-}
-@media only screen and (max-width: 725px){
-    .wrapper .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .wrapper .main .btn button{
-    margin-bottom: -2rem !important;
-    }
+    align-items: center;
 }
 
-/*field*/
+/*table*/
 .wrapper .main .field {
     margin-top: 1rem;
     margin-left: 4vw;
@@ -90,15 +81,45 @@ a {
     cursor: pointer;
     text-align: center;
     color: rgb(102,102,102);
+    width: 250px;
 }
 
-/*button*/
 .wrapper .main .btn{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-item: center;
 }
+@media only screen and (max-width: 1000px){
+    .wrapper .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 650px){
+    .wrapper .main .field table td{
+        font-size: 20px;
+    }
+    .wrapper .main .field table th{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .wrapper .main .field table td{
+        font-size: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .wrapper .main .field table th{
+        font-size: 16px;
+    }
+    .wrapper .main .btn button{
+        height: 50px;
+    }
+}
+
 .wrapper .main .btn button{
     cursor: pointer;
     font-size: 2.5vh;
@@ -113,20 +134,16 @@ a {
 
     margin-top: 4rem;
     margin-bottom: 2rem;
-
 }
 .wrapper .main .btn button:hover{
     background-color: rgb(76,75,22);
 }
-.wrapper .main .btn button a {
+
+.wrapper .main .btn button a{
     color: white;
 }
 
 /*footer*/
-.wrapper .footer .btn{
-    display: flex;
-    margin-top: 2rem;
-}
 .wrapper .footer .btn button{
     cursor: pointer;
     font-size: 2.5vh;
