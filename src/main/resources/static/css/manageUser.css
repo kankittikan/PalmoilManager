@@ -77,6 +77,8 @@ a {
     border-radius: 8px;
     background-color: white;
     color: rgb(153,153,153);
+    overflow: scroll;
+    height: 500px;
 }
 .wrapper .main .field tr th, td {
     padding-top: 10px;

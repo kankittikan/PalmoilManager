@@ -14,7 +14,7 @@
       <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
     </li>
     <li style="list-style: none;">
-      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+      <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
     </li>
   </ul>
 </div>
@@ -23,16 +23,16 @@
   <div class="title">จัดการผู้ใช้</div>
 
   <div class="main">
-    <div class="field">
+    <div class="field" style="overflow: scroll">
       <table>
         <tr>
           <th>ชื่อผู้ใช้</th>
           <th>ชื่อจริง</th>
 
 <!--        frontend add-->
-        <tr>
-          <td>เทพซ่า</td>
-          <td>พีรสิษฐ์ พลอยอร่าม</td>
+        <tr th:each="user : ${users}">
+          <td th:text="${user.username}"></td>
+          <td th:text="${user.name}"></td>
         </tr>
 
       </table>
@@ -47,7 +47,7 @@
 
   <div class="footer">
     <div class="btn">
-      <button><a href="#">กลับ</a></button>
+      <button><a href="@{/admin/menu">กลับ</a></button>
     </div>
   </div>
 

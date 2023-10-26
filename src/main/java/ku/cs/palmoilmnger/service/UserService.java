@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -18,10 +20,15 @@ public class UserService {
         return userRepository.findByUsername(username) == null;
     }
 
+    public boolean isNameAvailable(String name){
+        return userRepository.findByName(name) == null;
+    }
+
     public void createManager(User user){
         User record = new User();
         record.setName(user.getName());
         record.setUsername(user.getUsername());
+        record.setRole("ROLE_MANAGER");
 
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         record.setPassword(hashedPassword);
@@ -31,5 +38,13 @@ public class UserService {
 
     public User getManager(String username){
         return userRepository.findByUsername(username);
+    }
+
+    public List<User> getAllUsersRole(String role){
+        return userRepository.findByRole(role);
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
     }
 }

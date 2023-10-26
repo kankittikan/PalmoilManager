@@ -17,6 +17,7 @@
     <div class="row">
         <input type="password" placeholder="รหัสผ่าน" name="password" class="password" id="inputPassword">
         <p class="error-password" id="error-password" th:if="${param.error}">รหัสผ่านไม่ถูกต้อง</p>
+        <p class="error-password" id="error-password" th:if="${param.logout}">คุณออกจากระบบแล้ว</p>
     </div>
     <div class="row-btn">
         <input id="submit-button" type="submit" class="btn" value="เข้าสู่ระบบ" style="font-weight: bold; font-size:2vh">

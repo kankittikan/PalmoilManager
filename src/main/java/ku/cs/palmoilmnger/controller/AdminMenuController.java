@@ -11,7 +11,7 @@ public class AdminMenuController {
 
     @GetMapping("/menu")
     public String getHomePage(Model model) {
-        model.addAttribute("username", "ผู้ใช้");
+
         return "adminMenu";
     }
 }

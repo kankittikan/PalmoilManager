@@ -26,8 +26,19 @@ public class AdminCreateUserController {
     // Create Manager Method
     @PostMapping("/manageUser/create")
     public String createManager(@ModelAttribute User user, Model model){
-        if(userService.isUsernameAvailable(user.getUsername())){
-            userService.createManager(user);
+        boolean isUsername = userService.isUsernameAvailable(user.getUsername());
+        boolean isName = userService.isNameAvailable(user.getName());
+        if(user.getUsername().isEmpty() || user.getPassword().isEmpty()){
+            model.addAttribute("createError", "ยังกรอกไม่ครบ");
+        }else{
+            if(isName && isUsername){
+                userService.createManager(user);
+                model.addAttribute("createSuccess", true);
+            }else if (!isName){
+                model.addAttribute("createError", "ชื่อจริงซ้ำ");
+            }else{
+                model.addAttribute("createError", "ชื่อผู้ใช้ซ้ำ");
+            }
         }
         return "createUser";
     }
