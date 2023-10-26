@@ -1,7 +1,6 @@
 package ku.cs.palmoilmnger.entity;
 
 import jakarta.persistence.*;
-import ku.cs.palmoilmnger.common.DescriptionType;
 import lombok.Data;
 
 @Data
@@ -14,8 +13,8 @@ public class Description {
     @Column(nullable = false)
     private String name;
 
-    @Enumerated
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(nullable = false)
     private DescriptionType descriptionType;
 
     @ManyToOne
