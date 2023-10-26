@@ -23,32 +23,31 @@
     <div class="title">เพิ่มผู้ใช้</div>
 
     <div class="main">
-        <form action="" class="inputField">
+        <form th:action="@{/admin/managerUser/create}" class="inputField" method="post">
             <div class="field">
                 <p>ชื่อผู้ใช้</p>
-                <input type="text"/>
-                <p class="errorUsername">ชื่อผู้ใช้ถูกใช้ไปแล้ว</p>
+                <input type="text" name="username"/>
             </div>
             <div class="field">
                 <p>ชื่อจริง</p>
-                <input type="text"/>
+                <input type="text" name="name"/>
             </div>
             <div class="field">
                 <p>รหัสผ่าน</p>
-                <input type="password"/>
+                <input type="password" name="password"/>
             </div>
-            <div class="field">
-                <p>ยืนยันรหัสผ่าน</p>
-                <input type="password"/>
+<!--            <div class="field">-->
+<!--                <p>ยืนยันรหัสผ่าน</p>-->
+<!--                <input type="password" name="confirmPassword"/>-->
+<!--            </div>-->
+
+            <div class="footer">
+                <div class="btn">
+                    <button class="back"><a href="#">กลับ</a></button>
+                    <button class="add" type="submit"><a href="#">เพิ่มผู้ใช้</a></button>
+                </div>
             </div>
         </form>
-    </div>
-
-    <div class="footer">
-        <div class="btn">
-            <button class="back"><a href="#">กลับ</a></button>
-            <button class="add"><a href="#">เพิ่มผู้ใช้</a></button>
-        </div>
     </div>
 
 </div>
