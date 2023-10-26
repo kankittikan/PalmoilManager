@@ -18,17 +18,19 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/menu/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/adminMenu/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/font/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/images/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/pdf/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/admin/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
+                        .requestMatchers(new AntPathRequestMatcher("/manager/**")).hasRole("MANAGER")
+
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
                         .loginPage("/")
-                        .defaultSuccessUrl("/", true)
+                        .defaultSuccessUrl("/afterlogin", true)
                         .permitAll()
                 )
                 .logout((logout)->logout.logoutUrl("/logout")

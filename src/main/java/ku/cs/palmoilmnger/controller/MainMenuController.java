@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/manager")
 public class MainMenuController {
     @RequestMapping("/menu")
     public String getMenuPage(Model model) {
