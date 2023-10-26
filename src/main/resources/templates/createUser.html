@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/createUser.css}"/>
+    <title>CreateUser</title>
+</head>
+<body>
+
+<div class="nav">
+    <ul>
+        <li style="list-style: none;">
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+        </li>
+        <li style="list-style: none;">
+            <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+        </li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">เพิ่มผู้ใช้</div>
+
+    <div class="main">
+        <form action="" class="inputField">
+            <div class="field">
+                <p>ชื่อผู้ใช้</p>
+                <input type="text"/>
+                <p class="errorUsername">ชื่อผู้ใช้ถูกใช้ไปแล้ว</p>
+            </div>
+            <div class="field">
+                <p>ชื่อจริง</p>
+                <input type="text"/>
+            </div>
+            <div class="field">
+                <p>รหัสผ่าน</p>
+                <input type="password"/>
+            </div>
+            <div class="field">
+                <p>ยืนยันรหัสผ่าน</p>
+                <input type="password"/>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="btn">
+            <button class="back"><a href="#">กลับ</a></button>
+            <button class="add"><a href="#">เพิ่มผู้ใช้</a></button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
