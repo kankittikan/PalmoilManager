@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* nav */
+a {
+    text-decoration: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(76,75,22);
+}
+.nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul .logout{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 4px;
+    transition: 0.35s
+}
+.nav ul .logout:hover{
+    transition: 0.35s;
+    background-color: rgb(137,129,33);
+}
+/*----*/
+
+.wrapper {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper .btn {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-item: center;
+}
+
+.wrapper .btn button{
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(137,129,33);
+    border: none;
+    height: 60px;
+    width: 40rem;
+
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    transition: 0.35s;
+}
+.wrapper .btn button:hover{
+    transition: 0.35s;
+    background-color: rgb(76,75,22);
+}
+@media only screen and (max-width: 660px){
+    .wrapper .btn button {
+    width: 20rem;
+    }
+}
+@media only screen and (max-width: 340px){
+    .wrapper .btn button {
+    width: 10rem;
+    }
+}
+
+.wrapper .btn button a {
+    color: white;
+}

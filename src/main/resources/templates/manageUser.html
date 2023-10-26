@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/manageUser.css}"/>
+  <title>ManageUser</title>
+</head>
+<body>
+
+<div class="nav">
+  <ul>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">จัดการผู้ใช้</div>
+
+  <div class="main">
+    <div class="field">
+      <table>
+        <tr>
+          <th>ชื่อผู้ใช้</th>
+          <th>ชื่อจริง</th>
+
+<!--        frontend add-->
+        <tr>
+          <td>เทพซ่า</td>
+          <td>พีรสิษฐ์ พลอยอร่าม</td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="btn">
+      <button><a href="#">เพิ่มผู้ใช้</a></button>
+      <button><a href="#">เปลี่ยนรหัสผ่าน</a></button>
+      <button><a href="#">ลบผู้ใช้</a></button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="btn">
+      <button><a href="#">กลับ</a></button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

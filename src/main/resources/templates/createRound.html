@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/createround.css}"/>
+  <title>CreateRound</title>
+</head>
+<body>
+
+<div class="nav">
+  <ul>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+
+  <div class="title">สร้างรอบ</div>
+
+  <div class="head">
+    <div class="plot-name" id="plot-name"><span th:text="${plotName}"></span></div>
+  </div>
+
+  <div class="form">
+
+    <div class="main">
+      <div class="header">
+        <p>ปี</p>
+        <p>เดือน</p>
+        <p>รอบ</p>
+      </div>
+      <hr>
+      <div class="field">
+        <select name="yearField" id="yearField">
+          <!--        add by frontend-->
+          <option value="0">เลือกปี</option>
+          <option value="2023">2023</option>
+        </select>
+
+        <select name="monthField" id="monthField">
+          <option value="0">เลือกเดือน</option>
+          <!--        add by frontend-->
+          <option value="1">มกราคม</option>
+        </select>
+
+        <input type="text"/>
+      </div>
+      <div class="btn">
+        <button><a href="#">สร้างรอบ</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/round.css}"/>
+  <title>Round</title>
+</head>
+<body>
+<div class="nav">
+  <ul>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">เลือกรอบ</div>
+
+  <div class="head">
+    <div class="plot-name" id="plot-name"><span th:text="${plotName}"></span></div>
+
+    <div class="btn">
+      <select class="year-list" id="year-list">
+        <option value="0">เรียงตามปี</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="table-round">
+      <table class="plotTable" id="plotTable">
+        <tr>
+          <th>ปี</th>
+          <th>เดือน</th>
+          <th>รอบ</th>
+        </tr>
+<!--        add by frontend-->
+        <tr>
+          <td>2023</td>
+          <td>มิถุนายน</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2023</td>
+          <td>มิถุนายน</td>
+          <td>1</td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="btn">
+      <button class="createRound" id="createRound"><a href="#">สร้างรอบ</a></button>
+      <button class="manageRound" id="manageRound"><a href="#">จัดการรอบ</a></button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="btn">
+      <button class="backBtn" id="backBtn"><a href="#">กลับ</a></button>
+      <button class="deleteBtn" id="deleteBtn"><a href="#">ลบรอบ</a></button>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

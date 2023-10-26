@@ -1,13 +1,58 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{css/menu.css}"/>
   <title>Menu</title>
-  <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-  <link th:rel="stylesheet" th:href="@{/css/nav.css}">
-  <script th:src="@{/js/bootstrap.min.js}"></script>
 </head>
-<body>
+<body style="height: 1500px">
+
+  <div class="nav">
+    <ul>
+      <li style="list-style: none;">
+        <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+      </li>
+      <li style="list-style: none;">
+        <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="wrapper">
+    <div class="title"><p>เลือกเแปลง</p></div>
+
+    <div class="main">
+
+      <a href="#" class="M">
+        <div class="card">
+          <div class="plot-img"><img th:src="@{/images/cat.png}" /></div>
+          <div class="plot-name"><span th:text="${plotName}"></span></div>
+
+          <hr style="background-color: rgb(202,202,202)">
+
+          <div class="plot-lo"><span th:text="${plotLo}"></span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="btn">
+      <div class="manage">
+        <button>จัดการแปลง</button>
+      </div>
+
+      <select id="summarize-list" class="summarize-list">
+        <option value="0">สรุป</option>
+        <option value="1">สรุปรายปี</option>
+        <option value="2">สรุปรายไตรมาตร</option>
+      </select>
+
+      <div class="summarize">
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>
