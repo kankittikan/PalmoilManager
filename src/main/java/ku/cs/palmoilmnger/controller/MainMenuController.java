@@ -1,16 +1,17 @@
-package ku.cs.palmoilmnger.Controller;
+package ku.cs.palmoilmnger.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class CreateRoundController {
-
-    @RequestMapping("/menu/round/create")
-    public String getCreateRoundPage(Model model) {
+@RequestMapping("/manager")
+public class MainMenuController {
+    @RequestMapping("/menu")
+    public String getMenuPage(Model model) {
         model.addAttribute("username", "ชื่อผู้ใช้");
         model.addAttribute("plotName", "พลุดินนา");
-        return "createRound";
+        model.addAttribute("plotLo", "lorem lorem lorem");
+        return "menu";
     }
 }
