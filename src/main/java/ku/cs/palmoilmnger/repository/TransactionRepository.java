@@ -10,7 +10,6 @@ import java.nio.file.Watchable;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
-    List<Transaction> findByWorkRoundAndWorkType(WorkRound workRound, WorkType workType);
     List<Transaction> findByWorkRound(WorkRound workRound);
     List<Transaction> findByWorkRoundAndDescription(WorkRound workRound, Description description);
 }

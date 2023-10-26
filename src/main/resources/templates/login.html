@@ -3,32 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link th:rel="stylesheet" th:href="@{css/login.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<div class="container">
-    <br>
-    <br>
-
-    <p class="fs-1 text-center mt-5 mb-5">ระบบจัดการสวนปาล์มน้ำมัน</p>
-    <div>
-        <div class="form-group">
-            <p class="fs-4 mb-1">ชื่อผู้ใช้</p>
-            <input description="username" class="form-control fs-4" id="username" name="username" placeholder="กรอกชื่อผู้ใช้">
-        </div>
-        <br>
-        <div class="form-group">
-            <p class="fs-4 mb-1">รหัสผ่าน</p>
-            <input description="password" class="form-control fs-4" id="password" name="password" placeholder="กรอกรหัสผ่าน">
-        </div>
-        <br>
-        <div class="text-center">
-            <button description="submit" class="btn text-light fw-bold fs-4 mt-5" id="loginBtn" style="background-color: rgb(137,129,33); padding-left: 15rem; padding-right: 15rem;">เข้าสู่ระบบ</button>
-        </div>
+<div class="wrapper">
+    <div class="title">ระบบจัดการสวนปาล์มน้ำมัน</div>
+    <div class="row">
+        <input type="text" placeholder="ชื่อผู้ใช้" class="username" id="username">
+        <p class="error-username" id="error-username">ชื่อผู้ใช้ไม่ถูกต้อง</p>
     </div>
 
+    <div class="row">
+        <input type="password" placeholder="รหัสผ่าน" class="password" id="password">
+        <p class="error-password" id="error-password">รหัสผ่านไม่ถูกต้อง</p>
+    </div>
+    <div class="row-btn">
+        <input type="submit" class="btn" value="เข้าสู่ระบบ" style="font-weight: bold; font-size:2vh">
+    </div>
 </div>
 </body>
 </html>

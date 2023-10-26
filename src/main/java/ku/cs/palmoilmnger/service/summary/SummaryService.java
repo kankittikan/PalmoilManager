@@ -19,7 +19,4 @@ public class SummaryService {
     WorkTypeRepository workTypeRepository;
     @Autowired
     PlantationRepository plantationRepository;
-
-    public void export() throws IOException {
-    }
 }

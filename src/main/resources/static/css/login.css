@@ -1,0 +1,72 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'poppins',sans-serif;
+}
+
+body{
+    display: grid;
+    height: 100%;
+    place-item: center;
+}
+
+.wrapper{
+    width: 650px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 30px auto;
+}
+.wrapper .title {
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 7rem;
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.wrapper .row{
+    height: 60px;
+    margin-bottom: 3rem;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252,252,252);
+    border: solid 1px rgb(194,194,194);
+    border-radius: 10px;
+
+    font-size: 2vh;
+    padding: 20px;
+}
+
+.wrapper .row-btn .btn {
+    background: rgb(137,129,33);
+    color: white;
+    border: none;
+    font-size: 2.5vh;
+    transition: 0.35s
+}
+.wrapper .row-btn .btn:hover {
+    font-weight: bolder;
+    background-color: rgb(76,75,22);
+    transition: 0.35s
+}
+
+.wrapper .row .error-username {
+    color: tomato;
+    margin-top: 3px;
+    padding-left: 2px;
+    margin-left: 10px;
+    border-left: 2px solid tomato;
+}
+.wrapper .row .error-password {
+    color: tomato;
+    padding-left: 2px;
+    margin-top: 3px;
+    margin-left: 10px;
+    border-left: 2px solid tomato;
+}

@@ -21,25 +21,22 @@ public abstract class PDFExporter {
 
     protected final BaseFont baseFont = BaseFont.createFont("static/font/Kanit-Light.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
     protected final Font font = new Font(baseFont);
-    protected Report report;
     protected Plantation plantation;
-    protected WorkRound workRound;
     protected List<Transaction> palmTransaction;
     protected List<Transaction> fertilizerTransaction;
     protected List<Transaction> trimTransaction;
     protected Document document = new Document(PageSize.A4);
 
 
-    public PDFExporter(Report report, Plantation plantation, WorkRound workRound, List<Transaction> palmTransaction, List<Transaction> fertilizerTransaction, List<Transaction> trimTransaction) throws IOException {
-        this.report = report;
+    public PDFExporter(Plantation plantation, List<Transaction> palmTransaction, List<Transaction> fertilizerTransaction, List<Transaction> trimTransaction) throws IOException {
         this.plantation = plantation;
-        this.workRound = workRound;
         this.palmTransaction = palmTransaction;
         this.fertilizerTransaction = fertilizerTransaction;
         this.trimTransaction = trimTransaction;
 
         PdfWriter.getInstance(document, new FileOutputStream("storage/pdf/summary.pdf"));
         FontFactory.register("static/font/Kanit-Light.ttf", "Kanit");
+        document.open();
     }
 
     protected PdfPTable createTable() {

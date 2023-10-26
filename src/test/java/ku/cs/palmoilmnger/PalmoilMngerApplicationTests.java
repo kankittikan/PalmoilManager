@@ -5,6 +5,8 @@ import ku.cs.palmoilmnger.entity.WorkType;
 import ku.cs.palmoilmnger.repository.PlantationRepository;
 import ku.cs.palmoilmnger.repository.WorkTypeRepository;
 import ku.cs.palmoilmnger.service.PlantationService;
+import ku.cs.palmoilmnger.service.summary.AnnualPDFExporter;
+import ku.cs.palmoilmnger.service.summary.PDFExporter;
 import ku.cs.palmoilmnger.service.summary.SummaryService;
 import ku.cs.palmoilmnger.service.WorkRoundService;
 import org.junit.jupiter.api.Test;
@@ -17,15 +19,9 @@ import java.util.Optional;
 @SpringBootTest
 class PalmoilMngerApplicationTests {
 
-    @Autowired
-    WorkTypeRepository workTypeRepository;
-
     @Test
-    void insert() {
-        WorkType palm = workTypeRepository.findById(1).get();
-        WorkType fertilizer = workTypeRepository.findById(2).get();
-        WorkType trim = workTypeRepository.findById(3).get();
-
-        
+    void insert() throws IOException {
+        PDFExporter pdfExporter = new AnnualPDFExporter(null, null, null, null);
+        pdfExporter.export();
     }
 }
