@@ -1,7 +1,7 @@
 package ku.cs.palmoilmnger.Controller;
 
-import ku.cs.palmoilmnger.entity.Manager;
-import ku.cs.palmoilmnger.service.ManagerService;
+import ku.cs.palmoilmnger.entity.User;
+import ku.cs.palmoilmnger.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class SignupController {
     @Autowired
-    private ManagerService managerService;
+    private UserService userService;
 
     @GetMapping("/signup")
     public String getSignupPage(){
@@ -21,9 +21,9 @@ public class SignupController {
     }
 
     @PostMapping("/signup")
-    public String signupManager(@ModelAttribute Manager manager, Model model){
-        if(managerService.isUsernameAvailable(manager.getUsername())){
-            managerService.createManager(manager);
+    public String signupManager(@ModelAttribute User user, Model model){
+        if(userService.isUsernameAvailable(user.getUsername())){
+            userService.createManager(user);
             model.addAttribute("signupSuccess", true);
         }else{
             model.addAttribute("signupError", "Username not available");

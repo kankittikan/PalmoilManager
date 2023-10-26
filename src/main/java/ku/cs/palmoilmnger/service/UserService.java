@@ -1,35 +1,35 @@
 package ku.cs.palmoilmnger.service;
 
-import ku.cs.palmoilmnger.entity.Manager;
-import ku.cs.palmoilmnger.repository.ManagerRepository;
+import ku.cs.palmoilmnger.entity.User;
+import ku.cs.palmoilmnger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ManagerService {
+public class UserService {
     @Autowired
-    private ManagerRepository managerRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     public boolean isUsernameAvailable(String username){
-        return managerRepository.findByUsername(username) == null;
+        return userRepository.findByUsername(username) == null;
     }
 
-    public void createManager(Manager user){
-        Manager record = new Manager();
+    public void createManager(User user){
+        User record = new User();
         record.setName(user.getName());
         record.setUsername(user.getUsername());
 
         String hashedPassword = passwordEncoder.encode(user.getPassword());
         record.setPassword(hashedPassword);
 
-        managerRepository.save(record);
+        userRepository.save(record);
     }
 
-    public Manager getManager(String username){
-        return managerRepository.findByUsername(username);
+    public User getManager(String username){
+        return userRepository.findByUsername(username);
     }
 }

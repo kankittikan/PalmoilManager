@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Manager {
+public class User {
     @Id
     @GeneratedValue
     private int idManager;
@@ -19,13 +19,16 @@ public class Manager {
     @Column(nullable = false)
     private String password;
 
-    public Manager(String username, String name, String password) {
+    @Column(nullable = false)
+    private String role;
+
+    public User(String username, String name, String password) {
         this.username = username;
         this.name = name;
         this.password = password;
     }
 
-    public Manager() {
+    public User() {
 
     }
 }

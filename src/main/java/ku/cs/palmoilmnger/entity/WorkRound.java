@@ -16,12 +16,12 @@ public class WorkRound {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Manager manager;
+    private User user;
 
-    public WorkRound(String idWorkRound, Plantation plantation, Manager manager) {
+    public WorkRound(String idWorkRound, Plantation plantation, User user) {
         this.idWorkRound = idWorkRound;
         this.plantation = plantation;
-        this.manager = manager;
+        this.user = user;
     }
 
     public WorkRound() {

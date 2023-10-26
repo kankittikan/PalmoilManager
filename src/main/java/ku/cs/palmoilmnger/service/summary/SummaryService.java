@@ -21,7 +21,5 @@ public class SummaryService {
     PlantationRepository plantationRepository;
 
     public void export() throws IOException {
-        PDFExporter pdfExporter = new PDFExporter(Report.QUARTER, null, null, null, null, null);
-        pdfExporter.export();
     }
 }
