@@ -1,4 +1,4 @@
-package ku.cs.palmoilmnger.Controller;
+package ku.cs.palmoilmnger.controller;
 
 import ku.cs.palmoilmnger.entity.User;
 import ku.cs.palmoilmnger.service.UserService;

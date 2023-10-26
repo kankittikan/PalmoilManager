@@ -1,4 +1,4 @@
-package ku.cs.palmoilmnger.Controller;
+package ku.cs.palmoilmnger.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
