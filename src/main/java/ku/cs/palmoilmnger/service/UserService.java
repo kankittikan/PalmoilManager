@@ -49,20 +49,16 @@ public class UserService {
     }
 
     // changePassword method
-    public String changePassword(String username, String newPassword, String confirmPassword){
-        User user = this.getManager(username);
-        if(user == null){
-            return "UserNull";
+    public boolean changePassword(User manager, String newPassword, String confirmPassword){
+        if(newPassword.equals(confirmPassword)){
+            String hashedPassword = passwordEncoder.encode(newPassword);
+            manager.setPassword(hashedPassword);
+            userRepository.save(manager);
+            return true;
         }else{
-            if(newPassword.equals(confirmPassword)){
-                String hashedPassword = passwordEncoder.encode(newPassword);
-                user.setPassword(hashedPassword);
-                userRepository.save(user);
-                return "Pass";
-            }else{
-                return "Error";
-            }
+            return false;
         }
+
     }
 
     // Delete User method
