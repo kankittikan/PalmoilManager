@@ -19,19 +19,17 @@ public class AdminChangePasswordController {
     }
 
     @PostMapping("/manageUser/changePassword")
-    @ResponseBody
     public String changePasswordHandler(Model model, @RequestParam(value = "username") String username, @RequestParam(value = "newPassword") String newPassword, @RequestParam(value = "confirmPassword") String confirmPassword){
         if(userService.isUsernameAvailable(username)){
-            model.addAttribute("changeError", "ไม่มีชื่อผู้ใช้ในระบบ");
+            model.addAttribute("changeError", true);
         }else{
-            if(newPassword.equals(confirmPassword)){
+            if(newPassword.equals(confirmPassword) && !newPassword.isEmpty()){
                 userService.changePassword(userService.getManager(username), newPassword);
                 model.addAttribute("changeSuccess", true);
             }else {
-                model.addAttribute("changeError", "รหัสผ่านไม่ถูกต้อง");
+                model.addAttribute("changeError", true);
             }
         }
-        System.out.println(username);
 
         return "changePassword";
     }
