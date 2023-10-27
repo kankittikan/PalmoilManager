@@ -49,16 +49,10 @@ public class UserService {
     }
 
     // changePassword method
-    public boolean changePassword(User manager, String newPassword, String confirmPassword){
-        if(newPassword.equals(confirmPassword)){
-            String hashedPassword = passwordEncoder.encode(newPassword);
-            manager.setPassword(hashedPassword);
-            userRepository.save(manager);
-            return true;
-        }else{
-            return false;
-        }
-
+    public void changePassword(User user, String newPassword){
+        String hashed = passwordEncoder.encode(newPassword);
+        user.setPassword(hashed);
+        userRepository.save(user);
     }
 
     // Delete User method
