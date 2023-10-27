@@ -268,12 +268,17 @@ a {
     }
 }
 
-.wrapper .footer .btn button{
+.wrapper .footer .btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .btn button{
+    margin-top: 2rem;
     cursor: pointer;
     font-size: 2.5vh;
     font-weight: bold;
-    margin-left: 6.5vw;
-    margin-top: 2rem;
+    margin-left: 4vw;
     background-color: rgb(231,177,10);
     color: black;
     border: none;
@@ -283,4 +288,20 @@ a {
     transition: 0.35s;
     margin-bottom: 10px;
     transition: 0.35s;
+}
+.footer .btn button:hover{
+    background-color: rgb(253,193,0);
+    transition: 0.35s;
+}
+.footer .btn button a{
+    color: black;
+}
+.footer .btn .download{
+    background-color: rgb(137,129,33);
+}
+.footer .btn .download:hover{
+    background-color: rgb(76,75,22);
+}
+.footer .btn .download a{
+    color: white;
 }
