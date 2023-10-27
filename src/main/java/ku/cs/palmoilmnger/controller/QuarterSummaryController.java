@@ -1,4 +1,4 @@
-package ku.cs.palmoilmnger.Controller;
+package ku.cs.palmoilmnger.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
