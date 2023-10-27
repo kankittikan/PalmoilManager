@@ -49,8 +49,10 @@
       </div>
 
       <div class="btn">
-        <button class="cancel"><a href="#">ยกเลิก</a></button>
-        <button class="enter"><a href="#">ยืนยัน</a></button>
+        <button class="cancel"><a th:href="@{/admin/manageUser}">ยกเลิก</a></button>
+        <form method="post" th:action="@{/admin/manageUser/remove/{username}(username=${usernameDelete})}">
+          <button class="enter" type="submit">ยืนยัน</button>
+        </form>
       </div>
     </div>
 

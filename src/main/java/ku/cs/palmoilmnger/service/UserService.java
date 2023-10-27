@@ -56,13 +56,8 @@ public class UserService {
     }
 
     // Delete User method
-    public boolean deleteUser(String username){
+    public void deleteUser(String username){
         User user = this.getManager(username);
-        if(user == null){
-            return false;
-        }
         userRepository.delete(user);
-
-        return true;
     }
 }

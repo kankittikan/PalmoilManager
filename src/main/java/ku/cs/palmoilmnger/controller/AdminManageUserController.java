@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,8 +15,7 @@ public class AdminManageUserController {
 
     @GetMapping("/manageUser")
     public String getHomePage(Model model) {
-        model.addAttribute("username", "ชื่อผู้ใช้");
-        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("users", userService.getAllUsersRole("ROLE_MANAGER"));
         return "manageUser";
     }
 }
