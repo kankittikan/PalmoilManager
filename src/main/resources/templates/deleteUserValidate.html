@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/deleteUserValidate.css}"/>
+  <title>ConfirmDeleteUser</title>
+</head>
+<body>
+
+<div class="nav">
+  <ul>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">ลบผู้ใช้</div>
+
+  <div class="main">
+    <div class="box">
+
+      <div class="header">
+        <p>ยืนยันการลบผู้ใช้</p>
+      </div>
+
+      <hr>
+
+      <div class="data">
+        <div class="header">
+          <div class="head">
+            <p>ชื่อผู้ใช้</p>
+          </div>
+          <div class="head">
+            <p>ชื่อจริง</p>
+          </div>
+        </div>
+
+        <div class="userDelete">
+          <span th:text="${usernameDelete}" class="usernameDelete" id="usernameDelete"></span>
+          <span th:text="${fullnameDelete}" class="fullnameDelete" id="fullnameDelete"></span>
+        </div>
+
+      </div>
+
+      <div class="btn">
+        <button class="cancel"><a href="#">ยกเลิก</a></button>
+        <button class="enter"><a href="#">ยืนยัน</a></button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

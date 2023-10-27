@@ -19,4 +19,5 @@ public class AdminManageUserController {
         model.addAttribute("username", "ชื่อผู้ใช้");
         model.addAttribute("users", userService.getAllUsers());
         return "manageUser";
-    }}
+    }
+}

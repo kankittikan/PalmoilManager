@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/createPalmPlot.css}"/>
+  <title>CreatePalmOilPlot</title>
+</head>
+<body>
+
+<div class="nav">
+  <ul>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">เพิ่มแปลง</div>
+
+  <div class="main">
+    <form action="" class="inputField" id="inputField">
+      <div class="field">
+        <p>ชื่อแปลง</p>
+        <input type="text" class="plotNameField" id="plotNameField"/>
+        <p class="errorPlotName">ชื่อแปลงถูกใช้ไปแล้ว</p>
+      </div>
+      <div class="field">
+        <p>จำนวนไร่</p>
+        <input type="text" class="numberField" id="numberField"/>
+      </div>
+      <div class="field">
+        <p>ที่อยู่</p>
+        <input type="text" class="locationField" id="locationField"/>
+      </div>
+    </form>
+  </div>
+
+  <div class="footer">
+    <div class="btn">
+      <button class="back"><a href="#">กลับ</a></button>
+      <button class="add"><a href="#">เพิ่มแปลง</a></button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

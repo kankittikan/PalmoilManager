@@ -64,6 +64,7 @@ a {
     flex-direction: column;
     align-items: center;
 }
+
 .wrapper .inputField{
     margin-top: 0.75rem;
     margin-bottom: 2rem;
@@ -73,7 +74,7 @@ a {
     margin-bottom: 2rem;
 }
 
-.wrapper .inputField .field .errorNotice{
+.wrapper .inputField .field .errorPlotName{
     color: tomato;
     border-left: 2px solid tomato;
     margin-left: 10px;
@@ -97,6 +98,7 @@ a {
     padding: 20px;
     width: 25rem;
 }
+
 @media only screen and (max-width: 600px){
     .wrapper .inputField .field input{
         width: 15rem;
