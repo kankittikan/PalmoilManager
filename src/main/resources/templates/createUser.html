@@ -10,11 +10,11 @@
 
 <div class="nav">
     <ul>
-        <li style="list-style: none;">
-            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+        <li style="list-style: none;" sec:authorize="isAuthenticated()">
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
         </li>
         <li style="list-style: none;">
-            <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+            <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
         </li>
     </ul>
 </div>
@@ -23,7 +23,7 @@
     <div class="title">เพิ่มผู้ใช้</div>
 
     <div class="main">
-        <form th:action="@{/admin/managerUser/create}" class="inputField" method="post">
+        <form th:action="@{/admin/manageUser/create}" class="inputField" method="post">
             <div class="field">
                 <p>ชื่อผู้ใช้</p>
                 <input type="text" name="username"/>
@@ -40,11 +40,22 @@
 <!--                <p>ยืนยันรหัสผ่าน</p>-->
 <!--                <input type="password" name="confirmPassword"/>-->
 <!--            </div>-->
+            <div class="field">
+                <div class="errorNotice" th:if="${createError}">
+                    <span th:if="${createError}"></span>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="errorNotice" th:if="${createSuccess}">
+                    เพิ่มผู้ใช้งานสำเร็จ
+                </div>
+            </div>
 
             <div class="footer">
                 <div class="btn">
-                    <button class="back"><a href="#">กลับ</a></button>
-                    <button class="add" type="submit"><a href="#">เพิ่มผู้ใช้</a></button>
+                    <button class="back"><a th:href="@{/admin/manageUser}">กลับ</a></button>
+                    <button class="add" type="submit">เพิ่มผู้ใช้</button>
                 </div>
             </div>
         </form>

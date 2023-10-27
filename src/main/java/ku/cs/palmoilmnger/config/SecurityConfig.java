@@ -33,7 +33,8 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/afterlogin", true)
                         .permitAll()
                 )
-                .logout((logout)->logout.logoutUrl("/logout")
+                .logout((logout)->logout
+                        .logoutUrl("/logout")
                         .clearAuthentication(true)
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID", "remember-me")
