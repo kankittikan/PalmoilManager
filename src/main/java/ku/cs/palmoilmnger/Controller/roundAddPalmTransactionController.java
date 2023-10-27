@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class roundAddTransactionController {
+public class roundAddPalmTransactionController {
 
     @RequestMapping("/menu/round/manageRound/palm/create")
     public String getCreateTransactionPage(Model model) {
