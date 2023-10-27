@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:rel="stylesheet" th:href="@{/css/createround.css}"/>
-  <title>CreateRound</title>
+  <title>Create Round</title>
 </head>
 <body>
 
@@ -36,21 +36,31 @@
         <p>รอบ</p>
       </div>
       <hr>
-      <div class="field">
-        <select name="yearField" id="yearField">
-          <!--        add by frontend-->
+      <form class="field" action="">
+        <select name="yearField" id="yearField" class="yearField">
           <option value="0">เลือกปี</option>
+          <!--        add by frontend-->
           <option value="2023">2023</option>
         </select>
 
-        <select name="monthField" id="monthField">
+        <select name="monthField" id="monthField" class="monthField">
           <option value="0">เลือกเดือน</option>
-          <!--        add by frontend-->
           <option value="1">มกราคม</option>
+          <option value="2">กุมภาพันธ์</option>
+          <option value="3">มีนาคม</option>
+          <option value="4">เมษายน</option>
+          <option value="5">พฤษภาคม</option>
+          <option value="6">มิถุนายน</option>
+          <option value="7">กรกฎาคม</option>
+          <option value="8">สิงหาคม</option>
+          <option value="9">กันยายน</option>
+          <option value="10">ตุลาคม</option>
+          <option value="11">พฤศจิกายน</option>
+          <option value="12">ธันวาคม</option>
         </select>
 
-        <input type="text"/>
-      </div>
+        <input type="text" class="roundInput" id="roundInput" name="roundInput"/>
+      </form>
       <div class="btn">
         <button><a href="#">สร้างรอบ</a></button>
       </div>

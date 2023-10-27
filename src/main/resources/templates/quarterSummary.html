@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/quarterSummary.css}"/>
+  <title>สรุปรายไตรมาตร</title>
+</head>
+<body>
+
+<div class="nav">
+  <ul>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">สรุปรายไตรมาส</div>
+
+  <div class="main">
+    <div class="header">
+      <div class="name">
+          <p>เลือกแปลง</p>
+          <p>เลือกปี</p>
+          <p>เลือกไตรมาส</p>
+      </div>
+
+
+      <div class="item">
+        <select name="plotName" id="plotName">
+          <option value="0">แปลง</option>
+        </select>
+        <select name="year" id="year">
+          <option value="0">ปี</option>
+        </select>
+        <select name="quarter" id="quarter">
+          <option value="0">ไตรมาส</option>
+        </select>
+
+        <button><a href="#">ดูสรุป</a></button>
+      </div>
+    </div>
+  </div>
+
+<!--  pdf option-->
+  <div class="pdf">
+    <iframe src="" style="margin-top: 2rem;"></iframe>
+  </div>
+
+
+</div>
+<div class="footer">
+  <div class="btn">
+    <button><a href="#">กลับ</a></button>
+    <button class="download"><a href="#">ดาวน์โหลด</a></button>
+  </div>
+</div>
+
+</body>
+</html>

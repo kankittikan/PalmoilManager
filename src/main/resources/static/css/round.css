@@ -125,6 +125,127 @@ a {
     text-align: center;
     color: rgb(102,102,102);
 }
+.wrapper .main .table-round tr td button{
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    height: 3rem;
+    width: 6rem;
+    transition: 0.35s;
+}
+/*delete btn*/
+.wrapper .main .table-round tr td .deleteBtn{
+    background-color: tomato;
+}
+.wrapper .main .table-round tr td .deleteBtn a{
+    color: white;
+}
+.wrapper .main .table-round tr td .deleteBtn:hover{
+    transition: 0.35s;
+    background-color: red;
+}
+/*manage btn*/
+.wrapper .main .table-round tr td .manageRound{
+    background-color: gray;
+}
+.wrapper .main .table-round tr td .manageRound a{
+    color: white;
+}
+.wrapper .main .table-round tr td .manageRound:hover{
+    transition: 0.35s;
+    color: black;
+    background-color: rgb(102,102,102);
+}
+
+@media only screen and (max-width: 840px){
+    .wrapper .main .table-round tr th, td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 2vh;
+        border-bottom: 1px solid #ddd;
+    }
+    .wrapper .main .table-round tr td button{
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 740px){
+    .wrapper .head .plot-name{
+        font-size: 1.6vh;
+        font-weight: bold;
+    }
+    .wrapper .main .table-round tr th, td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 2vh;
+        border-bottom: 1px solid #ddd;
+    }
+}
+@media only screen and (max-width: 530px){
+    .wrapper .head .plot-name{
+        font-size: 1.5vh;
+        font-weight: bold;
+    }
+    .wrapper .main .table-round tr th, td {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-left: 19px;
+        padding-right: 19px;
+        font-size: 13px;
+        border-bottom: 1px solid #ddd;
+    }
+    .wrapper .main .table-round tr td button{
+        font-size: 1.5vh;
+        height: 2rem;
+        width: 4rem;
+    }
+    .wrapper .main .btn button{
+        font-size: 2vh !important;
+        height: 40px !important;
+        width: 10rem !important;
+
+        margin-top: 2rem !important;
+        margin-bottom: 2rem;
+    }
+    .wrapper .main  .table-round table{
+        margin-top: 1rem;
+        margin-left: 4vw;
+        margin-right: 1rem;
+        width: 40vw !important;
+    }
+}
+@media only screen and (max-width: 420px){
+    .wrapper .head .plot-name{
+        font-size: 2vh;
+        font-weight: bold;
+    }
+    .wrapper .main .table-round tr th, td {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 13px;
+        border-bottom: 1px solid #ddd;
+    }
+}
+@media only screen and (max-width: 380px){
+    .wrapper .head .plot-name{
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .wrapper .main .table-round tr th, td {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 13px;
+        border-bottom: 1px solid #ddd;
+    }
+}
 
 /*button*/
 .wrapper .main .btn{
@@ -146,6 +267,7 @@ a {
 
     margin-top: 4rem;
     margin-bottom: 2rem;
+    margin-right: 10px;
 }
 .wrapper .main .btn button:hover{
     background-color: rgb(76,75,22);
@@ -164,6 +286,7 @@ a {
     cursor: pointer;
     font-size: 2.5vh;
     font-weight: bold;
+    margin-top: 2rem;
     margin-left: 4vw;
     background-color: rgb(231,177,10);
     color: black;
