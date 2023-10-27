@@ -39,6 +39,11 @@
         </div>
 
         <div class="transaction">
+            <div class="dropdown">
+                <select name="" id="">
+                    <option value="0">เรียงตาม</option>
+                </select>
+            </div>
             <table>
                 <tr>
                     <th>เลขรายการ</th>
@@ -46,11 +51,35 @@
                     <th>ประเภท</th>
                     <th>จำนวน</th>
                     <th>รูป</th>
+                    <th>จัดการ</th>
                 </tr>
+                <!--frontend add-->
+                <tr>
+                    <td>230501001</td>
+                    <td>10/05/23 11:55:21</td>
+                    <td>ค่าจัดการ</td>
+                    <td>1</td>
+                    <td><button class="btnImg"><a href="#">มี</a></button></td>
+                    <td><button class="btnDel"><a href="#">ลบรายการ</a></button></td>
+                </tr>
+                <tr>
+                    <td>230501002</td>
+                    <td>10/05/23 12:44:32</td>
+                    <td>ค่าเก็บเกี่ยวผลปาล์ม</td>
+                    <td>2</td>
+                    <td></td>
+                    <td><button class="btnDel"><a href="#">ลบรายการ</a></button></td>
+                </tr>
+
             </table>
         </div>
     </div>
+    <div class="preFooter">
+        <button><a href="#">เพิ่มรายการ</a></button>
     </div>
+</div>
+<div class="footer">
+    <button><a href="#">กลับ</a></button>
 </div>
 
 </body>
