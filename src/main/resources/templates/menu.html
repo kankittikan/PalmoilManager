@@ -8,35 +8,33 @@
 </head>
 <body style="height: 1500px">
 
-  <div class="nav">
-    <ul>
-      <li style="list-style: none;" sec:authorize="isAuthenticated()">
-        <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
-      </li>
-      <li style="list-style: none;">
-        <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
-      </li>
-    </ul>
-  </div>
+<div class="nav">
+  <ul>
+    <li style="list-style: none;" sec:authorize="isAuthenticated()">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
 
   <div class="wrapper">
     <div class="title"><p>เลือกเแปลง</p></div>
 
     <div class="main">
 
-      <a href="#" class="M">
-        <div class="card">
-          <div class="plot-img"><img th:src="@{/images/cat.png}" /></div>
-          <div class="plot-name"><span th:text="${plotName}"></span></div>
+      <div class="card" th:each="plot : ${plots}">
+        <div class="plot-img"><img th:src="@{/images/cat.png}" /></div>
+        <div class="plot-name"><span th:text="${plot.name}"></span></div>
 
-          <hr style="background-color: rgb(202,202,202)">
+        <hr style="background-color: rgb(202,202,202)">
 
-          <div class="plot-lo"><span th:text="${plotLo}"></span></div>
-          <div class="manage">
-            <button>จัดการแปลง</button>
-          </div>
+        <div class="plot-lo"><span th:text="${plot.numOfRaiUnit}"></span></div>
+        <div class="manage">
+          <button>จัดการแปลง</button>
         </div>
-      </a>
+      </div>
 
     </div>
 
