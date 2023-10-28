@@ -32,6 +32,6 @@ public class DeleteTransactionValidateController {
 
         model.addAttribute("idDelete", "230501001");
         model.addAttribute("typeDelete", "ค่าจัดการ");
-        return "deletePalmTransactionValidate";
+        return "deleteFoliageTransactionValidate";
     }
 }
