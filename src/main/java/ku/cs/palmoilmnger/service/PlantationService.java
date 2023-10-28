@@ -44,6 +44,10 @@ public class PlantationService {
         return record.get();
     }
 
+    public Plantation getPlantationByName(String name){
+        return plantationRepository.findByName(name);
+    }
+
     public List<Plantation> getAllPlantation(){
         return plantationRepository.findAll();
     }
