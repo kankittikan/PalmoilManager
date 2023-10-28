@@ -133,10 +133,10 @@ a {
     justify-content: center;
     margin-top: 4rem;
 }
-.wrapper .btn button{
+.wrapper .btn a button{
     margin: 1rem;
 }
-.wrapper .btn .cancel{
+.wrapper .btn a .cancel{
     cursor: pointer;
     font-size: 2.5vh;
     font-weight: bold;
@@ -147,16 +147,14 @@ a {
     width: 7rem;
     transition: 0.35s;
     margin-bottom: 10px;
-}
-.wrapper .btn .cancel a{
     color: black;
 }
-.wrapper .btn .cancel:hover{
+.wrapper .btn a .cancel:hover{
     background-color: rgb(253,193,0);
     transition: 0.35s;
 }
 
-.wrapper .btn .enter{
+.wrapper .btn a .enter{
     cursor: pointer;
     font-size: 2.5vh;
     font-weight: bold;
@@ -167,11 +165,9 @@ a {
     width: 7rem;
     transition: 0.35s;
     margin-bottom: 10px;
-}
-.wrapper .btn button a{
     color: white;
 }
-.wrapper .btn .enter:hover{
+.wrapper .btn a .enter:hover{
     background-color: rgb(76,75,22);
     transition: 0.35s;
 }
