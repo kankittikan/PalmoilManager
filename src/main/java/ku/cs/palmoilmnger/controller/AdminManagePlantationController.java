@@ -7,15 +7,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminCreatePalmPlotController {
+@RequestMapping("/admin/managePalmPlot")
+public class AdminManagePlantationController {
 
-    @GetMapping("/managePalmPlot/create")
+    @GetMapping("/")
+    public String getManagePalmPage(Model model){
+        return "managePalmPlot";
+    }
+
+    /*
+    Create Plantation
+     */
+    @GetMapping("/create")
     public String getCreatePalmPage(Model model){
         return "createPalmPlot";
     }
 
-    @PostMapping("/managePalmPlot/create")
+    @PostMapping("/create")
     public String createPalmHandler(Model model){
         return "";
     }
