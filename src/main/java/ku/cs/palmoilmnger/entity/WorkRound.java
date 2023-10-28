@@ -15,7 +15,6 @@ public class WorkRound {
     private Plantation plantation;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
     private User user;
 
     public WorkRound(String idWorkRound, Plantation plantation, User user) {

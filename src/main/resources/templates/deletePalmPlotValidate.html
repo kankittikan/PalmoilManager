@@ -42,15 +42,17 @@
                 </div>
 
                 <div class="userDelete">
-                    <span th:text="${PalmNameDelete}" class="palmNameDelete" id="palmNameDelete"></span>
-                    <span th:text="${numberDelete}" class="numberDelete" id="numberDelete"></span>
+                    <span th:text="${plantation.name}" class="palmNameDelete" id="palmNameDelete"></span>
+                    <span th:text="${plantation.numOfRaiUnit}" class="numberDelete" id="numberDelete"></span>
                 </div>
 
             </div>
 
             <div class="btn">
-                <button class="cancel"><a href="#">ยกเลิก</a></button>
-                <button class="enter"><a href="#">ยืนยัน</a></button>
+                <a th:href="@{/admin/managePlantation}"><button class="cancel">ยกเลิก</button></a>
+                <form method="post" th:action="@{/admin/managePlantation/remove/{id}(id=${plantation.idPlantation})}">
+                    <button class="enter" type="submit">ยืนยัน</button>
+                </form>
             </div>
         </div>
 
