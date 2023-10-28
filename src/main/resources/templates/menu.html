@@ -32,7 +32,9 @@
 
         <div class="plot-lo"><span th:text="${plot.numOfRaiUnit}"></span></div>
         <div class="manage">
-          <button>จัดการแปลง</button>
+          <a th:href="@{/manager/menu/round/{name}(name = ${plot.name})}">
+            <button>จัดการแปลง</button>
+          </a>
         </div>
       </div>
 

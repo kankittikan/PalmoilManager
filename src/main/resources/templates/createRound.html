@@ -36,7 +36,7 @@
         <p>รอบ</p>
       </div>
       <hr>
-      <form class="field" action="">
+      <form class="field" action="post" th:action="@{/manager/menu/round/create/{name}(name=${plotName})}">
         <select name="yearField" id="yearField" class="yearField">
           <option value="0">เลือกปี</option>
           <!--        add by frontend-->
