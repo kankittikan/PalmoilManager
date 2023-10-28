@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin/managePalmPlot")
 public class AdminManagePlantationController {
 
-    @GetMapping("/")
+    @GetMapping()
     public String getManagePalmPage(Model model){
         return "managePalmPlot";
     }

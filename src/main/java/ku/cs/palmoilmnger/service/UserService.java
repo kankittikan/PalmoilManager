@@ -1,6 +1,8 @@
 package ku.cs.palmoilmnger.service;
 
 import ku.cs.palmoilmnger.entity.User;
+import ku.cs.palmoilmnger.exception.UserException;
+import ku.cs.palmoilmnger.model.ChangePassword;
 import ku.cs.palmoilmnger.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,15 +18,18 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean isUsernameAvailable(String username){
+    private boolean isUsernameNotAvailable(String username){
         return userRepository.findByUsername(username) == null;
     }
 
-    public boolean isNameAvailable(String name){
+    private boolean isNameNotAvailable(String name){
         return userRepository.findByName(name) == null;
     }
 
-    public void createManager(User user){
+    public void createManager(User user) throws UserException {
+        if(!isNameNotAvailable(user.getName())) throw new UserException("ชื่อมีในระบบแล้ว");
+        if(!isUsernameNotAvailable(user.getUsername())) throw new UserException("ชื่อผู้ใช้มีในระบบแล้ว");
+
         User record = new User();
         record.setName(user.getName());
         record.setUsername(user.getUsername());
@@ -49,10 +54,15 @@ public class UserService {
     }
 
     // changePassword method
-    public void changePassword(User user, String newPassword){
-        String hashed = passwordEncoder.encode(newPassword);
-        user.setPassword(hashed);
-        userRepository.save(user);
+    public void changePassword(ChangePassword changePassword) throws UserException {
+        if(!changePassword.getPassword().equals(changePassword.getConfirmPassword())) throw new UserException("รหัสผ่านไม่ตรงกัน");
+
+        User record = userRepository.findByUsername(changePassword.getUsername());
+        if(record == null) throw new UserException("ไม่พบผู้ใช้ในระบบ");
+
+        String hashed = passwordEncoder.encode(changePassword.getPassword());
+        record.setPassword(hashed);
+        userRepository.save(record);
     }
 
     // Delete User method

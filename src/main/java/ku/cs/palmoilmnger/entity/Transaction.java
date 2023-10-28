@@ -3,6 +3,8 @@ package ku.cs.palmoilmnger.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 public class Transaction {
@@ -22,6 +24,7 @@ public class Transaction {
     private double value;
 
     private String imageLink;
+    private LocalDateTime dateAdded;
 
     public Transaction(WorkRound workRound, Description description, double value, String imageLink) {
         this.workRound = workRound;
