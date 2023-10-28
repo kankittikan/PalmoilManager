@@ -18,8 +18,8 @@ public class AdminCreateUserController {
     private UserService userService;
 
     @GetMapping("/manageUser/create")
-    public String getCreateUserPage(Model model) {
-        model.addAttribute("username", "ผู้ใช้");
+        public String getCreateUserPage(Model model) {
+            model.addAttribute("username", "ผู้ใช้");
         return "createUser";
     }
 
