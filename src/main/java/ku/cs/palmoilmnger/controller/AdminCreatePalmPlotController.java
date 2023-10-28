@@ -17,6 +17,6 @@ public class AdminCreatePalmPlotController {
 
     @PostMapping("/managePalmPlot/create")
     public String createPalmHandler(Model model){
-
+        return "";
     }
 }
