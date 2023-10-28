@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/createNewFertilize.css}"/>
+    <title>เพิ่มสูตรปุ๋ย</title>
+</head>
+<body>
+
+<div class="nav">
+    <ul>
+        <li style="list-style: none;">
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+        </li>
+        <li style="list-style: none;">
+            <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+        </li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">เพิ่มสูตรปุ๋ย</div>
+</div>
+
+<div class="main">
+    <form action="">
+        <div>
+            <p>N</p>
+            <input type="text">
+        </div>
+        <div>
+            <p>P</p>
+            <input type="text">
+        </div>
+        <div>
+            <p>K</p>
+            <input type="text">
+        </div>
+    </form>
+</div>
+
+<div class="btn">
+    <a href="#"><button>เพิ่มสูตรปุ๋ย</button></a>
+</div>
+
+<div class="footer">
+    <a href="#"><button>กลับ</button></a>
+</div>
+
+</body>
+</html>

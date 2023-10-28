@@ -124,7 +124,6 @@ a {
     cursor: pointer;
     color: white;
     font-size: 2vh;
-    transition: 0.35s;
 }
 .img div input[type=file]::file-selector-button:hover {
     transition: 0.35s;
@@ -147,7 +146,8 @@ a {
     width: 6rem;
     transition: 0.35s;
     font-weight: bold;
-    color: white;
+    color:
+    white;
 }
 .btn a button:hover{
     transition: 0.35s;

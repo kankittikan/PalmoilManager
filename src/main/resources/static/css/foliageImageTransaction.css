@@ -95,7 +95,7 @@ a {
 
 
 /*footer*/
-.footer button{
+.footer a button{
     cursor: pointer;
     font-size: 2.5vh;
     font-weight: bold;
@@ -110,11 +110,10 @@ a {
     transition: 0.35s;
     margin-bottom: 10px;
     transition: 0.35s;
-}
-.footer button a{
     color: black;
 }
-.footer button:hover{
+
+.footer a button:hover{
     transition: 0.35s;
     background-color: rgb(253,193,0);
 }

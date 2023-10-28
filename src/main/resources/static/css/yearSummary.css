@@ -103,7 +103,7 @@ a {
     width: 8rem;
     height: 3rem;
 }
-.wrapper .main .header .item button{
+.wrapper .main .header .item a button{
     cursor: pointer;
     font-size: 2vh;
     font-weight: bold;
@@ -116,10 +116,13 @@ a {
 
     margin-bottom: 2rem;
     transition: 0.35s;
-}
-.wrapper .main .header .item button a{
     color: white;
 }
+.wrapper .main .header .item a button:hover{
+    transition: 0.35s;
+    background-color: rgb(76,75,22);
+}
+
 @media only screen and (max-width: 600px){
     .wrapper .main {
         width: 90vw;
@@ -196,7 +199,7 @@ a {
     flex-direction: row;
 }
 
-.footer .btn button{
+.footer .btn a button{
     margin-top: 2rem;
     cursor: pointer;
     font-size: 2.1vh;
@@ -212,19 +215,19 @@ a {
     margin-bottom: 10px;
     transition: 0.35s;
 }
-.footer .btn button:hover{
+.footer .btn a button:hover{
     background-color: rgb(253,193,0);
     transition: 0.35s;
 }
-.footer .btn button a{
+.footer .btn a button{
     color: black;
 }
-.footer .btn .download{
+.footer .btn a .download{
     background-color: rgb(137,129,33);
 }
-.footer .btn .download:hover{
+.footer .btn a .download:hover{
     background-color: rgb(76,75,22);
 }
-.footer .btn .download a{
+.footer .btn a .download{
     color: white;
 }
