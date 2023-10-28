@@ -8,14 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/manageUser")
 public class AdminManageUserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/manageUser")
-    public String getHomePage(Model model) {
+    @GetMapping("/")
+    public String getManageUserMenu(Model model) {
         model.addAttribute("users", userService.getAllUsersRole("ROLE_MANAGER"));
         return "manageUser";
     }
+
+
 }
