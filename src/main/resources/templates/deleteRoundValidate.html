@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:rel="stylesheet" th:href="@{/css/deletePalmPlotValidate.css}"/>
-    <title>ยืนยันการลบแปลง</title>
+    <link th:rel="stylesheet" th:href="@{/css/deleteRoundValidate.css}"/>
+    <title>ยืนยันการลบรอบ</title>
 </head>
 <body>
 
@@ -20,13 +20,13 @@
 </div>
 
 <div class="wrapper">
-    <div class="title">ลบแปลง</div>
+    <div class="title">ลบรอบ</div>
 
     <div class="main">
         <div class="box">
 
             <div class="header">
-                <p>ยืนยันการลบแปลง</p>
+                <p>ยืนยันการลบรอบ</p>
             </div>
 
             <hr>
@@ -34,16 +34,20 @@
             <div class="data">
                 <div class="header">
                     <div class="head">
-                        <p>ชื่อแปลง</p>
+                        <p>ปี</p>
                     </div>
                     <div class="head">
-                        <p>จำนวนไร่</p>
+                        <p>เดือน</p>
+                    </div>
+                    <div class="head">
+                        <p>รอบ</p>
                     </div>
                 </div>
 
-                <div class="userDelete">
-                    <span th:text="${PalmNameDelete}" class="palmNameDelete" id="palmNameDelete"></span>
-                    <span th:text="${numberDelete}" class="numberDelete" id="numberDelete"></span>
+                <div class="plotRoundDelete">
+                    <span th:text="${yearDelete}" class="yearDelete" id="yearDelete"></span>
+                    <span th:text="${monthDelete}" class="monthDelete" id="monthDelete"></span>
+                    <span th:text="${roundDelete}" class="roundDelete" id="roundDelete"></span>
                 </div>
 
             </div>

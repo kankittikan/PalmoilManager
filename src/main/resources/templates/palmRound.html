@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/palmRound.css}"/>
+    <title>รายการตัดปาล์ม</title>
+</head>
+<body>
+
+<div class="nav">
+    <ul>
+        <li style="list-style: none;">
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+        </li>
+        <li style="list-style: none;">
+            <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+        </li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">รายการตัดปาล์ม</div>
+
+    <div class="main">
+        <div class="plot">
+            <div class="name">
+                <span th:text="${plotName}"></span>
+            </div>
+            <div class="year">
+                <span th:text="${plotYear}"></span>
+            </div>
+            <div class="month">
+                <span th:text="${plotMonth}"></span>
+            </div>
+            <div class="round">
+                <span th:text="${plotRound}"></span>
+            </div>
+        </div>
+
+        <div class="transaction">
+            <div class="dropdown">
+                <select name="" id="">
+                    <option value="0">เรียงตาม</option>
+                </select>
+            </div>
+            <table>
+                <tr>
+                    <th>เลขรายการ</th>
+                    <th>วันที่ทำรายการ</th>
+                    <th>ประเภท</th>
+                    <th>จำนวน</th>
+                    <th>รูป</th>
+                    <th>จัดการ</th>
+                </tr>
+                <!--frontend add-->
+                <tr>
+                    <td>230501001</td>
+                    <td>10/05/23 11:55:21</td>
+                    <td>ค่าจัดการ</td>
+                    <td>1</td>
+                    <td><button class="btnImg"><a href="#">มี</a></button></td>
+                    <td><button class="btnDel"><a href="#">ลบรายการ</a></button></td>
+                </tr>
+                <tr>
+                    <td>230501002</td>
+                    <td>10/05/23 12:44:32</td>
+                    <td>ค่าเก็บเกี่ยวผลปาล์ม</td>
+                    <td>2</td>
+                    <td></td>
+                    <td><button class="btnDel"><a href="#">ลบรายการ</a></button></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="preFooter">
+        <button><a href="#">เพิ่มรายการ</a></button>
+    </div>
+</div>
+<div class="footer">
+    <button><a href="#">กลับ</a></button>
+</div>
+
+</body>
+</html>

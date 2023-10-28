@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+/* nav */
+a {
+    text-decoration: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(76,75,22);
+}
+.nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul .logout{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 4px;
+    transition: 0.35s
+}
+.nav ul .logout:hover{
+    transition: 0.35s;
+    background-color: rgb(137,129,33);
+}
+/*---*/
+
+/*main*/
+.wrapper {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*title*/
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/*plot*/
+.wrapper .main .plot{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.wrapper .main div{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-right: 6vw;
+}
+.wrapper .main div span{
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: rgb(102,102,102);
+}
+
+/*main*/
+.wrapper .main {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.wrapper .main .transaction .dropdown select{
+    cursor: pointer;
+    font-size: 1.8vh;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 3rem;
+    width: 5rem;
+    border-color: rgb(202,202,202);
+    color: rgb(153,153,153);
+}
+
+/*table*/
+.wrapper .main  .transaction table{
+    margin-top: 1rem;
+    width: 55rem;
+    border: solid 1px rgb(202,202,202);
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(153,153,153);
+}
+
+.wrapper .main .transaction tr th, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 2.5vh;
+    border-bottom: 1px solid #ddd;
+}
+
+.wrapper .main .transaction table td{
+    cursor: pointer;
+    text-align: center;
+    color: rgb(102,102,102);
+}
+
+/*btnImg*/
+.wrapper .main .transaction table td .btnImg{
+    cursor: pointer;
+    font-size: 14px;
+    background-color: rgb(137,129,33);
+    border: none;
+    border-radius: 6px;
+    height: 2rem;
+    width: 3rem;
+    transition: 0.35s;
+}
+.wrapper .main .transaction table td .btnImg a{
+    color: white
+}
+.wrapper .main .transaction table td .btnImg:hover{
+    background-color: rgb(76,75,22);
+    transition: 0.35s;
+}
+
+/*btnDel*/
+.wrapper .main .transaction table td .btnDel{
+    cursor: pointer;
+    font-size: 16px;
+    background-color: tomato;
+    border: none;
+    border-radius: 6px;
+    height: 2rem;
+    width: 5rem;
+    transition: 0.35s;
+}
+.wrapper .main .transaction table td .btnDel a{
+    color: white
+}
+.wrapper .main .transaction table td .btnDel:hover{
+    background-color: red;
+    transition: 0.35s;
+}
+
+/*preFooter*/
+.wrapper .preFooter button{
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    background-color: rgb(137,129,33);
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    width: 16rem;
+    transition: 0.35s;
+}
+.wrapper .preFooter button a{
+    color: white;
+}
+.wrapper .preFooter button:hover{
+    transition: 0.35s;
+    background-color: rgb(76,75,22);
+}
+
+/*footer*/
+ .footer {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+ .footer button{
+    margin-top: 2rem;
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-left: 15vw;
+    background-color: rgb(231,177,10);
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    width: 7rem;
+    transition: 0.35s;
+    margin-bottom: 10px;
+    transition: 0.35s;
+}
+ .footer button a{
+    color: black;
+}
+ .footer button:hover {
+    background-color: rgb(253,193,0);
+    transition:0.35s;
+}
+
+@media only screen and (max-width: 1200px){
+    .wrapper .main  .transaction table{
+        margin-top: 1rem;
+        width: 40rem;
+        border: solid 1px rgb(202,202,202);
+        border-radius: 8px;
+        background-color: white;
+        color: rgb(153,153,153);
+    }
+    .wrapper .main div{
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-right: 3vw;
+    }
+
+    .wrapper .main .transaction tr th, td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 2vh;
+    }
+
+    .wrapper .main .transaction table td{
+        cursor: pointer;
+        text-align: center;
+        color: rgb(102,102,102);
+    }
+}
+
+@media only screen and (max-width: 890px){
+    .wrapper .main div span{
+        font-size: 1.8vh;
+        font-weight: bold;
+        color: rgb(102,102,102);
+    }
+    .wrapper .main div{
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-right: 1vw;
+    }
+    .wrapper .main  .transaction table{
+        margin-top: 1rem;
+        width: 40rem;
+        border: solid 1px rgb(202,202,202);
+        border-radius: 8px;
+        background-color: white;
+        color: rgb(153,153,153);
+    }
+
+    .wrapper .main .transaction tr th, td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 1.7vh;
+    }
+
+    .wrapper .main .transaction table td{
+        cursor: pointer;
+        text-align: center;
+        color: rgb(102,102,102);
+    }
+}
+
+@media only screen and (max-width: 730px){
+    .wrapper .main div span{
+        font-size: 1.2vh;
+        font-weight: bold;
+        color: rgb(102,102,102);
+    }
+    .wrapper .main div{
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+        margin-right: 1vw;
+    }
+    .wrapper .main  .transaction table{
+        width: 40rem;
+        border-radius: 8px;
+    }
+
+    .wrapper .main .transaction tr th, td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1.3vh;
+    }
+
+    .wrapper .main .transaction table td{
+        cursor: pointer;
+        text-align: center;
+    }
+    .wrapper .main .transaction table td .btnImg{
+        font-size: 10px;
+        height: 2rem;
+        width: 2rem;
+    }
+    .wrapper .main .transaction table td .btnDel{
+        font-size: 12px;
+        height: 2rem;
+        width: 3rem;
+        transition: 0.35s;
+    }
+}

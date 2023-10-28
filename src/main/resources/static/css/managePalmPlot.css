@@ -72,8 +72,8 @@ a {
 .wrapper .main .field tr th, td {
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     font-size: 2.5vh;
     border-bottom: 1px solid #ddd;
 }
@@ -81,8 +81,25 @@ a {
     cursor: pointer;
     text-align: center;
     color: rgb(102,102,102);
-    width: 250px;
+    width: 220px;
 }
+.wrapper .main .field table td button{
+    background-color: tomato;
+    transition: 0.35s;
+    border-radius: 10px;
+    border: none;
+    height: 2.6rem;
+    width: 5rem;
+}
+.wrapper .main .field table td button a{
+    color: white;
+    font-size: 18px;
+}
+.wrapper .main .field table td button:hover{
+    transition: 0.35s;
+    background-color: red;
+}
+
 
 .wrapper .main .btn{
     display: flex;
@@ -96,12 +113,16 @@ a {
         align-items: center;
     }
 }
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 600px){
     .wrapper .main .field table td{
-        font-size: 20px;
+        font-size: 16px;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
     }
     .wrapper .main .field table th{
-        font-size: 20px;
+        font-size: 18px;
+            padding-left: 1rem;
+            padding-right: 1rem;
     }
 }
 @media only screen and (max-width: 500px){
@@ -117,6 +138,81 @@ a {
     }
     .wrapper .main .btn button{
         height: 50px;
+    }
+    .wrapper .main .field table td button{
+        background-color: tomato;
+        transition: 0.35s;
+        border-radius: 10px;
+        border: none;
+        height: 2rem;
+        width: 3.5rem;
+    }
+    .wrapper .main .field table td button a{
+        color: white;
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 450px){
+    .wrapper .main .field table td{
+        font-size: 12px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .wrapper .main .field table th{
+        font-size: 12px;
+    }
+    .wrapper .main .btn button{
+        height: 50px;
+    }
+    .wrapper .main .field table td button{
+        background-color: tomato;
+        transition: 0.35s;
+        border-radius: 10px;
+        border: none;
+        height: 2rem;
+        width: 3.5rem;
+    }
+    .wrapper .main .field table td button a{
+        color: white;
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 360px){
+    .wrapper .main .field table td{
+        font-size: 8px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .wrapper .main .field table th{
+        font-size: 10px;
+        padding-right: 7px;
+        padding-left: 7px;
+    }
+    .wrapper .main .btn button{
+        height: 50px;
+    }
+    .wrapper .main .field table td button{
+        background-color: tomato;
+        transition: 0.35s;
+        border-radius: 10px;
+        border: none;
+        height: 2rem;
+        width: 3.5rem;
+    }
+    .wrapper .main .field table td button a{
+        color: white;
+        font-size: 12px;
+    }
+    .wrapper .main .btn button{
+        font-size: 2vh !important;
+        font-weight: bold;
+        height: 40px !important;
+        width: 10rem !important;
+        margin-top: 1rem !important;
     }
 }
 

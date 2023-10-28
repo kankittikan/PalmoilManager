@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:rel="stylesheet" th:href="@{/css/deletePalmPlotValidate.css}"/>
-    <title>ยืนยันการลบแปลง</title>
+    <link th:rel="stylesheet" th:href="@{/css/deletePalmTransactionValidate.css}"/>
+    <title>ยืนยันการลบรายการ</title>
 </head>
 <body>
 
@@ -20,13 +20,14 @@
 </div>
 
 <div class="wrapper">
-    <div class="title">ลบแปลง</div>
+    <div class="title">ลบรายการ</div>
+
 
     <div class="main">
         <div class="box">
 
             <div class="header">
-                <p>ยืนยันการลบแปลง</p>
+                <p>ยืนยันการลบรายการ</p>
             </div>
 
             <hr>
@@ -34,16 +35,16 @@
             <div class="data">
                 <div class="header">
                     <div class="head">
-                        <p>ชื่อแปลง</p>
+                        <p>เลขที่รายการ</p>
                     </div>
                     <div class="head">
-                        <p>จำนวนไร่</p>
+                        <p>ประเภท</p>
                     </div>
                 </div>
 
-                <div class="userDelete">
-                    <span th:text="${PalmNameDelete}" class="palmNameDelete" id="palmNameDelete"></span>
-                    <span th:text="${numberDelete}" class="numberDelete" id="numberDelete"></span>
+                <div class="dataDelete">
+                    <span th:text="${idDelete}" class="idDelete" id="idDelete"></span>
+                    <span th:text="${typeDelete}" class="typeDelete" id="typeDelete"></span>
                 </div>
 
             </div>
@@ -55,7 +56,6 @@
         </div>
 
     </div>
-
 </div>
 
 </body>
