@@ -28,29 +28,27 @@
                 <tr>
                     <th>ชื่อแปลง</th>
                     <th>จำนวนไร่</th>
-                    <th>ที่อยู่</th>
                     <th>จัดการ</th>
                 </tr>
                     <!--        frontend add-->
-                <tr>
-                    <td>พลุดินนา</td>
-                    <td>1 ไร่</td>
-                    <td>lorem lorem lorem lorem lorem lorem loremeeeeeeeeeeeee</td>
-                    <td><button><a href="#">ลบแปลง</a></button></td>
+                <tr th:each="plantation : ${plantations}">
+                    <td th:text="${plantation.name}"></td>
+                    <td th:text="${plantation.numOfRaiUnit}"></td>
+                    <td><a th:href="@{/admin/managePlantation/remove/{id}(id=${plantation.idPlantation})}"><button>ลบแปลง</button></a></td>
                 </tr>
 
             </table>
         </div>
 
         <div class="btn">
-            <button><a th:href="@{/admin/managePalmPlot/create}">เพิ่มแปลง</a></button>
+            <a th:href="@{/admin/managePlantation/create}"><button>เพิ่มแปลง</button></a>
 
         </div>
     </div>
 
     <div class="footer">
         <div class="btn">
-            <button><a th:href="@{/admin/menu}">กลับ</a></button>
+            <a th:href="@{/admin/menu}"><button>กลับ</button></a>
         </div>
     </div>
 

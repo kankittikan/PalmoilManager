@@ -17,13 +17,4 @@ public class Plantation {
 
     @Column(nullable = false)
     private int numOfRaiUnit;
-
-    public Plantation(String name, int numOfRaiUnit) {
-        this.name = name;
-        this.numOfRaiUnit = numOfRaiUnit;
-    }
-
-    public Plantation() {
-
-    }
 }

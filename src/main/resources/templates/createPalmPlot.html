@@ -23,24 +23,21 @@
   <div class="title">เพิ่มแปลง</div>
 
   <div class="main">
-    <form action="" class="inputField" id="inputField">
+    <form action="" class="inputField" id="inputField" th:action="@{/admin/managePlantation/create}" method="post">
       <div class="field">
         <p>ชื่อแปลง</p>
-        <input type="text" class="plotNameField" id="plotNameField"/>
-        <p class="errorPlotName">ชื่อแปลงถูกใช้ไปแล้ว</p>
+        <input type="text" class="plotNameField" id="plotNameField" name="name"/>
       </div>
       <div class="field">
         <p>จำนวนไร่</p>
-        <input type="text" class="numberField" id="numberField"/>
+        <input type="text" class="numberField" id="numberField" name="numOfRaiUnit"/>
       </div>
-      <div class="field">
-        <p>ที่อยู่</p>
-        <input type="text" class="locationField" id="locationField"/>
-      </div>
+      <div th:if="${success}" style="color: green">เพิ่มแปลงสำเร็จ</div>
+      <div th:text="${error}" style="color: red"></div>
       <div class="footer">
         <div class="btn">
-          <button class="back"><a th:href="@{/admin/managePalmPlot}">กลับ</a></button>
-          <button class="add">เพิ่มแปลง</button>
+          <a th:href="@{/admin/managePlantation}"><button class="back">กลับ</button></a>
+          <button class="enter" type="submit">ยืนยัน</button>
         </div>
       </div>
     </form>
