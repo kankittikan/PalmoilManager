@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+/* nav */
+a {
+    text-decoration: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(76,75,22);
+}
+.nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul .logout{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 4px;
+    transition: 0.35s
+}
+.nav ul .logout:hover{
+    transition: 0.35s;
+    background-color: rgb(137,129,33);
+}
+/*---*/
+
+/*main*/
+.wrapper {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*title*/
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/*name*/
+.header {
+    margin: 2rem 0 2rem;
+}
+.header .plot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .plot div span{
+    margin: 5px 1rem 5px 1rem;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: rgb(102,102,102);
+}
+@media only screen and (max-width: 420px){
+   .header .plot div span{
+       margin: 5px 1rem 5px 1rem;
+       font-size: 2vh;
+   }
+}
+@media only screen and (max-width: 360px){
+   .header .plot div span{
+       margin: 5px 16px 5px 16px;
+       font-size: 1.8vh;
+   }
+}
+@media only screen and (max-width: 320px){
+   .header .plot div span{
+       margin: 5px 16px 5px 16px;
+       font-size: 1.4vh;
+   }
+}
+
+/*dropdown*/
+.dropdown {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 6vw;
+    margin-bottom: 1rem;
+}
+.dropdown select {
+    border: solid 1px rgb(202,202,202);
+    background: white;
+    color: rgb(102,102,102);
+    border-radius: 10px;
+    width: 13rem;
+    height: 3rem;
+    font-size: 2vh;
+}
+
+/*list*/
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.list table {
+    border-radius: 10px;
+    border: solid 1px rgb(202,202,202);
+}
+.list table tr th,td{
+    color: rgb(102,102,102);
+    padding: 1rem 2rem 1rem 2rem;
+    text-align: center;
+    border-bottom: solid 1px rgb(202,202,202);
+}
+.list table tr td a button {
+    border: none;
+    border-radius: 10px;
+    height: 2rem;
+}
+.list table tr td a button {
+    color: white;
+}
+/*del btn*/
+.list table tr td a .btnImg{
+    cursor: pointer;
+    width: 2rem;
+    background-color: gray;
+    transition: 0.35s;
+}
+.list table tr td a .btnImg:hover{
+    background-color: rgb(102,102,102);
+    transition: 0.35s;
+}
+
+/*image btn*/
+.list table tr td a .btnDel{
+    cursor: pointer;
+    width: 5rem;
+    background-color: tomato;
+    transition: 0.35s;
+}
+.list table tr td a .btnDel:hover{
+    transition: 0.35s;
+    width: 5rem;
+    background-color: red;
+}
+
+@media only screen and (max-width: 750px){
+    .list table tr th,td{
+        padding: 1rem 1rem 1rem 1rem;
+    }
+}
+@media only screen and (max-width: 570px){
+    .list table tr th,td{
+        padding: 1rem 1rem 1rem 1rem;
+        font-size: 12px;
+    }
+    .list table tr td a .btnImg{
+        font-size: 12px;
+        width: 1rem;
+        background-color: gray;
+        transition: 0.35s;
+    }
+    .list table tr td a .btnDel{
+        font-size: 12px;
+        width: 3rem;
+        background-color: tomato;
+        transition: 0.35s;
+    }
+    .dropdown select {
+        width: 9rem;
+        height: 2rem;
+        font-size: 1.3vh;
+    }
+}
+@media only screen and (max-width: 460px){
+    .list table tr th,td{
+        padding: 10px 10px 10px 10px;
+        font-size: 10px;
+    }
+    .list table tr td a .btnImg{
+        font-size: 10px;
+        width: 1rem;
+        background-color: gray;
+        transition: 0.35s;
+    }
+    .list table tr td a .btnDel{
+        font-size: 10px;
+        width: 3rem;
+        background-color: tomato;
+        transition: 0.35s;
+    }
+}
+@media only screen and (max-width: 350px){
+    .list table tr th,td{
+        padding: 10px 7px 10px 7px;
+        font-size: 10px;
+    }
+    .list table tr td a .btnImg{
+        font-size: 8px;
+        width: 13px;
+        background-color: gray;
+        transition: 0.35s;
+    }
+    .list table tr td a .btnDel{
+        font-size: 8px;
+        width: 2rem;
+        background-color: tomato;
+        transition: 0.35s;
+    }
+}
+
+/*btn*/
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 1rem 2rem 1rem;
+}
+.btn a button{
+        margin: 0 1rem 0 1rem;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: rgb(137,129,33);
+        border: none;
+        border-radius: 6px;
+        height: 3rem;
+        width: 6rem;
+        transition: 0.35s;
+        font-weight: bold;
+        color: white;
+}
+.btn a button:hover{
+    transition: 0.35s;
+    background-color: rgb(76,75,22);
+}
+
+/*footer*/
+.footer a button {
+    margin-top: 2rem;
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-left: 15vw;
+    background-color: rgb(231,177,10);
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    width: 7rem;
+    transition: 0.35s;
+    margin-bottom: 10px;
+    transition: 0.35s;
+}
+.footer a button:hover {
+    background-color: rgb(253,193,0);
+    transition:0.35s;
+}
