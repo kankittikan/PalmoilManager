@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:rel="stylesheet" th:href="@{/css/createPalmPlot.css}"/>
-  <title>CreatePalmOilPlot</title>
+  <title>เพิ่มแปลง</title>
 </head>
 <body>
 
@@ -37,14 +37,13 @@
         <p>ที่อยู่</p>
         <input type="text" class="locationField" id="locationField"/>
       </div>
+      <div class="footer">
+        <div class="btn">
+          <button class="back"><a th:href="@{/admin/managePalmPlot}">กลับ</a></button>
+          <button class="add">เพิ่มแปลง</button>
+        </div>
+      </div>
     </form>
-  </div>
-
-  <div class="footer">
-    <div class="btn">
-      <button class="back"><a href="#">กลับ</a></button>
-      <button class="add"><a href="#">เพิ่มแปลง</a></button>
-    </div>
   </div>
 
 </div>

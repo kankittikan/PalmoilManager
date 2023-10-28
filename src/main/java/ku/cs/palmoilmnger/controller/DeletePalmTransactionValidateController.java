@@ -5,15 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class DeleteRoundValidateController {
+public class DeletePalmTransactionValidateController {
 
-    @RequestMapping("/menu/round/ConfirmDeleteRound")
+    @RequestMapping("/menu/round/manageRound/palm/ConfirmDeleteTransaction")
     public String getDeleteRoundValidatePage(Model model) {
         model.addAttribute("username", "ชื่อผู้ใช้");
 
-        model.addAttribute("yearDelete", "2023");
-        model.addAttribute("monthDelete", "พฤษภาคม");
-        model.addAttribute("roundDelete", "1");
-        return "deleteRoundValidate";
+        model.addAttribute("idDelete", "230501001");
+        model.addAttribute("typeDelete", "ค่าจัดการ");
+        return "deletePalmTransactionValidate";
     }
 }

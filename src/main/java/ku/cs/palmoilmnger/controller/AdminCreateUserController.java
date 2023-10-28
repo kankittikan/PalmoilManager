@@ -29,15 +29,15 @@ public class AdminCreateUserController {
         boolean isUsername = userService.isUsernameAvailable(user.getUsername());
         boolean isName = userService.isNameAvailable(user.getName());
         if(user.getUsername().isEmpty() || user.getPassword().isEmpty()){
-            model.addAttribute("createError", "ยังกรอกไม่ครบ");
+            model.addAttribute("createError", true);
         }else{
             if(isName && isUsername){
                 userService.createManager(user);
                 model.addAttribute("createSuccess", true);
             }else if (!isName){
-                model.addAttribute("createError", "ชื่อจริงซ้ำ");
+                model.addAttribute("createError", true);
             }else{
-                model.addAttribute("createError", "ชื่อผู้ใช้ซ้ำ");
+                model.addAttribute("createError", true);
             }
         }
         return "createUser";

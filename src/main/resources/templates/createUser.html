@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:rel="stylesheet" th:href="@{/css/createUser.css}"/>
-    <title>CreateUser</title>
+    <title>เพิ่มผู้ใช้</title>
 </head>
 <body>
 
@@ -40,14 +40,14 @@
 <!--                <p>ยืนยันรหัสผ่าน</p>-->
 <!--                <input type="password" name="confirmPassword"/>-->
 <!--            </div>-->
-            <div class="field">
-                <div class="errorNotice" th:if="${createError}">
-                    <span th:if="${createError}"></span>
+            <div class="field" th:if="${createError}">
+                <div class="errorNotice">
+                    ลงทะเบียนผู้ใช้งานไม่สำเร็จ
                 </div>
             </div>
 
-            <div class="field">
-                <div class="errorNotice" th:if="${createSuccess}">
+            <div class="field" th:if="${createSuccess}">
+                <div class="errorNotice">
                     เพิ่มผู้ใช้งานสำเร็จ
                 </div>
             </div>

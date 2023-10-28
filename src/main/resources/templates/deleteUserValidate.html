@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:rel="stylesheet" th:href="@{/css/deleteUserValidate.css}"/>
-  <title>ConfirmDeleteUser</title>
+  <title>ยืนยันการลบผู้ใช้</title>
 </head>
 <body>
 
@@ -49,8 +49,10 @@
       </div>
 
       <div class="btn">
-        <button class="cancel"><a href="#">ยกเลิก</a></button>
-        <button class="enter"><a href="#">ยืนยัน</a></button>
+        <button class="cancel"><a th:href="@{/admin/manageUser}">ยกเลิก</a></button>
+        <form method="post" th:action="@{/admin/manageUser/remove/{username}(username=${usernameDelete})}">
+          <button class="enter" type="submit">ยืนยัน</button>
+        </form>
       </div>
     </div>
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:rel="stylesheet" th:href="@{/css/manageUser.css}"/>
-  <title>ManageUser</title>
+  <title>จัดการผู้ใช้</title>
 </head>
 <body>
 
@@ -28,26 +28,29 @@
         <tr>
           <th>ชื่อผู้ใช้</th>
           <th>ชื่อจริง</th>
+          <th>ลบผู้ใช้</th>
 
 <!--        frontend add-->
         <tr th:each="user : ${users}">
           <td th:text="${user.username}"></td>
           <td th:text="${user.name}"></td>
+        <td><button><a th:href="@{/admin/manageUser/remove/{username}(username=${user.username})}">ลบผู้ใช้</a></button></td>
         </tr>
 
       </table>
     </div>
 
     <div class="btn">
+      <p th:if="${param.remove}" style="font-size:25px">ลบผู้ใช้สำเร็จ</p>
+      <p th:if="${param.cannot}" style="font-size:25px">ลบผู้ดูแลระบบไม่ได้</p>
       <button><a th:href="@{/admin/manageUser/create}">เพิ่มผู้ใช้</a></button>
-      <button><a href="#">เปลี่ยนรหัสผ่าน</a></button>
-      <button><a href="#">ลบผู้ใช้</a></button>
+      <button><a th:href="@{/admin/manageUser/changePassword}">เปลี่ยนรหัสผ่าน</a></button>
     </div>
   </div>
 
   <div class="footer">
     <div class="btn">
-      <button><a href="@{/admin/menu">กลับ</a></button>
+      <button><a href="@{/admin/menu}">กลับ</a></button>
     </div>
   </div>
 

@@ -51,6 +51,8 @@ a {
 /* plot card */
 .wrapper .main{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .wrapper .card{
     margin-left: 5rem;
@@ -77,6 +79,7 @@ a {
 .wrapper .btn {
     display: flex;
     justify-content: space-around;
+    margin-left: 7vw;
     bottom: 2rem;
     left: 12rem;
 }
@@ -101,4 +104,58 @@ a {
 }
 .wrapper .btn .summarize-list option{
     background-color: rgb(137,129,33);
+}
+
+@media only screen and (max-width: 570px){
+    .wrapper .btn .manage button{
+        font-size: 2vh;
+        background-color: rgb(137,129,33);
+        border: none;
+        height: 60px;
+        width: 10rem;
+    }
+    .wrapper .btn .summarize-list{
+        text-align: center;
+        border-radius: 10px;
+        color: white;
+        font-size: 2vh;
+        border: none;
+        background-color: rgb(137,129,33);
+    }
+    .wrapper .card{
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        padding: 10px;
+        border-radius: 13px;
+        width: 250px;
+        border: solid 1px rgb(202,202,202);
+    }
+}
+
+@media only screen and (max-width: 570px){
+    .wrapper .btn .manage button{
+        font-size: 1.8vh;
+        background-color: rgb(137,129,33);
+        border: none;
+        height: 60px;
+        width: 8rem;
+    }
+    .wrapper .btn .summarize-list{
+        text-align: center;
+        border-radius: 10px;
+        color: white;
+        font-size: 1.8vh;
+        border: none;
+        background-color: rgb(137,129,33);
+    }
+    .wrapper .card{
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        padding: 10px;
+        border-radius: 13px;
+        width: 230px;
+        border: solid 1px rgb(202,202,202);
+    }
 }

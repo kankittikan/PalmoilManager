@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:rel="stylesheet" th:href="@{/css/managePalmPlot.css}"/>
-    <title>ManagePalmOilPlot</title>
+    <title>จัดการรอบตัดปาล์ม</title>
 </head>
 <body>
 
@@ -43,14 +43,14 @@
         </div>
 
         <div class="btn">
-            <button><a href="#">เพิ่มแปลง</a></button>
+            <button><a th:href="@{/admin/managePalmPlot/create}">เพิ่มแปลง</a></button>
 
         </div>
     </div>
 
     <div class="footer">
         <div class="btn">
-            <button><a href="#">กลับ</a></button>
+            <button><a th:href="@{/admin/menu}">กลับ</a></button>
         </div>
     </div>
 
