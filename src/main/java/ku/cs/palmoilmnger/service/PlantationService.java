@@ -44,8 +44,10 @@ public class PlantationService {
         return record.get();
     }
 
-    public Plantation getPlantationByName(String name){
-        return plantationRepository.findByName(name);
+    public Plantation getPlantationByName(String name) throws PlantationException {
+        Plantation check = plantationRepository.findByName(name);
+        if(check == null) throw new PlantationException("ไม่พบแปลงในระบบ");
+        return check;
     }
 
     public List<Plantation> getAllPlantation(){

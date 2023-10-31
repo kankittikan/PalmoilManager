@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface WorkRoundRepository extends JpaRepository<WorkRound, String> {
     public List<WorkRound> findByPlantation(Plantation plantation);
+
+    List<WorkRound> findByIdWorkRoundContaining(String id);
 }

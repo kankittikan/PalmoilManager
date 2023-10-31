@@ -17,4 +17,7 @@ public class Plantation {
 
     @Column(nullable = false)
     private int numOfRaiUnit;
+
+    @OneToMany
+    private List<WorkRound> workRounds;
 }

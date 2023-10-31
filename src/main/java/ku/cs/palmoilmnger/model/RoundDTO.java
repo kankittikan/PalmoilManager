@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class RoundDTO {
-    int year;
-    int month;
-    int round;
+    String year;
+    String month;
+    String round;
+    String managerName;
 }

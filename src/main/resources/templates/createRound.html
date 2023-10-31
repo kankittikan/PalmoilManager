@@ -33,41 +33,44 @@
       <div class="header">
         <p>ปี</p>
         <p>เดือน</p>
-        <p>รอบ</p>
       </div>
       <hr>
       <form method="post" th:action="@{/manager/menu/round/create/{name}(name=${plotName})}">
         <div class="field">
-          <select name="yearField" id="yearField" class="yearField">
-            <option value="">เลือกปี</option>
+          <select name="year" id="yearField" class="yearField">
+            <option value="0">เลือกปี</option>
             <!--        add by frontend-->
             <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
           </select>
 
-          <select name="monthField" id="monthField" class="monthField">
-            <option value="">เลือกเดือน</option>
-            <option value="1">มกราคม</option>
-            <option value="2">กุมภาพันธ์</option>
-            <option value="3">มีนาคม</option>
-            <option value="4">เมษายน</option>
-            <option value="5">พฤษภาคม</option>
-            <option value="6">มิถุนายน</option>
-            <option value="7">กรกฎาคม</option>
-            <option value="8">สิงหาคม</option>
-            <option value="9">กันยายน</option>
-            <option value="10">ตุลาคม</option>
-            <option value="11">พฤศจิกายน</option>
-            <option value="12">ธันวาคม</option>
+          <select name="month" id="monthField" class="monthField">
+            <option value="0">เลือกเดือน</option>
+            <option th:value="1">มกราคม</option>
+            <option th:value="2">กุมภาพันธ์</option>
+            <option th:value="3">มีนาคม</option>
+            <option th:value="4">เมษายน</option>
+            <option th:value="5">พฤษภาคม</option>
+            <option th:value="6">มิถุนายน</option>
+            <option th:value="7">กรกฎาคม</option>
+            <option th:value="8">สิงหาคม</option>
+            <option th:value="9">กันยายน</option>
+            <option th:value="10">ตุลาคม</option>
+            <option th:value="11">พฤศจิกายน</option>
+            <option th:value="12">ธันวาคม</option>
           </select>
-
-          <input type="text" class="roundInput" id="roundInput" name="roundInput" placeholder="รอบที่"/>
         </div>
+
+        <p th:text="${errorNotice}" style="text-align: center; color: red; font-size: 20px"></p>
 
         <div class="btn">
           <button type="submit">สร้างรอบ</button>
         </div>
 
       </form>
+
+      <div class="btn">
+        <a th:href="@{/manager/menu/round/{name}(name = ${plotName})}"><button type="submit" style="background: rgb(231,177,10); color: black">กลับ</button></a>
+      </div>
     </div>
   </div>
 </div>
