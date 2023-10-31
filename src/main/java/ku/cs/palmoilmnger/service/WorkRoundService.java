@@ -3,7 +3,6 @@ package ku.cs.palmoilmnger.service;
 import ku.cs.palmoilmnger.entity.Plantation;
 import ku.cs.palmoilmnger.entity.User;
 import ku.cs.palmoilmnger.entity.WorkRound;
-import ku.cs.palmoilmnger.exception.PlantationException;
 import ku.cs.palmoilmnger.exception.WorkRoundException;
 import ku.cs.palmoilmnger.model.RoundDTO;
 import ku.cs.palmoilmnger.repository.WorkRoundRepository;
@@ -34,24 +33,34 @@ public class WorkRoundService {
         return workRoundRepository.findByPlantation(plantation);
     }
 
+    public WorkRound findById(String id){
+        return workRoundRepository.findById(id).get();
+    }
+
     // Get WorkRoundDTO list to display
     public List<RoundDTO> getRoundDTOListByPlantation(Plantation plantation){
         List<WorkRound> list = this.findByPlantation(plantation);
         List<RoundDTO> roundDTOList = new ArrayList<>();
         for(WorkRound workRound: list){
-            RoundDTO roundDTO = new RoundDTO();
-            String idRound = workRound.getIdWorkRound();
-            String year = idRound.substring(0,4);
-            String month = idRound.substring(4, 6);
-            String round = idRound.substring(6);
-            roundDTO.setYear(year);
-            roundDTO.setMonth(month);
-            roundDTO.setRound(round);
+            RoundDTO roundDTO = this.transformToRoundDTO(workRound.getIdWorkRound());
             roundDTO.setManagerName(workRound.getUser().getName());
             roundDTOList.add(roundDTO);
         }
 
         return roundDTOList;
+    }
+
+    // transform entity to dto
+    public RoundDTO transformToRoundDTO(String idWorkRound){
+        RoundDTO roundDTO = new RoundDTO();
+        String year = idWorkRound.substring(0,4);
+        String month = idWorkRound.substring(4, 6);
+        String round = idWorkRound.substring(6);
+        roundDTO.setIdWorkRound(idWorkRound);
+        roundDTO.setYear(year);
+        roundDTO.setMonth(month);
+        roundDTO.setRound(round);
+        return roundDTO;
     }
 
     public void createWorkRoundRepeat(RoundDTO roundDTO, Plantation plantation, User user) throws WorkRoundException {

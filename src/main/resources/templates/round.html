@@ -46,7 +46,7 @@
           <td th:text="${round.year}"></td>
           <td th:text="${round.month}"></td>
           <td th:text="${round.round}"></td>
-          <td><button class="manageRound"><a href="#">จัดการรอบ</a></button></td>
+          <td><button class="manageRound"><a th:href="@{/manager/menu/round/manageRound/{id}(id=${round.idWorkRound})}">จัดการรอบ</a></button></td>
           <td><button class="deleteBtn"><a href="#">ลบรอบ</a></button></td>
         </tr>
 <!--        <tr>-->

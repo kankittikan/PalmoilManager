@@ -10,11 +10,11 @@
 
 <div class="nav">
   <ul>
-    <li style="list-style: none;">
-      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span th:text="${username}"></span></a>
+    <li style="list-style: none;" sec:authorize="isAuthenticated()">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
     </li>
     <li style="list-style: none;">
-      <a href="#" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+      <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
     </li>
   </ul>
 </div>
@@ -86,7 +86,7 @@
 </div>
 
 <div class="footer">
-  <a href="#"><button>กลับ</button></a>
+  <a th:href="@{/manager/menu/round/manageRound/{round}(round = ${idRound})}"><button>กลับ</button></a>
 </div>
 
 </body>
