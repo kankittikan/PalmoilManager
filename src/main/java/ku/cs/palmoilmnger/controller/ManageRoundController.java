@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ManageRoundController {
 
     @Autowired
-    WorkRoundService workRoundService;
+    private WorkRoundService workRoundService;
 
     @Autowired
-    DateTimeService dateTimeService;
+    private DateTimeService dateTimeService;
 
     @GetMapping("/menu/round/manageRound/{round}")
     public String getManageRoundPage(Model model,@PathVariable("round") String round) {
