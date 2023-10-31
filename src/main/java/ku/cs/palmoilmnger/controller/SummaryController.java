@@ -5,10 +5,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class QuarterSummaryController {
+@RequestMapping("/manager")
+public class SummaryController {
+
+    @RequestMapping("/menu/yearSummary")
+    public String getQuarterSummaryPage(Model model) {
+        model.addAttribute("username", "ผู้ใช้");
+        return "yearSummary";
+    }
 
     @RequestMapping("/menu/quarterSummary")
-    public String getQuarterSummaryPage(Model model) {
+    public String getYearSummaryPage(Model model) {
         model.addAttribute("username", "ผู้ใช้");
         return "quarterSummary";
     }

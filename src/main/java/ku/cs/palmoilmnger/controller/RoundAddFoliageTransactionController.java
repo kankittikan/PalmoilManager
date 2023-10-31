@@ -5,16 +5,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class PalmImageTransactionController {
+@RequestMapping("/manager")
+public class RoundAddFoliageTransactionController {
 
-    @RequestMapping("/menu/round/manageRound/palm/image")
-    public String getPalmImageTransactionPage(Model model) {
+    @RequestMapping("/menu/round/manageRound/foliage/create")
+    public String getFoliageCreateTransactionPage(Model model) {
         model.addAttribute("username", "ชื่อผู้ใช้");
 
         model.addAttribute("plotName", "พลุดินนา");
         model.addAttribute("year", "2023");
         model.addAttribute("month", "พฤษภาคม");
         model.addAttribute("round", "รอบ "+"1");
-        return "palmImageTransaction";
+        return "foliageCreateTransaction";
     }
 }

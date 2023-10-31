@@ -55,6 +55,24 @@ a {
     margin-bottom: 2rem;
 }
 
+/*main*/
+.wrapper {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*title*/
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
 /*box*/
 .wrapper .main .box{
     display: flex;
@@ -93,22 +111,18 @@ a {
 }
 .wrapper .main .data .header p{
     color: rgb(153,153,153);
-    margin-top: 1rem;
-    align-items: center;
 }
 
-.wrapper .main .data .plotRoundDelete{
-    margin-top: 2rem;
+.wrapper .main .data .dataDelete{
     display: flex;
     justify-content: space-around;
-    margin-right: 2vw;
-    margin-left: 2vw;
-    align-items: center;
+    margin-right: 4vw;
+    margin-left: 4vw;
 }
-.wrapper .main .data .plotRoundDelete span{
+.wrapper .main .data .dataDelete span{
     text-align: center;
-    margin-right: 3vw;
-    margin-left: 3vw;
+    margin-right: 4vw;
+    margin-left: 4vw;
     color: rgb(102,102,102);
     font-size: 18px;
 }
@@ -162,31 +176,24 @@ a {
     transition: 0.35s;
 }
 
+
+
 @media only screen and (max-width: 500px){
     .wrapper .btn{
         display: flex;
         flex-direction: column;
     }
 }
-@media only screen and (max-width: 450px){
+@media only screen and (max-width: 400px){
     .wrapper .main .box .header p{
-        font-size: 2.1vh;
+        font-size: 1.8vh;
         font-weight: bolder;
     }
-    .wrapper .main .data .plotRoundDelete span{
-        margin-right: 2vw;
-        margin-left: 2vw;
-        font-size: 16px;
-    }
-}
-@media only screen and (max-width: 300px){
-    .wrapper .main .box .header p{
-        font-size: 2.1vh;
-        font-weight: bolder;
-    }
-    .wrapper .main .data .plotRoundDelete span{
-        margin-right: 2vw;
-        margin-left: 2vw;
+    .wrapper .main .data .dataDelete span{
+        text-align: center;
+        margin-right: 3vw;
+        margin-left: 3vw;
+        color: rgb(102,102,102);
         font-size: 14px;
     }
 }

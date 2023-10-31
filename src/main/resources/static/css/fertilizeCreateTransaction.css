@@ -126,7 +126,7 @@ a {
     font-size: 2vh;
     transition: 0.35s;
 }
-.img div input[type=file]::file-selector-button:hover{
+.img div input[type=file]::file-selector-button:hover {
     transition: 0.35s;
     background-color: rgb(76,75,22);
 }
@@ -150,8 +150,8 @@ a {
     color: white;
 }
 .btn a button:hover{
-    background-color: rgb(76,75,22);
     transition: 0.35s;
+    background-color: rgb(76,75,22);
 }
 
 /*footer*/

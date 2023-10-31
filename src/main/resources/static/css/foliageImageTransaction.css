@@ -37,7 +37,7 @@ a {
 }
 /*---*/
 
-/*main*/
+
 .wrapper {
     margin-top: 7rem;
     display: flex;
@@ -51,89 +51,56 @@ a {
     align-item: center;
     text-align: center;
     font-size: 3vh;
-    font-weight: bolder;
+    font-weight: bold;
     margin-bottom: 2rem;
 }
 
-/*main*/
-.wrapper .main{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-/*plot*/
-.wrapper .main .plot{
+.wrapper {
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    align-items: center;
 }
-.wrapper .main div{
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-    margin-right: 6vw;
+/*title*/
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bold;
+    margin-bottom: 2rem;
 }
-.wrapper .main div span{
+
+/*name*/
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.name span {
+    margin-right: 2rem;
+    margin-left: 2rem;
     font-size: 2.5vh;
     font-weight: bold;
     color: rgb(102,102,102);
+    margin-bottom: 7rem;
 }
 
-/*btn*/
-.wrapper .main .btn {
-    display: flex;
-    flex-direction: column;
-}
-.wrapper .main .btn a button{
-    cursor: pointer;
-    font-size: 2.5vh;
-    font-weight: bold;
-    color: white;
-    border-radius: 10px;
-    background-color: rgb(137,129,33);
-    border: none;
-    height: 60px;
-    width: 18rem;
-    transition: 0.35s;
-
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    color: white;
+/*img*/
+.main img {
+    display: block;
+    margin: 0 auto;
 }
 
-.wrapper .main .btn a button:hover{
-    background-color: rgb(76,75,22);
-}
-
-@media only screen and (max-width: 520px){
-    .wrapper .main .btn button{
-        height: 60px;
-        width: 10rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-}
-@media only screen and (max-width: 300px){
-    .wrapper .main .btn button{
-        font-size: 2vh;
-        height: 50px;
-        width: 8rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-}
 
 /*footer*/
-.footer .btn{
-    display: flex;
-    margin-top: 2rem;
-    justify-content: left;
-}
-.footer .btn a button{
+.footer a button{
     cursor: pointer;
     font-size: 2.5vh;
     font-weight: bold;
     margin-left: 6.5vw;
+    margin-top: 2rem;
     background-color: rgb(231,177,10);
     color: black;
     border: none;
@@ -146,7 +113,18 @@ a {
     color: black;
 }
 
-.footer .btn a button:hover{
+.footer a button:hover{
     transition: 0.35s;
     background-color: rgb(253,193,0);
+}
+
+@media only screen and (max-width: 550px){
+    .name span {
+        margin-right: 1rem;
+        margin-left: 1rem;
+        font-size: 2vh;
+        font-weight: bold;
+        color: rgb(102,102,102);
+        margin-bottom: 7rem;
+    }
 }
