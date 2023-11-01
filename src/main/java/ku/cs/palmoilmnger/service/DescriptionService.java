@@ -20,4 +20,8 @@ public class DescriptionService {
     public List<Description> getDescriptionsByWorkType(WorkType workType){
         return descriptionRepository.findByWorkType(workType);
     }
+
+    public Description getDescriptionByName(String name){
+        return descriptionRepository.findByName(name);
+    }
 }

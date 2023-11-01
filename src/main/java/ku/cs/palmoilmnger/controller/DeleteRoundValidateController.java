@@ -1,8 +1,11 @@
 package ku.cs.palmoilmnger.controller;
 
+import ku.cs.palmoilmnger.entity.Plantation;
 import ku.cs.palmoilmnger.entity.WorkRound;
+import ku.cs.palmoilmnger.exception.WorkRoundException;
 import ku.cs.palmoilmnger.model.RoundDTO;
 import ku.cs.palmoilmnger.service.DateTimeService;
+import ku.cs.palmoilmnger.service.PlantationService;
 import ku.cs.palmoilmnger.service.WorkRoundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/manager")
@@ -25,17 +29,24 @@ public class DeleteRoundValidateController {
     public String getDeleteRoundValidatePage(Model model, @PathVariable String idRound) {
         WorkRound showWorkRound = workRoundService.findById(idRound);
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(showWorkRound.getIdWorkRound());
+        String plantName = showWorkRound.getPlantation().getName();
         model.addAttribute("idRound", showWorkRound.getIdWorkRound());
         model.addAttribute("yearDelete", roundDTO.getYear());
         model.addAttribute("monthDelete", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
         model.addAttribute("roundDelete", roundDTO.getRound());
+        model.addAttribute("plotName", plantName);
         return "deleteRoundValidate";
     }
 
     @PostMapping("/menu/round/ConfirmDeleteRound/{idRound}")
     public String deleteRoundValidateHandler(Model model, @PathVariable String idRound){
         String plotName = workRoundService.findById(idRound).getPlantation().getName();
-        workRoundService.deleteRound(idRound);
+        try {
+            workRoundService.deleteRound(idRound);
+        } catch (WorkRoundException e) {
+            System.out.println(e.getMessage());
+            return "redirect:/manager/menu/round/"+plotName+"?cannotDelete";
+        }
         return "redirect:/manager/menu/round/"+plotName+"?delete";
     }
 }

@@ -1,17 +1,18 @@
 package ku.cs.palmoilmnger.service;
 
 import ku.cs.palmoilmnger.entity.Plantation;
+import ku.cs.palmoilmnger.entity.Transaction;
 import ku.cs.palmoilmnger.entity.User;
 import ku.cs.palmoilmnger.entity.WorkRound;
 import ku.cs.palmoilmnger.exception.WorkRoundException;
 import ku.cs.palmoilmnger.model.RoundDTO;
+import ku.cs.palmoilmnger.repository.TransactionRepository;
 import ku.cs.palmoilmnger.repository.WorkRoundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class WorkRoundService {
@@ -20,10 +21,8 @@ public class WorkRoundService {
     WorkRoundRepository workRoundRepository;
 
     @Autowired
-    private UserService userService;
+    TransactionRepository transactionRepository;
 
-    @Autowired
-    private PlantationService plantationService;
 
 //    public void insertNew(WorkRound workRound) {
 //        workRoundRepository.save(workRound);
@@ -111,7 +110,14 @@ public class WorkRoundService {
         return workRoundRepository.maxValueByTime(time);
     }
 
-    public void deleteRound(String idRound){
-        workRoundRepository.deleteById(idRound);
+    public void deleteRound(String idRound) throws WorkRoundException {
+        WorkRound workRound = findById(idRound);
+        List<Transaction> transactionList = transactionRepository.findByWorkRound(workRound);
+        if(transactionList.isEmpty()){
+            workRoundRepository.deleteById(idRound);
+        }else{
+            throw new WorkRoundException("ต้องลบรายการของรอบนี้ทั้งหมดนี้");
+        }
+
     }
 }

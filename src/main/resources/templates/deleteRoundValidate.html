@@ -53,7 +53,7 @@
             </div>
 
             <div class="btn">
-                <a href="#"><button class="cancel">ยกเลิก</button></a>
+                <a th:href="@{/manager/menu/round/{name}(name=${plotName})}"><button class="cancel">ยกเลิก</button></a>
                 <form th:action="@{/manager/menu/round/ConfirmDeleteRound/{id}(id=${idRound})}" method="post">
                     <a><button class="enter" type="submit">ยืนยัน</button></a>
                 </form>

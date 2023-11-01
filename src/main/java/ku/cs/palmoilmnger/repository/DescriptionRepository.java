@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface DescriptionRepository extends JpaRepository<Description, Integer> {
     List<Description> findByWorkType(WorkType workType);
+
+    Description findByName(String name);
 }

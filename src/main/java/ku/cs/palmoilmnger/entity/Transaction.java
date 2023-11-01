@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 @Entity
 public class Transaction {
     @Id
-    @GeneratedValue
-    private int idTransaction;
+    @Column(length = 11)
+    private String idTransaction;
 
     @ManyToOne
     @JoinColumn(nullable = false)
