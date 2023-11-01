@@ -77,9 +77,23 @@ public class WorkRoundService {
         int year = Integer.parseInt(roundDTO.getYear());
         int month = Integer.parseInt(roundDTO.getMonth());
         String idRound = String.format("%04d%02d", year, month);
-        List<WorkRound> workRoundList = workRoundRepository.findByIdWorkRoundContaining(idRound);
-        int round = workRoundList.size();
-        round += 1;
+
+        // Get round By counting workRoundList
+//        List<WorkRound> workRoundList = workRoundRepository.findByIdWorkRoundContaining(idRound);
+//        int round = workRoundList.size();
+//        round += 1;
+
+        // Get round by the last workRound
+        int round = 0;
+        String lastWorkRound = this.getLastOfWorkRoundByTime(idRound);
+        if(lastWorkRound == null){
+            round = 1;
+        }else{
+          String roundText = lastWorkRound.substring(6);
+            round = Integer.parseInt(roundText);
+            round += 1;
+        }
+
         WorkRound workRound = new WorkRound();
         workRound.setIdWorkRound(idRound + String.format("%02d", round));
         workRound.setUser(user);
@@ -87,21 +101,17 @@ public class WorkRoundService {
 
         workRoundRepository.save(workRound);
     }
+    // Get Last WorkRound of palm
+    public String getLastOfWorkRound(){
+        return workRoundRepository.maxValue();
+    }
 
-//    private String workRoundId(int year, int month){
-//        int count = 0;
-//        int i=1;
-//        String idRound = String.format("%04d%02d", year, month);
-//        while(true){
-//            String check = idRound + String.format("%02d", i);
-//            Optional<WorkRound> workRoundOptional = workRoundRepository.findById(check);
-//            if(workRoundOptional.isEmpty()){
-//                idRound = check;
-//                break;
-//            }
-//            count += 1;
-//            i += 1;
-//        }
-//        return idRound;
-//   }
+    // Get Last WorkRound by year and month of palm
+    public String getLastOfWorkRoundByTime(String time){
+        return workRoundRepository.maxValueByTime(time);
+    }
+
+    public void deleteRound(String idRound){
+        workRoundRepository.deleteById(idRound);
+    }
 }

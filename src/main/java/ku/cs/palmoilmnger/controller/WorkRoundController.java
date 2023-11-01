@@ -39,25 +39,23 @@ public class WorkRoundController {
         List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListByPlantation(checkPlant);
         model.addAttribute("rounds", roundDTOList);
         model.addAttribute("plotName", checkPlant.getName());
+        System.out.println(workRoundService.getLastOfWorkRound());
         return "round";
     }
+
+//    @GetMapping("/menu/round/{name}?Sort")
+//    public String getRoundSortPage(Model model, @PathVariable String name ) throws PlantationException {
+//        Plantation checkPlant = plantationService.getPlantationByName(name);
+//        List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListByPlantation(checkPlant);
+//        model.addAttribute("rounds", roundDTOList);
+//        model.addAttribute("plotName", checkPlant.getName());
+//        System.out.println(workRoundService.getLastOfWorkRound());
+//        return "round";
+//    }
 
     @GetMapping("/menu/round/create/{name}")
     public String getCreateRoundPage(Model model, @PathVariable String name) throws PlantationException {
         Plantation checkPlant = plantationService.getPlantationByName(name);
-//        List<WorkRound> workRoundList = workRoundService.findByPlantation(checkPlant);
-//        List<RoundDTO> roundDTOList = new ArrayList<>();
-//        for(WorkRound workRound: workRoundList){
-//            RoundDTO roundDTO = new RoundDTO();
-//            String idRound = workRound.getIdWorkRound();
-//            String year = idRound.substring(0,4);
-//            String month = idRound.substring(4, 6);
-//            String round = idRound.substring(6);
-//            roundDTO.setYear(Integer.parseInt(year));
-//            roundDTO.setYear(Integer.parseInt(month));
-//            roundDTO.setYear(Integer.parseInt(round));
-//        }
-
 
         model.addAttribute("years", dateTimeService.getYearListByRange(10));
         model.addAttribute("plotName", checkPlant.getName());

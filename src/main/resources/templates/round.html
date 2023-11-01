@@ -47,7 +47,7 @@
           <td th:text="${round.month}"></td>
           <td th:text="${round.round}"></td>
           <td><button class="manageRound"><a th:href="@{/manager/menu/round/manageRound/{id}(id=${round.idWorkRound})}">จัดการรอบ</a></button></td>
-          <td><button class="deleteBtn"><a href="#">ลบรอบ</a></button></td>
+          <td><button class="deleteBtn"><a th:href="@{/manager/menu/round/ConfirmDeleteRound/{id}(id=${round.idWorkRound})}">ลบรอบ</a></button></td>
         </tr>
 <!--        <tr>-->
 <!--          <td>2023</td>-->
@@ -61,7 +61,8 @@
     </div>
 
     <div class="btn">
-        <p th:if="${param.success}" style="color: green; font-size; font-size: 20px">สร้างรอบสำเร็จ</p>
+      <p th:if="${param.success}" style="color: green; font-size; font-size: 20px">สร้างรอบสำเร็จ</p>
+      <p th:if="${param.delete}" style="color: green; font-size; font-size: 20px">ลบรอบสำเร็จ</p>
       <button class="createRound" id="createRound"><a th:href="@{/manager/menu/round/create/{name}(name=${plotName})}">สร้างรอบ</a></button>
     </div>
   </div>

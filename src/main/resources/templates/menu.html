@@ -30,7 +30,7 @@
 
         <hr style="background-color: rgb(202,202,202)">
 
-        <div class="plot-lo"><span th:text="${plot.numOfRaiUnit}"></span></div>
+        <div class="plot-lo">จำนวนไร่ : <span th:text="${plot.numOfRaiUnit}"></span></div>
         <div class="manage">
           <a th:href="@{/manager/menu/round/{name}(name = ${plot.name})}">
             <button>จัดการแปลง</button>
