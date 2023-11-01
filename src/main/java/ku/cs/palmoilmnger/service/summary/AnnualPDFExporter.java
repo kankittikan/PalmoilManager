@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class AnnualPDFExporter extends PDFExporter{
-    private String year;
+    private final String year;
 
     public AnnualPDFExporter(Plantation plantation, List<Transaction> palmTransaction, List<Transaction> fertilizerTransaction, List<Transaction> trimTransaction, String year) throws IOException {
         super(plantation, palmTransaction, fertilizerTransaction, trimTransaction);
