@@ -39,7 +39,6 @@ public class WorkRoundController {
         List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListByPlantation(checkPlant);
         model.addAttribute("rounds", roundDTOList);
         model.addAttribute("plotName", checkPlant.getName());
-        System.out.println(workRoundService.getLastOfWorkRound());
         return "round";
     }
 

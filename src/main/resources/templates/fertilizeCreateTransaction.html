@@ -37,6 +37,7 @@
             <p>ประเภท</p>
             <select name="type" id="type" class="type">
                 <option value="0">เลือกประเภท</option>
+                <option th:each="description : ${descriptions}" th:text="${description.name}" th:if="${description.name != 'สูตรปุ๋ย'}"></option>
             </select>
         </div>
         <div>
