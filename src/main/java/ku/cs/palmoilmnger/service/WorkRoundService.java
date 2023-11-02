@@ -34,7 +34,7 @@ public class WorkRoundService {
     }
 
     public List<WorkRound> findBySortByPlantation(Plantation plantation){
-        return workRoundRepository.findByPlantation(plantation, Sort.by("idWorkRound").ascending());
+        return workRoundRepository.findByPlantation(plantation, Sort.by("idWorkRound").descending());
     }
 
     public WorkRound findById(String id){

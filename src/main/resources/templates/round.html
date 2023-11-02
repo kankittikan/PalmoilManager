@@ -27,7 +27,8 @@
     <div class="btn">
       <select class="year-list" id="year-list" onchange="window.location.href=this.value">
         <option value="0">เรียงตามปี</option>
-        <option th:value="@{/manager/menu/round/{name}?sort(name=${plotName})}">hello world</option>
+        <option th:value="@{/manager/menu/round/sort/{name}(name=${plotName})}">จากมากไปน้อย</option>
+        <option th:value="@{/manager/menu/round/{name}(name=${plotName})}">จากน้อยไปมาก</option>
       </select>
     </div>
   </div>
