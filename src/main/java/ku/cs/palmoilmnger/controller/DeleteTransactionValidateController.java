@@ -55,12 +55,30 @@ public class DeleteTransactionValidateController {
         return "deleteFoliageTransactionValidate";
     }
 
-    @PostMapping({"/menu/round/manageRound/palm/ConfirmDeleteTransaction/{idTransaction}", "/menu/round/manageRound/fertilize/ConfirmDeleteTransaction/{idTransaction}", "/menu/round/manageRound/foliage/ConfirmDeleteTransaction/{idTransaction}"})
-    public String deleteTransactionHandler(Model model, @PathVariable String idTransaction){
+    @PostMapping("/menu/round/manageRound/palm/ConfirmDeleteTransaction/{idTransaction}")
+    public String deletePalmTransactionHandler(Model model, @PathVariable String idTransaction){
         Transaction transaction = transactionService.getTransactionById(idTransaction);
         WorkRound workRound = transaction.getWorkRound();
         transactionService.deleteTransaction(transaction);
         System.out.println(workRound.getIdWorkRound());
         return "redirect:/manager/menu/round/manageRound/palm/" + workRound.getIdWorkRound() + "?delete";
+    }
+
+    @PostMapping("/menu/round/manageRound/fertilize/ConfirmDeleteTransaction/{idTransaction}")
+    public String deleteFertilizeTransactionHandler(Model model, @PathVariable String idTransaction){
+        Transaction transaction = transactionService.getTransactionById(idTransaction);
+        WorkRound workRound = transaction.getWorkRound();
+        transactionService.deleteTransaction(transaction);
+        System.out.println(workRound.getIdWorkRound());
+        return "redirect:/manager/menu/round/manageRound/fertilize/" + workRound.getIdWorkRound() + "?delete";
+    }
+
+    @PostMapping("/menu/round/manageRound/foliage/ConfirmDeleteTransaction/{idTransaction}")
+    public String deleteFoliageTransactionHandler(Model model, @PathVariable String idTransaction){
+        Transaction transaction = transactionService.getTransactionById(idTransaction);
+        WorkRound workRound = transaction.getWorkRound();
+        transactionService.deleteTransaction(transaction);
+        System.out.println(workRound.getIdWorkRound());
+        return "redirect:/manager/menu/round/manageRound/foliage/" + workRound.getIdWorkRound() + "?delete";
     }
 }
