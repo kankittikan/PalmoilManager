@@ -35,7 +35,7 @@
         <p>เดือน</p>
       </div>
       <hr>
-      <form method="post" th:action="@{/manager/menu/round/create/{name}(name=${plotName})}">
+      <form method="post" th:action="@{/manager/menu/round/create/{name}(name=${plotId})}">
         <div class="field">
           <select name="year" id="yearField" class="yearField">
             <option value="0">เลือกปี</option>
@@ -69,7 +69,7 @@
       </form>
 
       <div class="btn">
-        <a th:href="@{/manager/menu/round/{name}(name = ${plotName})}"><button type="submit" style="background: rgb(231,177,10); color: black">กลับ</button></a>
+        <a th:href="@{/manager/menu/round/{name}(name = ${plotId})}"><button type="submit" style="background: rgb(231,177,10); color: black">กลับ</button></a>
       </div>
     </div>
   </div>

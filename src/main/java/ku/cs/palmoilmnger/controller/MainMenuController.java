@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainMenuController {
     @Autowired
     private PlantationService plantationService;
-    @RequestMapping("/menu")
+    @GetMapping("/menu")
     public String getMenuPage(Model model) {
         model.addAttribute("plots", plantationService.getAllPlantation());
         return "menu";

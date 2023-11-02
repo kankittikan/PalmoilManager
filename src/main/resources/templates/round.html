@@ -24,13 +24,21 @@
   <div class="head">
     <div class="plot-name" id="plot-name"><span th:text="${plotName}"></span></div>
 
-    <div class="btn">
-      <select class="year-list" id="year-list" onchange="window.location.href=this.value">
-        <option value="0">เรียงตามปี</option>
-        <option th:value="@{/manager/menu/round/sort/{name}(name=${plotName})}">จากมากไปน้อย</option>
-        <option th:value="@{/manager/menu/round/{name}(name=${plotName})}">จากน้อยไปมาก</option>
-      </select>
-    </div>
+    <form th:action="@{/manager/menu/round/{id}(id=${plotId})}" method="post">
+      <div class="btn">
+
+        <select class="year-list" name="year">
+          <option th:each="y : ${years}" th:text="${y}"></option>
+        </select>
+
+        <select class="year-list" name="month">
+          <option th:each="y : ${months}" th:text="${y}"></option>
+        </select>
+
+        <button>ค้นหา</button>
+      </div>
+    </form>
+
   </div>
 
   <div class="main">
@@ -48,8 +56,8 @@
           <td th:text="${round.year}"></td>
           <td th:text="${round.month}"></td>
           <td th:text="${round.round}"></td>
-          <td><button class="manageRound"><a th:href="@{/manager/menu/round/manageRound/{id}(id=${round.idWorkRound})}">จัดการรอบ</a></button></td>
-          <td><button class="deleteBtn"><a th:href="@{/manager/menu/round/ConfirmDeleteRound/{id}(id=${round.idWorkRound})}">ลบรอบ</a></button></td>
+          <td><a th:href="@{/manager/menu/round/manageRound/{id}(id=${round.idWorkRound})}"><button class="manageRound">จัดการรอบ</button></a></td>
+          <td><a th:href="@{/manager/menu/round/ConfirmDeleteRound/{id}(id=${round.idWorkRound})}"><button class="deleteBtn">ลบรอบ</button></a></td>
         </tr>
 <!--        <tr>-->
 <!--          <td>2023</td>-->
@@ -66,13 +74,13 @@
       <p th:if="${param.success}" style="color: green; font-size: 20px; font-weight: bold">สร้างรอบสำเร็จ</p>
       <p th:if="${param.delete}" style="color: green; font-size: 20px; font-weight: bold">ลบรอบสำเร็จ</p>
       <p th:if="${param.cannotDelete}" style="color: red; font-size: 20px; font-weight: bold">ไม่สามารลบรอบได้</p>
-      <button class="createRound" id="createRound"><a th:href="@{/manager/menu/round/create/{name}(name=${plotName})}">สร้างรอบ</a></button>
+      <a th:href="@{/manager/menu/round/create/{name}(name=${plotId})}"><button class="createRound" id="createRound">สร้างรอบ</button></a>
     </div>
   </div>
 
   <div class="footer">
     <div class="btn">
-      <button class="backBtn" id="backBtn"><a th:href="@{/manager/menu}">กลับ</a></button>
+      <a th:href="@{/manager/menu}"><button class="backBtn" id="backBtn">กลับ</button></a>
     </div>
   </div>
 

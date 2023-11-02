@@ -32,7 +32,7 @@
 
         <div class="plot-lo">จำนวนไร่ : <span th:text="${plot.numOfRaiUnit}"></span></div>
         <div class="manage">
-          <a th:href="@{/manager/menu/round/{name}(name = ${plot.name})}">
+          <a th:href="@{/manager/menu/round/{name}(name = ${plot.idPlantation})}">
             <button>จัดการแปลง</button>
           </a>
         </div>

@@ -42,6 +42,7 @@ public class ManageRoundController {
 
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());
+        model.addAttribute("plotId", workRound.getPlantation().getIdPlantation());
         model.addAttribute("plotYear", roundDTO.getYear());
         model.addAttribute("plotMonth", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
         model.addAttribute("plotRound", "รอบ "+roundDTO.getRound());

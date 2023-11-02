@@ -4,7 +4,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import ku.cs.palmoilmnger.entity.Plantation;
 import ku.cs.palmoilmnger.exception.PlantationException;
 import ku.cs.palmoilmnger.exception.WorkRoundException;
+import ku.cs.palmoilmnger.model.DropdownItemNew;
 import ku.cs.palmoilmnger.model.RoundDTO;
+import ku.cs.palmoilmnger.model.RoundSortDTO;
 import ku.cs.palmoilmnger.service.DateTimeService;
 import ku.cs.palmoilmnger.service.PlantationService;
 import ku.cs.palmoilmnger.service.UserService;
@@ -15,7 +17,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.SequenceInputStream;
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/manager")
@@ -33,49 +41,82 @@ public class WorkRoundController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/menu/round/{name}")
-    public String getRoundPage(Model model, @PathVariable String name) throws PlantationException {
-        Plantation checkPlant = plantationService.getPlantationByName(name);
+    @GetMapping("/menu/round/{id}")
+    public String getRoundPage(Model model, @PathVariable int id) throws PlantationException {
+        Plantation checkPlant = plantationService.getPlantation(id);
+
         List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListByPlantation(checkPlant);
-        System.out.println(roundDTOList);
+        roundDTOList.sort(Comparator.comparing(RoundDTO::getIdWorkRound));
+        Collections.reverse(roundDTOList);
+
+        roundDTOList = roundDTOList.stream().filter(roundDTO -> roundDTO.getYear().equals(String.valueOf(dateTimeService.getYear()))).collect(Collectors.toList());
+
+        List<String> months = new ArrayList<>();
+        for(int i = 1; i<=12; i++) {
+            months.add(String.valueOf(i));
+        }
+        months.add(0, "ทุกเดือน");
+
         model.addAttribute("rounds", roundDTOList);
         model.addAttribute("plotName", checkPlant.getName());
+        model.addAttribute("plotId", checkPlant.getIdPlantation());
+        model.addAttribute("years", dateTimeService.getYearListByRange(10));
+        model.addAttribute("months", months);
         return "round";
     }
 
-    @GetMapping("/menu/round/sort/{name}")
-    public String getSortRoundPage(Model model, @PathVariable String name) throws PlantationException {
-        Plantation checkPlant = plantationService.getPlantationByName(name);
-        List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListBySortByPlantation(checkPlant);
-        System.out.println(roundDTOList);
+    @PostMapping("/menu/round/{id}")
+    public String getRoundPageFilter(Model model, @PathVariable int id, @ModelAttribute RoundSortDTO sortDTO) throws PlantationException {
+        Plantation checkPlant = plantationService.getPlantation(id);
+
+        List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListByPlantation(checkPlant);
+        roundDTOList.sort(Comparator.comparing(RoundDTO::getIdWorkRound));
+        Collections.reverse(roundDTOList);
+
+        roundDTOList = roundDTOList.stream().filter(roundDTO -> roundDTO.getYear().equals(sortDTO.getYear())).collect(Collectors.toList());
+        if(!sortDTO.getMonth().equals("ทุกเดือน")) {
+            roundDTOList = roundDTOList.stream().filter(roundDTO -> roundDTO.getMonth().equals(sortDTO.getMonth())).collect(Collectors.toList());
+        }
+
+        List<String> months = new ArrayList<>();
+        for(int i = 1; i<=12; i++) {
+            months.add(String.valueOf(i));
+        }
+        months.add(0, "ทุกเดือน");
+
+        List<Integer> years = dateTimeService.getYearListByRange(10);
+
+        years.add(0, Integer.valueOf(sortDTO.getYear()));
+        months.add(0, sortDTO.getMonth());
+
         model.addAttribute("rounds", roundDTOList);
         model.addAttribute("plotName", checkPlant.getName());
+        model.addAttribute("plotId", checkPlant.getIdPlantation());
+        model.addAttribute("years", years);
+        model.addAttribute("months", months);
         return "round";
     }
 
-    @GetMapping("/menu/round/create/{name}")
-    public String getCreateRoundPage(Model model, @PathVariable String name) throws PlantationException {
-        Plantation checkPlant = plantationService.getPlantationByName(name);
+    @GetMapping("/menu/round/create/{id}")
+    public String getCreateRoundPage(Model model, @PathVariable int id) throws PlantationException {
+        Plantation checkPlant = plantationService.getPlantation(id);
 
         model.addAttribute("years", dateTimeService.getYearListByRange(10));
         model.addAttribute("plotName", checkPlant.getName());
+        model.addAttribute("plotId", checkPlant.getIdPlantation());
         return "createRound";
     }
 
-    @PostMapping("/menu/round/create/{plantName}")
-    public String createRoundHandler(RedirectAttributes redirectAttributes, @ModelAttribute RoundDTO roundDTO, @PathVariable String plantName, HttpServletRequest request) throws PlantationException {
+    @PostMapping("/menu/round/create/{id}")
+    public String createRoundHandler(RedirectAttributes redirectAttributes, @ModelAttribute RoundDTO roundDTO, @PathVariable int id, HttpServletRequest request) throws PlantationException {
 
-        String outputPage = "";
-
-        try{
-            workRoundService.createWorkRoundRepeat(roundDTO, plantationService.getPlantationByName(plantName), userService.getManager(request.getUserPrincipal().getName()));
-            outputPage = "redirect:/manager/menu/round/"+plantationService.getPlantationByName(plantName).getName()+"?success";
-        }catch (WorkRoundException e){
+        try {
+            workRoundService.createWorkRoundRepeat(roundDTO, plantationService.getPlantation(id), userService.getManager(request.getUserPrincipal().getName()));
+            return "redirect:/manager/menu/round/" + plantationService.getPlantation(id).getIdPlantation() + "?success";
+        } catch (WorkRoundException e) {
             redirectAttributes.addFlashAttribute("errorNotice", e.getMessage());
-            outputPage = "redirect:/manager/menu/round/create/"+plantationService.getPlantationByName(plantName).getName();
+            return "redirect:/manager/menu/round/create/" + plantationService.getPlantation(id).getIdPlantation();
         }
-
-        return outputPage;
 
     }
 

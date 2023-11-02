@@ -1,7 +1,6 @@
 package ku.cs.palmoilmnger.controller;
 
 import ku.cs.palmoilmnger.entity.Description;
-import ku.cs.palmoilmnger.entity.Transaction;
 import ku.cs.palmoilmnger.entity.WorkRound;
 import ku.cs.palmoilmnger.exception.TransactionException;
 import ku.cs.palmoilmnger.model.RoundDTO;
