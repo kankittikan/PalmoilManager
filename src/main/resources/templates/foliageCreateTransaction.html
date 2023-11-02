@@ -32,17 +32,17 @@
         <span th:text="${round}"></span>
     </div>
 
-    <form class="inputMain">
+    <form class="inputMain" method="post" th:action="@{/manager/menu/round/manageRound/foliage/create/{round}(round=${idRound})}">
         <div>
             <p>ประเภท</p>
-            <select name="type" id="type" class="type">
-                <option value="0">เลือกประเภท</option>
+            <select id="type" class="type" name="transactionType">
+                <option value="">เลือกประเภท</option>
                 <option th:each="description : ${descriptions}" th:text="${description.name}"></option>
             </select>
         </div>
         <div>
             <p>จำนวน</p>
-            <input type="text" class="number">
+            <input type="text" class="number" name="numberOfTransaction">
         </div>
 
         <div class="btn">
@@ -50,6 +50,10 @@
         </div>
     </form>
 
+</div>
+
+<div class="wrapper" th:if="${param.notice}" >
+    <p th:text="${param.notice}" style="color: red; font-weight: bold; font-size: 20px"></p>
 </div>
 
 <div class="img">

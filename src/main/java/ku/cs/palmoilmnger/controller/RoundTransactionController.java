@@ -104,4 +104,32 @@ public class RoundTransactionController {
 
         return "redirect:/manager/menu/round/manageRound/palm/" + round + "?success";
     }
+
+    @PostMapping("/menu/round/manageRound/fertilize/create/{round}")
+    public String addFertilizeTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
+        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
+        WorkRound workRound = workRoundService.findById(round);
+        try{
+            transactionService.createTransaction(transactionDTO, description, workRound);
+        }catch (TransactionException e){
+            redirectAttributes.addAttribute("notice", e.getMessage());
+            return "redirect:/manager/menu/round/manageRound/fertilize/create/" + round;
+        }
+
+        return "redirect:/manager/menu/round/manageRound/fertilize/" + round + "?success";
+    }
+
+    @PostMapping("/menu/round/manageRound/foliage/create/{round}")
+    public String addFoliageTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
+        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
+        WorkRound workRound = workRoundService.findById(round);
+        try{
+            transactionService.createTransaction(transactionDTO, description, workRound);
+        }catch (TransactionException e){
+            redirectAttributes.addAttribute("notice", e.getMessage());
+            return "redirect:/manager/menu/round/manageRound/foliage/create/" + round;
+        }
+
+        return "redirect:/manager/menu/round/manageRound/foliage/" + round + "?success";
+    }
 }

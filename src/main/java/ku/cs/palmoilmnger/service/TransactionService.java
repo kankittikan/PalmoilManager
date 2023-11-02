@@ -3,6 +3,7 @@ package ku.cs.palmoilmnger.service;
 import ku.cs.palmoilmnger.entity.Description;
 import ku.cs.palmoilmnger.entity.Transaction;
 import ku.cs.palmoilmnger.entity.WorkRound;
+import ku.cs.palmoilmnger.entity.WorkType;
 import ku.cs.palmoilmnger.exception.TransactionException;
 import ku.cs.palmoilmnger.model.TransactionDTO;
 import ku.cs.palmoilmnger.repository.TransactionRepository;
@@ -57,5 +58,9 @@ public class TransactionService {
 
     public List<Transaction> getTransactionByWorkRound(WorkRound workRound){
         return transactionRepository.findByWorkRound(workRound);
+    }
+
+    public List<Transaction> getTransactionsByWorkType(WorkType workType, WorkRound worRound){
+        return transactionRepository.findByWorkType(workType.getName(), worRound.getIdWorkRound());
     }
 }

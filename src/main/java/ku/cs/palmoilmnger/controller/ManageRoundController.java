@@ -2,10 +2,12 @@ package ku.cs.palmoilmnger.controller;
 
 import ku.cs.palmoilmnger.entity.Transaction;
 import ku.cs.palmoilmnger.entity.WorkRound;
+import ku.cs.palmoilmnger.entity.WorkType;
 import ku.cs.palmoilmnger.model.RoundDTO;
 import ku.cs.palmoilmnger.service.DateTimeService;
 import ku.cs.palmoilmnger.service.TransactionService;
 import ku.cs.palmoilmnger.service.WorkRoundService;
+import ku.cs.palmoilmnger.service.WorkTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +30,9 @@ public class ManageRoundController {
     @Autowired
     private TransactionService transactionService;
 
+    @Autowired
+    private WorkTypeService workTypeService;
+
     @GetMapping("/menu/round/manageRound/{round}")
     public String getManageRoundPage(Model model,@PathVariable("round") String round) {
 
@@ -49,7 +54,8 @@ public class ManageRoundController {
 
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
 
-        List<Transaction> transactionList = transactionService.getTransactionByWorkRound(workRound);
+        WorkType workType = workTypeService.getWorkType("ตัดปาล์ม");
+        List<Transaction> transactionList = transactionService.getTransactionsByWorkType(workType, workRound);
 
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());
@@ -66,11 +72,15 @@ public class ManageRoundController {
 
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
 
+        WorkType workType = workTypeService.getWorkType("ใส่ปุ๋ย");
+        List<Transaction> transactionList = transactionService.getTransactionsByWorkType(workType, workRound);
+
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());
         model.addAttribute("plotYear", roundDTO.getYear());
         model.addAttribute("plotMonth", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
         model.addAttribute("plotRound", "รอบ "+roundDTO.getRound());
+        model.addAttribute("transactionList", transactionList);
         return "fertilizeRound";
     }
 
@@ -80,11 +90,15 @@ public class ManageRoundController {
 
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
 
+        WorkType workType = workTypeService.getWorkType("ตัดแต่งทางใบ");
+        List<Transaction> transactionList = transactionService.getTransactionsByWorkType(workType, workRound);
+
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());
         model.addAttribute("plotYear", roundDTO.getYear());
         model.addAttribute("plotMonth", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
         model.addAttribute("plotRound", "รอบ "+roundDTO.getRound());
+        model.addAttribute("transactionList", transactionList);
         return "foliageRound";
     }
 }

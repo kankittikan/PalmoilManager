@@ -17,4 +17,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 
     @Query(value = "SELECT MAX(idTransaction) FROM Transaction WHERE idTransaction LIKE :idRound%")
     public String maxValueByTime(@Param("idRound") String idRound);
+
+
+    @Query("SELECT t FROM Transaction t JOIN t.description d JOIN d.workType w JOIN t.workRound wr WHERE w.name = :name AND wr.idWorkRound = :idRound")
+    public List<Transaction> findByWorkType(@Param("name") String name, @Param("idRound") String idRound);
 }

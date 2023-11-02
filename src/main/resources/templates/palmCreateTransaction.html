@@ -52,6 +52,10 @@
 
 </div>
 
+<div class="wrapper" th:if="${param.notice}" >
+  <p th:text="${param.notice}" style="color: red; font-weight: bold; font-size: 20px"></p>
+</div>
+
 <div class="img">
   <div>
     <p>รูป</p>
