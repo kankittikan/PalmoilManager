@@ -34,52 +34,88 @@ public class RoundTransactionController {
     @Autowired
     private TransactionService transactionService;
 
-    @GetMapping("/menu/round/manageRound/palm/create/{round}")
-    public String getPalmCreateTransactionPage(Model model, @PathVariable String round) {
-        WorkRound workRound = workRoundService.findById(round);
-        RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
-
+//    @GetMapping("/menu/round/manageRound/palm/create/{round}")
+//    public String getPalmCreateTransactionPage(Model model, @PathVariable String round) {
+//        WorkRound workRound = workRoundService.findById(round);
+//        RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
+//
+////        System.out.println(workTypeService.getAllWorkTypes());
+//
+//        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ตัดปาล์ม"));
+//        System.out.println(descriptions);
+//
+//        model.addAttribute("idRound", roundDTO.getIdWorkRound());
+//        model.addAttribute("plotName", workRound.getPlantation().getName());
+//        model.addAttribute("year", roundDTO.getYear());
+//        model.addAttribute("month", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
+//        model.addAttribute("round", "รอบ "+roundDTO.getRound());
+//        model.addAttribute("descriptions", descriptions);
+//        return "palmCreateTransaction";
+//    }
+//
+//    @GetMapping("/menu/round/manageRound/foliage/create/{round}")
+//    public String getFoliageCreateTransactionPage(Model model, @PathVariable String round) {
+//        WorkRound workRound = workRoundService.findById(round);
+//        RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
+//
 //        System.out.println(workTypeService.getAllWorkTypes());
+//
+//        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ตัดแต่งทางใบ"));
+//        System.out.println(descriptions);
+//
+//        model.addAttribute("idRound", roundDTO.getIdWorkRound());
+//        model.addAttribute("plotName", workRound.getPlantation().getName());
+//        model.addAttribute("year", roundDTO.getYear());
+//        model.addAttribute("month", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
+//        model.addAttribute("round", "รอบ "+roundDTO.getRound());
+//        model.addAttribute("descriptions", descriptions);
+//        return "foliageCreateTransaction";
+//    }
+//
+//    @GetMapping("/menu/round/manageRound/fertilize/create/{round}")
+//    public String getFertilizeCreateTransactionPage(Model model, @PathVariable String round) {
+//        WorkRound workRound = workRoundService.findById(round);
+//        RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
+//
+//        // System.out.println(workTypeService.getAllWorkTypes());
+//
+//        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ใส่ปุ๋ย"));
+//        System.out.println(descriptions);
+//
+//        model.addAttribute("idRound", roundDTO.getIdWorkRound());
+//        model.addAttribute("plotName", workRound.getPlantation().getName());
+//        model.addAttribute("year", roundDTO.getYear());
+//        model.addAttribute("month", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
+//        model.addAttribute("round", "รอบ "+roundDTO.getRound());
+//        model.addAttribute("descriptions", descriptions);
+//        return "fertilizeCreateTransaction";
+//    }
 
-        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ตัดปาล์ม"));
-        System.out.println(descriptions);
+    @GetMapping("/menu/round/manageRound/{workTypeName}/create/{round}")
+    public String getCreateTransactionPage(Model model, @PathVariable(value = "round") String round, @PathVariable(value = "workTypeName") String workTypeName) {
+        String name = "";
+        String webPageName = "";
+        switch (workTypeName){
+            case "palm":
+                name = "ตัดปาล์ม";
+                webPageName = "palmCreateTransaction";
+                break;
+            case "fertilize":
+                name = "ใส่ปุ๋ย";
+                webPageName = "fertilizeCreateTransaction";
+                break;
+            case "foliage":
+                name = "ตัดแต่งทางใบ";
+                webPageName = "foliageCreateTransaction";
+                break;
+        }
 
-        model.addAttribute("idRound", roundDTO.getIdWorkRound());
-        model.addAttribute("plotName", workRound.getPlantation().getName());
-        model.addAttribute("year", roundDTO.getYear());
-        model.addAttribute("month", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
-        model.addAttribute("round", "รอบ "+roundDTO.getRound());
-        model.addAttribute("descriptions", descriptions);
-        return "palmCreateTransaction";
-    }
-
-    @GetMapping("/menu/round/manageRound/foliage/create/{round}")
-    public String getFoliageCreateTransactionPage(Model model, @PathVariable String round) {
-        WorkRound workRound = workRoundService.findById(round);
-        RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
-
-        System.out.println(workTypeService.getAllWorkTypes());
-
-        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ตัดแต่งทางใบ"));
-        System.out.println(descriptions);
-
-        model.addAttribute("idRound", roundDTO.getIdWorkRound());
-        model.addAttribute("plotName", workRound.getPlantation().getName());
-        model.addAttribute("year", roundDTO.getYear());
-        model.addAttribute("month", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
-        model.addAttribute("round", "รอบ "+roundDTO.getRound());
-        model.addAttribute("descriptions", descriptions);
-        return "foliageCreateTransaction";
-    }
-
-    @GetMapping("/menu/round/manageRound/fertilize/create/{round}")
-    public String getFertilizeCreateTransactionPage(Model model, @PathVariable String round) {
         WorkRound workRound = workRoundService.findById(round);
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
 
         // System.out.println(workTypeService.getAllWorkTypes());
 
-        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ใส่ปุ๋ย"));
+        List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType(name));
         System.out.println(descriptions);
 
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
@@ -88,48 +124,63 @@ public class RoundTransactionController {
         model.addAttribute("month", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
         model.addAttribute("round", "รอบ "+roundDTO.getRound());
         model.addAttribute("descriptions", descriptions);
-        return "fertilizeCreateTransaction";
+        return webPageName;
     }
 
-    @PostMapping("/menu/round/manageRound/palm/create/{round}")
-    public String addPalmTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
+//    @PostMapping("/menu/round/manageRound/palm/create/{round}")
+//    public String addPalmTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
+//        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
+//        WorkRound workRound = workRoundService.findById(round);
+//        try{
+//            transactionService.createTransaction(transactionDTO, description, workRound);
+//        }catch (TransactionException e){
+//            redirectAttributes.addAttribute("notice", e.getMessage());
+//            return "redirect:/manager/menu/round/manageRound/palm/create/" + round;
+//        }
+//
+//        return "redirect:/manager/menu/round/manageRound/palm/" + round + "?success";
+//    }
+//
+//    @PostMapping("/menu/round/manageRound/fertilize/create/{round}")
+//    public String addFertilizeTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
+//        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
+//        WorkRound workRound = workRoundService.findById(round);
+//        try{
+//            transactionService.createTransaction(transactionDTO, description, workRound);
+//        }catch (TransactionException e){
+//            redirectAttributes.addAttribute("notice", e.getMessage());
+//            return "redirect:/manager/menu/round/manageRound/fertilize/create/" + round;
+//        }
+//
+//        return "redirect:/manager/menu/round/manageRound/fertilize/" + round + "?success";
+//    }
+//
+//    @PostMapping("/menu/round/manageRound/foliage/create/{round}")
+//    public String addFoliageTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
+//        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
+//        WorkRound workRound = workRoundService.findById(round);
+//        try{
+//            transactionService.createTransaction(transactionDTO, description, workRound);
+//        }catch (TransactionException e){
+//            redirectAttributes.addAttribute("notice", e.getMessage());
+//            return "redirect:/manager/menu/round/manageRound/foliage/create/" + round;
+//        }
+//
+//        return "redirect:/manager/menu/round/manageRound/foliage/" + round + "?success";
+//    }
+
+    @PostMapping("/menu/round/manageRound/{workTypeName}/create/{round}")
+    public String addTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO, @PathVariable(value = "workTypeName") String workTypeName){
+
         Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
         WorkRound workRound = workRoundService.findById(round);
         try{
             transactionService.createTransaction(transactionDTO, description, workRound);
         }catch (TransactionException e){
             redirectAttributes.addAttribute("notice", e.getMessage());
-            return "redirect:/manager/menu/round/manageRound/palm/create/" + round;
+            return "redirect:/manager/menu/round/manageRound/"+workTypeName+"/create/" + round;
         }
 
-        return "redirect:/manager/menu/round/manageRound/palm/" + round + "?success";
-    }
-
-    @PostMapping("/menu/round/manageRound/fertilize/create/{round}")
-    public String addFertilizeTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
-        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
-        WorkRound workRound = workRoundService.findById(round);
-        try{
-            transactionService.createTransaction(transactionDTO, description, workRound);
-        }catch (TransactionException e){
-            redirectAttributes.addAttribute("notice", e.getMessage());
-            return "redirect:/manager/menu/round/manageRound/fertilize/create/" + round;
-        }
-
-        return "redirect:/manager/menu/round/manageRound/fertilize/" + round + "?success";
-    }
-
-    @PostMapping("/menu/round/manageRound/foliage/create/{round}")
-    public String addFoliageTransactionHandler(RedirectAttributes redirectAttributes, @PathVariable String round, @ModelAttribute TransactionDTO transactionDTO){
-        Description description = descriptionService.getDescriptionByName(transactionDTO.getTransactionType());
-        WorkRound workRound = workRoundService.findById(round);
-        try{
-            transactionService.createTransaction(transactionDTO, description, workRound);
-        }catch (TransactionException e){
-            redirectAttributes.addAttribute("notice", e.getMessage());
-            return "redirect:/manager/menu/round/manageRound/foliage/create/" + round;
-        }
-
-        return "redirect:/manager/menu/round/manageRound/foliage/" + round + "?success";
+        return "redirect:/manager/menu/round/manageRound/"+workTypeName+"/" + round + "?success";
     }
 }
