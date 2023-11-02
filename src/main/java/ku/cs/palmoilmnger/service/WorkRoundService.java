@@ -9,6 +9,7 @@ import ku.cs.palmoilmnger.model.RoundDTO;
 import ku.cs.palmoilmnger.repository.TransactionRepository;
 import ku.cs.palmoilmnger.repository.WorkRoundRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -32,6 +33,10 @@ public class WorkRoundService {
         return workRoundRepository.findByPlantation(plantation);
     }
 
+    public List<WorkRound> findBySortByPlantation(Plantation plantation){
+        return workRoundRepository.findByPlantation(plantation, Sort.by("idWorkRound").ascending());
+    }
+
     public WorkRound findById(String id){
         return workRoundRepository.findById(id).get();
     }
@@ -46,6 +51,17 @@ public class WorkRoundService {
             roundDTOList.add(roundDTO);
         }
 
+        return roundDTOList;
+    }
+
+    public List<RoundDTO> getRoundDTOListBySortByPlantation(Plantation plantation){
+        List<WorkRound> list = this.findBySortByPlantation(plantation);
+        List<RoundDTO> roundDTOList = new ArrayList<>();
+        for(WorkRound workRound: list){
+            RoundDTO roundDTO = this.transformToRoundDTO(workRound.getIdWorkRound());
+            roundDTO.setManagerName(workRound.getUser().getName());
+            roundDTOList.add(roundDTO);
+        }
         return roundDTOList;
     }
 

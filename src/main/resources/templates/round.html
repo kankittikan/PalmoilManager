@@ -25,8 +25,9 @@
     <div class="plot-name" id="plot-name"><span th:text="${plotName}"></span></div>
 
     <div class="btn">
-      <select class="year-list" id="year-list">
+      <select class="year-list" id="year-list" onchange="window.location.href=this.value">
         <option value="0">เรียงตามปี</option>
+        <option th:value="@{/manager/menu/round/{name}?sort(name=${plotName})}">hello world</option>
       </select>
     </div>
   </div>

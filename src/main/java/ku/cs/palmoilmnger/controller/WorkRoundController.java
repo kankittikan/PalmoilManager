@@ -42,16 +42,6 @@ public class WorkRoundController {
         return "round";
     }
 
-//    @GetMapping("/menu/round/{name}?Sort")
-//    public String getRoundSortPage(Model model, @PathVariable String name ) throws PlantationException {
-//        Plantation checkPlant = plantationService.getPlantationByName(name);
-//        List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListByPlantation(checkPlant);
-//        model.addAttribute("rounds", roundDTOList);
-//        model.addAttribute("plotName", checkPlant.getName());
-//        System.out.println(workRoundService.getLastOfWorkRound());
-//        return "round";
-//    }
-
     @GetMapping("/menu/round/create/{name}")
     public String getCreateRoundPage(Model model, @PathVariable String name) throws PlantationException {
         Plantation checkPlant = plantationService.getPlantationByName(name);
@@ -76,5 +66,15 @@ public class WorkRoundController {
 
         return outputPage;
 
+    }
+
+    @GetMapping("/menu/round/{name}?sort")
+    public String getSortRound(Model model, @PathVariable String name) throws PlantationException {
+        Plantation checkPlant = plantationService.getPlantationByName(name);
+        List<RoundDTO> roundDTOList = workRoundService.getRoundDTOListBySortByPlantation(checkPlant);
+
+        model.addAttribute("rounds", roundDTOList);
+        model.addAttribute("plotName", checkPlant.getName());
+        return "round";
     }
 }
