@@ -61,6 +61,14 @@ public class TransactionService {
     }
 
     public List<Transaction> getTransactionsByWorkType(WorkType workType, WorkRound worRound){
-        return transactionRepository.findByWorkType(workType.getName(), worRound.getIdWorkRound());
+        return transactionRepository.findByWorkTypeAndIdWorkRound(workType.getName(), worRound.getIdWorkRound());
+    }
+
+    public Transaction getTransactionById(String idTransaction){
+        return transactionRepository.findByIdTransaction(idTransaction);
+    }
+
+    public void deleteTransaction(Transaction transaction){
+        transactionRepository.delete(transaction);
     }
 }

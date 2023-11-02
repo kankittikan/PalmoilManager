@@ -1,6 +1,7 @@
 package ku.cs.palmoilmnger.repository;
 
 import ku.cs.palmoilmnger.entity.Plantation;
+import ku.cs.palmoilmnger.entity.Transaction;
 import ku.cs.palmoilmnger.entity.WorkRound;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +19,5 @@ public interface WorkRoundRepository extends JpaRepository<WorkRound, String> {
 
     @Query(value = "SELECT MAX(idWorkRound) FROM WorkRound WHERE idWorkRound LIKE :time%")
     public String maxValueByTime(@Param("time") String time);
+
 }

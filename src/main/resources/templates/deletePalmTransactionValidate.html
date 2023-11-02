@@ -50,8 +50,10 @@
             </div>
 
             <div class="btn">
-                <a href="#"><button class="cancel">ยกเลิก</button></a>
-                <a href="#"><button class="enter">ยืนยัน</button></a>
+                <a th:href="@{/manager/menu/round/manageRound/palm/{round}(round=${idWorkRound})}"><button class="cancel">ยกเลิก</button></a>
+                <form th:action="@{/manager/menu/round/manageRound/palm/ConfirmDeleteTransaction/{idTransaction}(idTransaction=${idDelete})}" method="post">
+                    <a href="#"><button class="enter" type="submit">ยืนยัน</button></a>
+                </form>
             </div>
         </div>
 

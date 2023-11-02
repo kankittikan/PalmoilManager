@@ -3,7 +3,6 @@ package ku.cs.palmoilmnger.repository;
 import ku.cs.palmoilmnger.entity.Description;
 import ku.cs.palmoilmnger.entity.Transaction;
 import ku.cs.palmoilmnger.entity.WorkRound;
-import ku.cs.palmoilmnger.entity.WorkType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,5 +19,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 
 
     @Query("SELECT t FROM Transaction t JOIN t.description d JOIN d.workType w JOIN t.workRound wr WHERE w.name = :name AND wr.idWorkRound = :idRound")
-    public List<Transaction> findByWorkType(@Param("name") String name, @Param("idRound") String idRound);
+    public List<Transaction> findByWorkTypeAndIdWorkRound(@Param("name") String name, @Param("idRound") String idRound);
+
+    public Transaction findByIdTransaction(String idTransaction);
 }
