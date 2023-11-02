@@ -29,6 +29,10 @@ public class TransactionService {
 
         try{
             double number = Double.parseDouble(transactionDTO.getNumberOfTransaction());
+            if(number < 0){
+                throw new TransactionException("จำนวนต้องมากกว่า 0");
+            }
+
             int count = 0;
             String lastTransaction = transactionRepository.maxValueByTime(workRound.getIdWorkRound());
             if(lastTransaction == null){
@@ -51,7 +55,7 @@ public class TransactionService {
             transactionRepository.save(transaction);
 
         }catch (NumberFormatException e){
-            throw new TransactionException("ใส่ตัวเลขเท่านั้น");
+            throw new TransactionException("ใส่จำนวนเป็นตัวเลขเท่านั้น");
         }
 
     }
