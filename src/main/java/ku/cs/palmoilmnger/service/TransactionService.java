@@ -8,7 +8,6 @@ import ku.cs.palmoilmnger.exception.TransactionException;
 import ku.cs.palmoilmnger.model.TransactionDTO;
 import ku.cs.palmoilmnger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -65,7 +64,7 @@ public class TransactionService {
         return transactionRepository.findByWorkRound(workRound);
     }
 
-    public List<Transaction> getTransactionsByWorkType(WorkType workType, WorkRound worRound){
+    public List<Transaction> getTransactionsByWorkTypeAndWorkRound(WorkType workType, WorkRound worRound){
         return transactionRepository.findByWorkTypeAndIdWorkRound(workType.getName(), worRound.getIdWorkRound());
     }
 
@@ -77,10 +76,11 @@ public class TransactionService {
         transactionRepository.delete(transaction);
     }
 
-    public List<Transaction> getTransactionsByWorkType(WorkType workType, WorkRound worRound, String fieldName, boolean isDesc){
-        if(isDesc){
-            return transactionRepository.findByWorkTypeAndIdWorkRound(workType.getName(), worRound.getIdWorkRound(), Sort.by(fieldName).descending());
-        }
-        return transactionRepository.findByWorkTypeAndIdWorkRound(workType.getName(), worRound.getIdWorkRound(), Sort.by(fieldName));
+    public List<Transaction> getTransactionsBySortIdTransactionByWorkTypeASC(WorkType workType, WorkRound workRound){
+        return transactionRepository.findBySortIdTransactionByWorkTypeAndIdWorkRoundASC(workType.getName(), workRound.getIdWorkRound());
+    }
+
+    public List<Transaction> getTransactionsBySortIdTransactionByWorkTypeDESC(WorkType workType, WorkRound workRound){
+        return transactionRepository.findBySortIdTransactionByWorkTypeAndIdWorkRoundDESC(workType.getName(), workRound.getIdWorkRound());
     }
 }

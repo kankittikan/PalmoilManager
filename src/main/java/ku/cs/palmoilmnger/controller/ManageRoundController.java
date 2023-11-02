@@ -50,7 +50,7 @@ public class ManageRoundController {
     }
 
     @GetMapping("/menu/round/manageRound/{workTypeName}/{round}")
-    public String getRoundTransactionPage(Model model, @PathVariable("round") String round, @PathVariable("workTypeName") String workTypeName) {
+    public String getWorkTypeTransactionPage(Model model, @PathVariable("round") String round, @PathVariable("workTypeName") String workTypeName) {
         String name = "";
         String webPageName = "";
         switch (workTypeName){
@@ -72,7 +72,46 @@ public class ManageRoundController {
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
 
         WorkType workType = workTypeService.getWorkType(name);
-        List<Transaction> transactionList = transactionService.getTransactionsByWorkType(workType, workRound);
+        List<Transaction> transactionList = transactionService.getTransactionsByWorkTypeAndWorkRound(workType, workRound);
+
+        model.addAttribute("idRound", roundDTO.getIdWorkRound());
+        model.addAttribute("plotName", workRound.getPlantation().getName());
+        model.addAttribute("plotYear", roundDTO.getYear());
+        model.addAttribute("plotMonth", dateTimeService.getMonthTextThai(roundDTO.getMonth()));
+        model.addAttribute("plotRound", "รอบ "+roundDTO.getRound());
+        model.addAttribute("transactionList", transactionList);
+        return webPageName;
+    }
+
+    @GetMapping("/menu/round/manageRound/{workTypeName}/{round}/{sort}")
+    public String getWorkTypeTransactionSortPage(Model model, @PathVariable("round") String round, @PathVariable("workTypeName") String workTypeName, @PathVariable(value = "sort") String sortName) {
+        String name = "";
+        String webPageName = "";
+        switch (workTypeName){
+            case "palm":
+                name = "ตัดปาล์ม";
+                webPageName = "palmRound";
+                break;
+            case "fertilize":
+                name = "ใส่ปุ๋ย";
+                webPageName = "fertilizeRound";
+                break;
+            case "foliage":
+                name = "ตัดแต่งทางใบ";
+                webPageName = "foliageRound";
+                break;
+        }
+        WorkRound workRound = workRoundService.findById(round);
+
+        RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
+
+        WorkType workType = workTypeService.getWorkType(name);
+
+        List<Transaction> transactionList = switch (sortName) {
+            case "sortStart" -> transactionService.getTransactionsBySortIdTransactionByWorkTypeASC(workType, workRound);
+            case "sortEnd" -> transactionService.getTransactionsBySortIdTransactionByWorkTypeDESC(workType, workRound);
+            default -> transactionService.getTransactionsByWorkTypeAndWorkRound(workType, workRound);
+        };
 
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());

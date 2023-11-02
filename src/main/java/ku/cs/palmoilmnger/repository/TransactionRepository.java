@@ -22,8 +22,11 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     @Query("SELECT t FROM Transaction t JOIN t.description d JOIN d.workType w JOIN t.workRound wr WHERE w.name = :name AND wr.idWorkRound = :idRound")
     List<Transaction> findByWorkTypeAndIdWorkRound(@Param("name") String name, @Param("idRound") String idRound);
 
-    @Query("SELECT t FROM Transaction t JOIN t.description d JOIN d.workType w JOIN t.workRound wr WHERE w.name = :name AND wr.idWorkRound = :idRound")
-    List<Transaction> findByWorkTypeAndIdWorkRound(@Param("name") String name, @Param("idRound") String idRound, Sort sort);
+    @Query("SELECT t FROM Transaction t JOIN t.description d JOIN d.workType w JOIN t.workRound wr WHERE w.name = :name AND wr.idWorkRound = :idRound ORDER By t.idTransaction DESC")
+    List<Transaction> findBySortIdTransactionByWorkTypeAndIdWorkRoundDESC(@Param("name") String name, @Param("idRound") String idRound);
+
+    @Query("SELECT t FROM Transaction t JOIN t.description d JOIN d.workType w JOIN t.workRound wr WHERE w.name = :name AND wr.idWorkRound = :idRound ORDER By t.idTransaction ASC")
+    List<Transaction> findBySortIdTransactionByWorkTypeAndIdWorkRoundASC(@Param("name") String name, @Param("idRound") String idRound);
 
     Transaction findByIdTransaction(String idTransaction);
 }

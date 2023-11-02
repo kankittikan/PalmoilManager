@@ -43,11 +43,11 @@
 </div>
 
 <div class="dropdown">
-  <select name="" id="">
+  <select name="" id="" onchange="window.location.href=this.value">
     <option value="0">เรียงตาม</option>
-    <option value="1">ประเภท</option>
-    <option value="0">วันที่ทำรายการ ใหม่ ไป เก่า</option>
-    <option value="0">วันที่ทำรายการ เก่า ไป ใหม่</option>
+    <option th:value="@{/manager/menu/round/manageRound/foliage/{round}/sorType(round=${idRound})}">ประเภท</option>
+    <option th:value="@{/manager/menu/round/manageRound/foliage/{round}/sortStart(round=${idRound})}">วันที่ทำรายการ ใหม่ ไป เก่า</option>
+    <option th:value="@{/manager/menu/round/manageRound/foliage/{round}/sortEnd(round=${idRound})}">วันที่ทำรายการ เก่า ไป ใหม่</option>
   </select>
 </div>
 
