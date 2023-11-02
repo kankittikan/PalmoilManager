@@ -8,6 +8,7 @@ import ku.cs.palmoilmnger.exception.TransactionException;
 import ku.cs.palmoilmnger.model.TransactionDTO;
 import ku.cs.palmoilmnger.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -74,5 +75,12 @@ public class TransactionService {
 
     public void deleteTransaction(Transaction transaction){
         transactionRepository.delete(transaction);
+    }
+
+    public List<Transaction> getTransactionsByWorkType(WorkType workType, WorkRound worRound, String fieldName, boolean isDesc){
+        if(isDesc){
+            return transactionRepository.findByWorkTypeAndIdWorkRound(workType.getName(), worRound.getIdWorkRound(), Sort.by(fieldName).descending());
+        }
+        return transactionRepository.findByWorkTypeAndIdWorkRound(workType.getName(), worRound.getIdWorkRound(), Sort.by(fieldName));
     }
 }
