@@ -45,7 +45,7 @@ public class TransactionService {
             if (lastTransaction == null) {
                 count = 1;
             } else {
-                String id = lastTransaction.substring(9);
+                String id = lastTransaction.substring(11);
                 count = Integer.parseInt(id);
                 count += 1;
             }
@@ -84,7 +84,7 @@ public class TransactionService {
         if (lastTransaction == null) {
             count = 1;
         } else {
-            String id = lastTransaction.substring(9);
+            String id = lastTransaction.substring(11);
             count = Integer.parseInt(id);
             count += 1;
         }

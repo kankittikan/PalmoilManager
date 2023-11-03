@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.nio.file.Watchable;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
@@ -22,4 +21,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
     public List<Transaction> findByWorkTypeAndIdWorkRound(@Param("name") String name, @Param("idRound") String idRound);
 
     public Transaction findByIdTransaction(String idTransaction);
+
+    public List<Transaction> findByWorkRound_IdWorkRoundContainingAndDescription_WorkType_IdWorkType(String roundId, int workTypeId);
 }

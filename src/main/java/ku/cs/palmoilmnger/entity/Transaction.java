@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Transaction {
     @Id
-    @Column(length = 11)
+    @Column(length = 14)
     private String idTransaction;
 
     @ManyToOne

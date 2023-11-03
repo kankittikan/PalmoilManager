@@ -18,10 +18,12 @@ public interface WorkRoundRepository extends JpaRepository<WorkRound, String> {
 
     List<WorkRound> findByIdWorkRoundContaining(String id);
 
-    @Query(value = "SELECT MAX(idWorkRound) FROM WorkRound")
-    public String maxValue();
+//    @Query(value = "SELECT MAX(idWorkRound) FROM WorkRound")
+//    public String maxValue();
+//
+//    @Query(value = "SELECT MAX(idWorkRound) FROM WorkRound WHERE idWorkRound LIKE :time%")
+//    public String maxValueByTime(@Param("time") String time, @Param("idPlant") int idPlant);
 
-    @Query(value = "SELECT MAX(idWorkRound) FROM WorkRound WHERE idWorkRound LIKE :time%")
-    public String maxValueByTime(@Param("time") String time);
+    List<WorkRound> findByPlantation_IdPlantationAndIdWorkRoundContains(int idPlant, String idWorkRound);
 
 }

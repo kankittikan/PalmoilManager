@@ -301,7 +301,7 @@ public class ManageRoundController {
     }
 
     @GetMapping("/showImg")
-    public String showImg(Model model, @RequestParam String imgName, String from, int id) {
+    public String showImg(Model model, @RequestParam String imgName, String from, String id) {
         model.addAttribute("imgPath", "/transactionImg/" + imgName);
 
         if (from.equals("palm")) model.addAttribute("to", "/manager/menu/round/manageRound/palm/" + id);

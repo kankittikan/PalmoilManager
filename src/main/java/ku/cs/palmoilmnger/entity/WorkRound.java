@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 public class WorkRound {
     @Id
-    @Column(length = 8)
+    @Column(length = 11)
     private String idWorkRound;
 
     @ManyToOne

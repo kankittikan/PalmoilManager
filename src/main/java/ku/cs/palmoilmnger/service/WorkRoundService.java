@@ -33,19 +33,19 @@ public class WorkRoundService {
         return workRoundRepository.findByPlantation(plantation);
     }
 
-    public List<WorkRound> findBySortByPlantation(Plantation plantation){
+    public List<WorkRound> findBySortByPlantation(Plantation plantation) {
         return workRoundRepository.findByPlantation(plantation, Sort.by("idWorkRound").descending());
     }
 
-    public WorkRound findById(String id){
+    public WorkRound findById(String id) {
         return workRoundRepository.findById(id).get();
     }
 
     // Get WorkRoundDTO list to display
-    public List<RoundDTO> getRoundDTOListByPlantation(Plantation plantation){
+    public List<RoundDTO> getRoundDTOListByPlantation(Plantation plantation) {
         List<WorkRound> list = this.findByPlantation(plantation);
         List<RoundDTO> roundDTOList = new ArrayList<>();
-        for(WorkRound workRound: list){
+        for (WorkRound workRound : list) {
             RoundDTO roundDTO = this.transformToRoundDTO(workRound.getIdWorkRound());
             roundDTO.setManagerName(workRound.getUser().getName());
             roundDTOList.add(roundDTO);
@@ -54,10 +54,10 @@ public class WorkRoundService {
         return roundDTOList;
     }
 
-    public List<RoundDTO> getRoundDTOListBySortByPlantation(Plantation plantation){
+    public List<RoundDTO> getRoundDTOListBySortByPlantation(Plantation plantation) {
         List<WorkRound> list = this.findBySortByPlantation(plantation);
         List<RoundDTO> roundDTOList = new ArrayList<>();
-        for(WorkRound workRound: list){
+        for (WorkRound workRound : list) {
             RoundDTO roundDTO = this.transformToRoundDTO(workRound.getIdWorkRound());
             roundDTO.setManagerName(workRound.getUser().getName());
             roundDTOList.add(roundDTO);
@@ -66,11 +66,11 @@ public class WorkRoundService {
     }
 
     // transform entity to dto
-    public RoundDTO transformToRoundDTO(String idWorkRound){
+    public RoundDTO transformToRoundDTO(String idWorkRound) {
         RoundDTO roundDTO = new RoundDTO();
-        String year = idWorkRound.substring(0,4);
-        String month = idWorkRound.substring(4, 6);
-        String round = idWorkRound.substring(6);
+        String year = idWorkRound.substring(3, 7);
+        String month = idWorkRound.substring(7, 9);
+        String round = idWorkRound.substring(9);
         roundDTO.setIdWorkRound(idWorkRound);
         roundDTO.setYear(year);
         roundDTO.setMonth(month);
@@ -82,16 +82,16 @@ public class WorkRoundService {
         // create string id
         boolean isYear = roundDTO.getYear().equals("0");
         boolean isMonth = roundDTO.getMonth().equals("0");
-        if( isYear && isMonth){
+        if (isYear && isMonth) {
             throw new WorkRoundException("ใส่ปีและเดือนไม่ครบ");
         } else if (isYear) {
             throw new WorkRoundException("ยังไม่ได้เลือกปี");
-        } else if (isMonth){
+        } else if (isMonth) {
             throw new WorkRoundException("ยังไม่ได้เลือกเดือน");
         }
         int year = Integer.parseInt(roundDTO.getYear());
         int month = Integer.parseInt(roundDTO.getMonth());
-        String idRound = String.format("%04d%02d", year, month);
+        String idRound = String.format("%03d%04d%02d", plantation.getIdPlantation(), year, month);
 
         // Get round By counting workRoundList
 //        List<WorkRound> workRoundList = workRoundRepository.findByIdWorkRoundContaining(idRound);
@@ -100,11 +100,11 @@ public class WorkRoundService {
 
         // Get round by the last workRound
         int round = 0;
-        String lastWorkRound = this.getLastOfWorkRoundByTime(idRound);
-        if(lastWorkRound == null){
+        List<WorkRound> workRounds = workRoundRepository.findByPlantation_IdPlantationAndIdWorkRoundContains(plantation.getIdPlantation(), idRound);
+        if (workRounds.isEmpty()) {
             round = 1;
-        }else{
-          String roundText = lastWorkRound.substring(6);
+        } else {
+            String roundText = workRounds.get(workRounds.size() - 1).getIdWorkRound().substring(9);
             round = Integer.parseInt(roundText);
             round += 1;
         }
@@ -113,25 +113,15 @@ public class WorkRoundService {
         workRound.setIdWorkRound(idRound + String.format("%02d", round));
         workRound.setUser(user);
         workRound.setPlantation(plantation);
-
         workRoundRepository.save(workRound);
-    }
-    // Get Last WorkRound of palm
-    public String getLastOfWorkRound(){
-        return workRoundRepository.maxValue();
-    }
-
-    // Get Last WorkRound by year and month of palm
-    public String getLastOfWorkRoundByTime(String time){
-        return workRoundRepository.maxValueByTime(time);
     }
 
     public void deleteRound(String idRound) throws WorkRoundException {
         WorkRound workRound = findById(idRound);
         List<Transaction> transactionList = transactionRepository.findByWorkRound(workRound);
-        if(transactionList.isEmpty()){
+        if (transactionList.isEmpty()) {
             workRoundRepository.deleteById(idRound);
-        }else{
+        } else {
             throw new WorkRoundException("ต้องลบรายการของรอบนี้ทั้งหมดนี้");
         }
 
