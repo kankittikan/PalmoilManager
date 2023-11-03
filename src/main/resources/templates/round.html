@@ -73,7 +73,7 @@
     <div class="btn">
       <p th:if="${param.success}" style="color: green; font-size: 20px; font-weight: bold">สร้างรอบสำเร็จ</p>
       <p th:if="${param.delete}" style="color: green; font-size: 20px; font-weight: bold">ลบรอบสำเร็จ</p>
-      <p th:if="${param.cannotDelete}" style="color: red; font-size: 20px; font-weight: bold">ไม่สามารลบรอบได้</p>
+      <p th:if="${param.cannotDelete}" style="color: red; font-size: 20px; font-weight: bold">ไม่สามารถลบรอบได้</p>
       <a th:href="@{/manager/menu/round/create/{name}(name=${plotId})}"><button class="createRound" id="createRound">สร้างรอบ</button></a>
     </div>
   </div>

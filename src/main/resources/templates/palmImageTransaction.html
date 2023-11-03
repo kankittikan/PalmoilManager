@@ -23,19 +23,12 @@
     <div class="title">รูป</div>
 </div>
 
-<div class="name">
-    <span th:text="${plotName}"></span>
-    <span th:text="${year}" style="margin-top: 5px;"></span>
-    <span th:text="${month}"></span>
-    <span th:text="${round}"></span>
-</div>
-
 <div class="main">
-    <img th:src="${imageName}" alt="">
+    <img th:src="${imgPath}" alt="" width="50%">
 </div>
 
 <div class="footer">
-    <a href="#"><button>กลับ</button></a>
+    <a th:href="${to}"><button>กลับ</button></a>
 </div>
 
 

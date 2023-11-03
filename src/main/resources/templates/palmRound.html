@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +12,12 @@
 <div class="nav">
     <ul>
         <li style="list-style: none;" sec:authorize="isAuthenticated()">
-            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span
+                    sec:authentication="name"></span></a>
         </li>
         <li style="list-style: none;">
-            <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+            <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;"
+               class="logout">ออกจากระบบ</a>
         </li>
     </ul>
 </div>
@@ -43,12 +46,18 @@
 </div>
 
 <div class="dropdown">
-    <select name="" id="">
-        <option value="0">เรียงตาม</option>
-        <option value="1">ประเภท</option>
-        <option value="0">วันที่ทำรายการ ใหม่ ไป เก่า</option>
-        <option value="0">วันที่ทำรายการ เก่า ไป ใหม่</option>
-    </select>
+    <form th:action="@{/manager/menu/round/manageRound/palm/{round}(round=${idRound})}" method="post">
+        <select name="type">
+            <option th:each="i : ${descriptions}" th:text="${i}"></option>
+        </select>
+
+        <select name="sort">
+            <option th:each="i : ${sorts}" th:text="${i}"></option>
+        </select>
+
+        <button>ค้นหา</button>
+    </form>
+
 </div>
 
 <div class="list">
@@ -67,19 +76,28 @@
             <td th:text="${#temporals.format(transaction.dateAdded, 'dd-MM-yyyy HH:mm')}"></td>
             <td th:text="${transaction.description.name}"></td>
             <td th:text="${transaction.value}"></td>
-            <td><a href="#"><button class="btnImg">มี</button></a></td>
-            <td><a th:href="@{/manager/menu/round/manageRound/palm/ConfirmDeleteTransaction/{idTransaction}(idTransaction=${transaction.idTransaction})}"><button class="btnDel">ลบรายการ</button></a></td>
+                <td><a th:if="${transaction.getImageLink()}" th:href="@{/manager/showImg(imgName=${transaction.getImageLink()}, from='palm', id=${idRound})}">
+                <button class="btnImg">ดูรูป</button>
+            </a></td>
+            <td>
+                <a th:href="@{/manager/menu/round/manageRound/palm/ConfirmDeleteTransaction/{idTransaction}(idTransaction=${transaction.idTransaction})}">
+                    <button class="btnDel">ลบรายการ</button>
+                </a></td>
         </tr>
 
     </table>
 </div>
 
 <div class="btn">
-    <a th:href="@{/manager/menu/round/manageRound/palm/create/{round}(round = ${idRound})}"><button>เพิ่มรายการ</button></a>
+    <a th:href="@{/manager/menu/round/manageRound/palm/create/{round}(round = ${idRound})}">
+        <button>เพิ่มรายการ</button>
+    </a>
 </div>
 
 <div class="footer">
-    <a th:href="@{/manager/menu/round/manageRound/{round}(round = ${idRound})}"><button>กลับ</button></a>
+    <a th:href="@{/manager/menu/round/manageRound/{round}(round = ${idRound})}">
+        <button>กลับ</button>
+    </a>
 </div>
 
 </body>

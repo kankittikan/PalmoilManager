@@ -21,6 +21,8 @@
 
 <div class="wrapper">
     <div class="title">จัดการแปลง</div>
+    <div th:if="${param.error}" style="color: red; text-align: center">ลบไม่ได้ ในแปลงยังมีรอบ</div>
+    <div th:if="${param.success}" style="color: green; text-align: center">ลบสำเร็จ</div>
 
     <div class="main">
         <div class="field">

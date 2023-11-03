@@ -1,5 +1,6 @@
 package ku.cs.palmoilmnger.config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,7 +34,7 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/afterlogin", true)
                         .permitAll()
                 )
-                .logout((logout)->logout
+                .logout((logout) -> logout
                         .logoutUrl("/logout")
                         .clearAuthentication(true)
                         .invalidateHttpSession(true)
@@ -44,8 +45,13 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder encoder(){
+    public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(12);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }
 

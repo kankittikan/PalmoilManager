@@ -17,20 +17,23 @@ public class PlantationService {
 
     @Autowired
     PlantationRepository plantationRepository;
+    @Autowired
+    WorkRoundService workRoundService;
 
     public void insertNew(PlantationDTO plantation) throws PlantationException {
-        if(plantation.getName().isEmpty() || plantation.getNumOfRaiUnit().isEmpty()) throw new PlantationException("กรอกข้อมูลไม่ครบ");
-        if(plantationRepository.findByName(plantation.getName()) != null) throw new PlantationException("มีชื่อแปลงในระบบแล้ว");
+        if (plantation.getName().isEmpty() || plantation.getNumOfRaiUnit().isEmpty())
+            throw new PlantationException("กรอกข้อมูลไม่ครบ");
+        if (plantationRepository.findByName(plantation.getName()) != null)
+            throw new PlantationException("มีชื่อแปลงในระบบแล้ว");
 
         int rai;
-        try{
+        try {
             rai = Integer.parseInt(plantation.getNumOfRaiUnit());
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new PlantationException("จำนวนไร่ต้องเป็นตัวเลข");
         }
 
-        if(rai <= 0) throw new PlantationException("จำนวนไร่ต้องมากกว่า 0");
+        if (rai <= 0) throw new PlantationException("จำนวนไร่ต้องมากกว่า 0");
 
         Plantation record = new Plantation();
         record.setName(plantation.getName());
@@ -40,21 +43,26 @@ public class PlantationService {
 
     public Plantation getPlantation(Integer id) throws PlantationException {
         Optional<Plantation> record = plantationRepository.findById(id);
-        if(record.isEmpty()) throw new PlantationException("ไม่พบแปลงในระบบ");
+        if (record.isEmpty()) throw new PlantationException("ไม่พบแปลงในระบบ");
         return record.get();
     }
 
     public Plantation getPlantationByName(String name) throws PlantationException {
         Plantation check = plantationRepository.findByName(name);
-        if(check == null) throw new PlantationException("ไม่พบแปลงในระบบ");
+        if (check == null) throw new PlantationException("ไม่พบแปลงในระบบ");
         return check;
     }
 
-    public List<Plantation> getAllPlantation(){
+    public List<Plantation> getAllPlantation() {
         return plantationRepository.findAll();
     }
 
-    public void deletePlantation(int id){
-        plantationRepository.deleteById(id);
+    public void deletePlantation(int id) throws PlantationException {
+        if (workRoundService.getRoundDTOListByPlantation(plantationRepository.findById(id).get()).isEmpty()) {
+            plantationRepository.deleteById(id);
+        }
+        else {
+            throw new PlantationException("ลบแปลงไม่ได้ มีรอบในแปลง");
+        }
     }
 }

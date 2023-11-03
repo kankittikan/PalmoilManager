@@ -43,12 +43,17 @@
 </div>
 
 <div class="dropdown">
-  <select name="" id="">
-    <option value="0">เรียงตาม</option>
-    <option value="1">ประเภท</option>
-    <option value="0">วันที่ทำรายการ ใหม่ ไป เก่า</option>
-    <option value="0">วันที่ทำรายการ เก่า ไป ใหม่</option>
-  </select>
+  <form th:action="@{/manager/menu/round/manageRound/fertilize/{round}(round=${idRound})}" method="post">
+    <select name="type">
+      <option th:each="i : ${descriptions}" th:text="${i}"></option>
+    </select>
+
+    <select name="sort">
+      <option th:each="i : ${sorts}" th:text="${i}"></option>
+    </select>
+
+    <button>ค้นหา</button>
+  </form>
 </div>
 
 <div class="list">
@@ -67,7 +72,9 @@
       <td th:text="${#temporals.format(transaction.dateAdded, 'dd-MM-yyyy HH:mm')}"></td>
       <td th:text="${transaction.description.name}"></td>
       <td th:text="${transaction.value}"></td>
-      <td><a href="#"><button class="btnImg">มี</button></a></td>
+      <td><a th:if="${transaction.getImageLink()}" th:href="@{/manager/showImg(imgName=${transaction.getImageLink()}, from='fertilize', id=${idRound})}">
+        <button class="btnImg">ดูรูป</button>
+      </a>
       <td><a th:href="@{/manager/menu/round/manageRound/fertilize/ConfirmDeleteTransaction/{idTransaction}(idTransaction=${transaction.idTransaction})}"><button class="btnDel">ลบรายการ</button></a></td>
     </tr>
 
