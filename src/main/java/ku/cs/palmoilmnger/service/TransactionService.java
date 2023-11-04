@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -59,7 +60,7 @@ public class TransactionService {
             transaction.setIdTransaction(workRound.getIdWorkRound() + String.format("%03d", count));
             transaction.setValue(number);
             transaction.setDescription(description);
-            transaction.setDateAdded(LocalDateTime.now());
+            transaction.setDateAdded(LocalDateTime.now(ZoneId.of("Asia/Bangkok")));
 
             // input image
             if (multipartFile.getSize() != 0) {
