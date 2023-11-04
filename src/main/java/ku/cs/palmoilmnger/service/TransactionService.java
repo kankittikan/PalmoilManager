@@ -99,6 +99,7 @@ public class TransactionService {
         }
 
         if (n < 0 || p < 0 || k < 0) throw new TransactionException("ตัวเลขห้ามติดลบ");
+        if (n > 99 || p > 99 || k > 99) throw new TransactionException("ตัวเลขห้ามเกิน 100");
 
         Description description = descriptionService.getDescriptionByName("สูตรปุ๋ย");
 

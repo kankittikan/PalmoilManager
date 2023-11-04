@@ -70,6 +70,7 @@ public class AdminManageUserController {
      */
     @GetMapping("/changePassword")
     public String getChangePasswordPage(Model model){
+        model.addAttribute("users", userService.getAllUsersRole("ROLE_MANAGER"));
         return "changePassword";
     }
 
