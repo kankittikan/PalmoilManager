@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link th:rel="stylesheet" th:href="@{/css/quarterSummary.css}"/>
-  <title>สรุปรายไตรมาตร</title>
+  <title>สรุปรายไตรมาส</title>
 </head>
 <body>
 
@@ -22,6 +22,8 @@
 <div class="wrapper">
   <div class="title">สรุปรายไตรมาส</div>
 
+  <div th:if="${param.error}" style="color: red">สร้างสรุปไม่ได้</div>
+
   <div class="main">
     <div class="header">
       <div class="name">
@@ -32,32 +34,28 @@
 
 
       <div class="item">
-        <select name="plotName" id="plotName">
-          <option value="0">แปลง</option>
-        </select>
-        <select name="year" id="year">
-          <option value="0">ปี</option>
-        </select>
-        <select name="quarter" id="quarter">
-          <option value="0">ไตรมาส</option>
-        </select>
+        <form th:action="@{/manager/summary/quarter}" method="post">
+          <select name="plotName">
+            <option th:each="plant : ${plantations}" th:text="${plant.name}"></option>
+          </select>
+          <select name="year">
+            <option th:each="y : ${years}" th:text="${y}"></option>
+          </select>
+          <select name="quarter">
+            <option th:each="q : ${quarters}" th:text="${q}"></option>
+          </select>
+          <a><button>ดูสรุป</button></a>
+        </form>
 
-        <a href="#"><button>ดูสรุป</button></a>
       </div>
     </div>
   </div>
 
-<!--  pdf option-->
-  <div class="pdf">
-    <iframe src="" style="margin-top: 2rem;"></iframe>
-  </div>
-
-
 </div>
+
 <div class="footer">
   <div class="btn">
     <a th:href="@{/manager/menu}"><button>กลับ</button></a>
-    <a href="#"><button class="download">ดาวน์โหลด</button></a>
   </div>
 </div>
 

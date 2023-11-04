@@ -47,8 +47,8 @@
 
     <select id="summarize-list" class="summarize-list" onchange="window.location.href=this.value">
       <option value="">สรุป</option>
-      <option th:value="@{/manager/menu/yearSummary}">สรุปรายปี</option>
-      <option th:value="@{/manager/menu/quarterSummary}">สรุปรายไตรมาตร</option>
+      <option value="/manager/summary/year">สรุปรายปี</option>
+      <option value="/manager/summary/quarter">สรุปรายไตรมาส</option>
     </select>
 
   </div>

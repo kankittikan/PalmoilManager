@@ -7,15 +7,13 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import ku.cs.palmoilmnger.entity.Plantation;
-import ku.cs.palmoilmnger.entity.Transaction;
-import ku.cs.palmoilmnger.entity.WorkRound;
+import ku.cs.palmoilmnger.model.SummaryDTO;
 import ku.cs.palmoilmnger.model.TransactionSummaryDTO;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public abstract class PDFExporter {
@@ -26,14 +24,16 @@ public abstract class PDFExporter {
     protected List<TransactionSummaryDTO> palmTransaction;
     protected List<TransactionSummaryDTO> fertilizerTransaction;
     protected List<TransactionSummaryDTO> trimTransaction;
+    protected SummaryDTO summaryDTO;
     protected Document document = new Document(PageSize.A4);
 
 
-    public PDFExporter(Plantation plantation, List<TransactionSummaryDTO> palmTransaction, List<TransactionSummaryDTO> fertilizerTransaction, List<TransactionSummaryDTO> trimTransaction) throws IOException {
+    public PDFExporter(Plantation plantation, List<TransactionSummaryDTO> palmTransaction, List<TransactionSummaryDTO> fertilizerTransaction, List<TransactionSummaryDTO> trimTransaction, SummaryDTO summaryDTO) throws IOException {
         this.plantation = plantation;
         this.palmTransaction = palmTransaction;
         this.fertilizerTransaction = fertilizerTransaction;
         this.trimTransaction = trimTransaction;
+        this.summaryDTO = summaryDTO;
 
         PdfWriter.getInstance(document, new FileOutputStream("storage/pdf/summary.pdf"));
         FontFactory.register("static/font/Kanit-Light.ttf", "Kanit");

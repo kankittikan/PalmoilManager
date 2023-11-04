@@ -18,6 +18,9 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private WorkRoundService workRoundService;
+
     private boolean isUsernameNotAvailable(String username){
         return userRepository.findByUsername(username) == null;
     }
@@ -68,6 +71,7 @@ public class UserService {
     // Delete User method
     public void deleteUser(String username){
         User user = this.getManager(username);
+
         userRepository.delete(user);
     }
 }

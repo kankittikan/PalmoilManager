@@ -13,13 +13,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class QuarterPDFExporter extends PDFExporter {
+public class AnnualPDFExporter extends PDFExporter {
+    private String year;
 
-    private final int quarter;
-
-    public QuarterPDFExporter(Plantation plantation, List<TransactionSummaryDTO> palmTransaction, List<TransactionSummaryDTO> fertilizerTransaction, List<TransactionSummaryDTO> trimTransaction, SummaryDTO summaryDTO, int quarter) throws IOException {
+    public AnnualPDFExporter(Plantation plantation, List<TransactionSummaryDTO> palmTransaction, List<TransactionSummaryDTO> fertilizerTransaction, List<TransactionSummaryDTO> trimTransaction, SummaryDTO summaryDTO, String year) throws IOException {
         super(plantation, palmTransaction, fertilizerTransaction, trimTransaction, summaryDTO);
-        this.quarter = quarter;
+        this.year = year;
     }
 
 
@@ -32,7 +31,7 @@ public class QuarterPDFExporter extends PDFExporter {
         timeStamp.setAlignment(Element.ALIGN_RIGHT);
         document.add(timeStamp);
         font.setSize(16);
-        Paragraph title = new Paragraph("สรุปผลการดำเนินงานรายไตรมาส " + quarter, font);
+        Paragraph title = new Paragraph("สรุปผลการดำเนินงานรายปี " + year, font);
         title.setAlignment(Element.ALIGN_CENTER);
         document.add(title);
         font.setSize(14);

@@ -22,5 +22,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 
     public Transaction findByIdTransaction(String idTransaction);
 
-    public List<Transaction> findByWorkRound_IdWorkRoundContainingAndDescription_WorkType_IdWorkType(String roundId, int workTypeId);
+    public List<Transaction> findByWorkRound_IdWorkRoundContainingAndDescription_WorkType_IdWorkTypeAndDescription_DescriptionType_NameContaining(String roundId, int workTypeId, String type);
 }

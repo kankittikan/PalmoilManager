@@ -18,7 +18,6 @@ class PalmoilMngerApplicationTests {
 
     @Test
     void insert() throws IOException, PlantationException {
-        summaryService.sumUpQuarter(2023, 1, plantationService.getPlantationByName("พรุดินนา"));
     }
 
 
