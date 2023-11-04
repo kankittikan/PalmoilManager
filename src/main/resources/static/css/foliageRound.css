@@ -98,6 +98,7 @@ a {
     margin-bottom: 1rem;
 }
 .dropdown select {
+    cursor: pointer;
     border: solid 1px rgb(202,202,202);
     background: white;
     color: rgb(102,102,102);
@@ -105,6 +106,26 @@ a {
     width: 13rem;
     height: 3rem;
     font-size: 2vh;
+}
+
+/*btn*/
+.dropdown button{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    width: 4rem;
+    height: 2rem;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: rgb(137,129,33);
+    transition: 0.35s;
+}
+.dropdown button:hover{
+    background-color: rgb(76,75,22);
+    transition: 0.35s;
 }
 
 /*list*/

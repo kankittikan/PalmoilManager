@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
 }
 
 /* nav */
@@ -58,12 +59,13 @@ a {
     align-items: center;
     justify-content: center;
 }
+.wrapper .main .field table tr th{
+    padding: 1rem;
+}
 @media only screen and (max-width: 570px){
     .wrapper .main .field table tr td {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 10px;
+        padding-right: 10px;
         font-size: 14px !important;
     }
         .wrapper .main .field table th {
@@ -160,25 +162,15 @@ a {
 .wrapper .main .field {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    margin-left: 4vw;
-    margin-right: 3vw;
     border: solid 1px rgb(202,202,202);
     border-radius: 8px;
     background-color: white;
     color: rgb(153,153,153);
-<<<<<<< HEAD
     overflow: scroll;
-    height: 500px;
-=======
+    height: 400px;
     width: 32rem;
->>>>>>> 39aef3230f3a1d48053dd839a26a13c5b490508e
 }
 .wrapper .main .field tr th, td {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 2rem;
-    padding-right: 2rem;
     font-size: 2.5vh;
     border-bottom: 1px solid #ddd;
 }
@@ -186,6 +178,15 @@ a {
     cursor: pointer;
     text-align: center;
     color: rgb(102,102,102);
+    height: 1rem;
+    padding: 0 30px 0 30px;
+}
+.wrapper .main .field table th{
+    padding: 1rem 0 1rem 0;
+    cursor: pointer;
+    text-align: center;
+    color: rgb(102,102,102);
+    height: 10px;
 }
 
 /*button*/
@@ -194,6 +195,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-item: center;
+    margin-left: 10px;
 }
 .wrapper .main .btn button{
     cursor: pointer;

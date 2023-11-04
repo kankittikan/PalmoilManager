@@ -59,7 +59,8 @@ a {
 .wrapper .main {
     border: solid 1px rgb(202,202,202);
     border-radius: 10px;
-    width: 70vw;
+    width: 60vw;
+    margin: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,6 +93,7 @@ a {
     margin-left: 1px;
 }
 .wrapper .main .header .item select{
+    cursor: pointer;
     margin-right: 1rem;
     margin-left: 1rem;
     margin-bottom: 2rem;
@@ -99,6 +101,8 @@ a {
     border: solid 1px rgb(194,194,194);
     border-radius: 10px;
     color: rgb(102,102,102);
+    font-size: 17px;
+    font-weight: bold;
 
     width: 8rem;
     height: 3rem;

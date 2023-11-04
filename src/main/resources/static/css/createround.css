@@ -55,8 +55,7 @@ a {
 
 .wrapper .head {
     display: flex;
-    justify-content: left;
-    margin-left: 15vw;
+    justify-content: center;
     align-item: center;
 }
 /*name*/
@@ -165,6 +164,11 @@ a {
 }
 .main .btn button:hover{
     background-color: rgb(76,75,22);
+    transition: 0.35s;
+}
+
+.main .btn a .back:hover{
+    background-color: rgb(253,193,0) !important;
     transition: 0.35s;
 }
 @media only screen and (max-width: 400px){

@@ -69,6 +69,7 @@ a {
 .wrapper .head .btn {
     margin-left: 33vw;
     margin-top: 3px;
+    align-items: center;
 }
 /*year drop down*/
 .wrapper .head .btn .year-list{
@@ -88,6 +89,26 @@ a {
 .wrapper .main {
     display: flex;
     flex-direction: row;
+}
+
+/*search button*/
+.wrapper .head .searchButton{
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    background-color: rgb(137,129,33);
+    border-radius: 6px;
+    width: 4rem;
+    height: 2rem;
+    margin-top: 5px;
+    font-size: 1.8vh;
+    color: white;
+    margin-left: 5px;
+    transition: 0.35s;
+}
+.wrapper .head .searchButton:hover{
+    background-color: rgb(76,75,22);
+    transition: 0.35s;
 }
 
 @media only screen and (max-width: 800px){
@@ -137,6 +158,7 @@ a {
 /*delete btn*/
 .wrapper .main .table-round tr td .deleteBtn{
     background-color: tomato;
+    color: white;
 }
 .wrapper .main .table-round tr td .deleteBtn a{
     color: white;
@@ -148,13 +170,13 @@ a {
 /*manage btn*/
 .wrapper .main .table-round tr td .manageRound{
     background-color: gray;
+    color: white;
 }
 .wrapper .main .table-round tr td .manageRound a{
     color: white;
 }
 .wrapper .main .table-round tr td .manageRound:hover{
     transition: 0.35s;
-    color: black;
     background-color: rgb(102,102,102);
 }
 
@@ -234,7 +256,7 @@ a {
 }
 @media only screen and (max-width: 380px){
     .wrapper .head .plot-name{
-        font-size: 10px;
+        font-size: 18px;
         font-weight: bold;
     }
     .wrapper .main .table-round tr th, td {

@@ -84,6 +84,10 @@ a {
     width: 220px;
 }
 .wrapper .main .field table td button{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
     background-color: tomato;
     transition: 0.35s;
     border-radius: 10px;

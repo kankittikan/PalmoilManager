@@ -35,7 +35,7 @@
           <option th:each="y : ${months}" th:text="${y}"></option>
         </select>
 
-        <button>ค้นหา</button>
+        <button class="searchButton">ค้นหา</button>
       </div>
     </form>
 
@@ -59,13 +59,6 @@
           <td><a th:href="@{/manager/menu/round/manageRound/{id}(id=${round.idWorkRound})}"><button class="manageRound">จัดการรอบ</button></a></td>
           <td><a th:href="@{/manager/menu/round/ConfirmDeleteRound/{id}(id=${round.idWorkRound})}"><button class="deleteBtn">ลบรอบ</button></a></td>
         </tr>
-<!--        <tr>-->
-<!--          <td>2023</td>-->
-<!--          <td>มิถุนายน</td>-->
-<!--          <td>1</td>-->
-<!--          <td><button class="manageRound"><a href="#">จัดการรอบ</a></button></td>-->
-<!--          <td><button class="deleteBtn"><a href="#">ลบรอบ</a></button></td>-->
-<!--        </tr>-->
 
       </table>
     </div>

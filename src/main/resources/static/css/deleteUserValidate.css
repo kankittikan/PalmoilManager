@@ -130,6 +130,10 @@ a {
     transition: 0.35s;
     margin-bottom: 10px;
 }
+.wrapper .btn .enter {
+    color: white;
+    background-color: rgb(137,129,33);
+}
 .wrapper .btn .cancel a{
     color: black;
 }

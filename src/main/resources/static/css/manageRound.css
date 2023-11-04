@@ -58,25 +58,23 @@ a {
 /*main*/
 .wrapper .main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 /*plot*/
 .wrapper .main .plot{
     display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
-.wrapper .main div{
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-    margin-right: 6vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .wrapper .main div span{
     font-size: 2.5vh;
     font-weight: bold;
     color: rgb(102,102,102);
+    margin: 1rem 1rem 1rem 1rem;
 }
 
 /*btn*/
@@ -113,13 +111,18 @@ a {
         margin-bottom: 1rem;
     }
 }
-@media only screen and (max-width: 300px){
+@media only screen and (max-width: 430px){
     .wrapper .main .btn button{
         font-size: 2vh;
         height: 50px;
         width: 8rem;
         margin-top: 2rem;
         margin-bottom: 1rem;
+    }
+    /*plot*/
+    .wrapper .main div span{
+        font-size: 2vh;
+        margin: 0 10px 0 10px;
     }
 }
 

@@ -13,6 +13,17 @@
     <li style="list-style: none;" sec:authorize="isAuthenticated()">
       <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
     </li>
+
+    <li>
+      <div class="btn">
+        <select id="summarize-list" class="summarize-list" onchange="window.location.href=this.value">
+          <option value="">สรุป</option>
+          <option value="/manager/summary/year">สรุปรายปี</option>
+          <option value="/manager/summary/quarter">สรุปรายไตรมาส</option>
+        </select>
+      </div>
+    </li>
+
     <li style="list-style: none;">
       <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
     </li>
@@ -20,12 +31,12 @@
 </div>
 
   <div class="wrapper">
-    <div class="title"><p>เลือกเแปลง</p></div>
+    <div class="title"><p>เลือกแปลง</p></div>
 
     <div class="main">
 
       <div class="card" th:each="plot : ${plots}">
-        <div class="plot-img"><img th:src="@{/images/cat.png}" /></div>
+        <div class="plot-img"><img th:src="@{/images/palmBack.jpeg}" /></div>
         <div class="plot-name"><span th:text="${plot.name}"></span></div>
 
         <hr style="background-color: rgb(202,202,202)">
@@ -43,15 +54,6 @@
   </div>
 
 
-  <div class="btn">
-
-    <select id="summarize-list" class="summarize-list" onchange="window.location.href=this.value">
-      <option value="">สรุป</option>
-      <option value="/manager/summary/year">สรุปรายปี</option>
-      <option value="/manager/summary/quarter">สรุปรายไตรมาส</option>
-    </select>
-
-  </div>
 
 </body>
 </html>
