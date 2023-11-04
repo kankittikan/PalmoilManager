@@ -89,6 +89,13 @@ a {
     color: rgb(102,102,102);
 }
 
+/*error*/
+.error{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
 /*btn*/
 .btn {
     display: flex;

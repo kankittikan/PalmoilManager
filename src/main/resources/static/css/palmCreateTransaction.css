@@ -186,6 +186,13 @@ a {
     transition: 0.35s;
 }
 
+/*error*/
+.error{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
 /*footer*/
 .footer a button{
     cursor: pointer;

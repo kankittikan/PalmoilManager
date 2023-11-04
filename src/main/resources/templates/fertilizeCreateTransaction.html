@@ -32,9 +32,6 @@
         <span th:text="${round}"></span>
     </div>
 
-    <div class="wrapper" th:if="${param.notice}" >
-        <p th:text="${param.notice}" style="color: red; font-weight: bold; font-size: 20px"></p>
-    </div>
 
     <form class="inputMain" method="post" enctype="multipart/form-data" th:action="@{/manager/menu/round/manageRound/fertilize/create/{round}(round=${idRound})}">
         <div>
@@ -62,6 +59,10 @@
 
     </form>
 
+</div>
+
+<div class="error" th:if="${param.notice}" >
+    <p th:text="${param.notice}" style="color: red; font-weight: bold; font-size: 20px"></p>
 </div>
 
 <div class="footer">

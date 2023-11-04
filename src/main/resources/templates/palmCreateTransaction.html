@@ -55,12 +55,10 @@
     <div class="btn">
       <a href="#"><button type="submit">เพิ่มรายการ</button></a>
     </div>
-
+  </form>
 </div>
 
-  </form>
-
-<div class="wrapper" th:if="${param.notice}" >
+<div class="error" th:if="${param.notice}" >
   <p th:text="${param.notice}" style="color: red; font-weight: bold; font-size: 20px"></p>
 </div>
 
