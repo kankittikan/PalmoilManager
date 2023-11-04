@@ -37,7 +37,7 @@ public class AdminManageUserController {
         else {
             try {
                 userService.createManager(user);
-                return "redirect:/admin/manageUser";
+                return "redirect:/admin/manageUser?addSuccess";
             } catch (UserException e) {
                 model.addAttribute("createError", e.getMessage());
             }
@@ -61,8 +61,12 @@ public class AdminManageUserController {
 
     @PostMapping("/remove/{username}")
     public String removeUserHandler(@PathVariable String username){
-        userService.deleteUser(username);
-        return "redirect:/admin/manageUser";
+        try {
+            userService.deleteUser(username);
+        } catch (UserException e) {
+            return "redirect:/admin/manageUser/remove/{username}?error";
+        }
+        return "redirect:/admin/manageUser?removeSuccess";
     }
 
     /*
@@ -78,7 +82,7 @@ public class AdminManageUserController {
     public String changePasswordHandler(Model model, @ModelAttribute ChangePassword changePassword){
         try {
             userService.changePassword(changePassword);
-            return "redirect:/admin/manageUser";
+            return "redirect:/admin/manageUser?changeSuccess";
         } catch (UserException e) {
             model.addAttribute("error", e.getMessage());
         }

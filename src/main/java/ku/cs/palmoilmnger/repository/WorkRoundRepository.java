@@ -2,6 +2,7 @@ package ku.cs.palmoilmnger.repository;
 
 import ku.cs.palmoilmnger.entity.Plantation;
 import ku.cs.palmoilmnger.entity.Transaction;
+import ku.cs.palmoilmnger.entity.User;
 import ku.cs.palmoilmnger.entity.WorkRound;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,5 +26,7 @@ public interface WorkRoundRepository extends JpaRepository<WorkRound, String> {
 //    public String maxValueByTime(@Param("time") String time, @Param("idPlant") int idPlant);
 
     List<WorkRound> findByPlantation_IdPlantationAndIdWorkRoundContains(int idPlant, String idWorkRound);
+
+    List<WorkRound> findByUser(User user);
 
 }

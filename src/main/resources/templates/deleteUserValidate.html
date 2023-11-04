@@ -29,6 +29,8 @@
         <p>ยืนยันการลบผู้ใช้</p>
       </div>
 
+      <div th:if="${param.error}" style="color: red; text-align: center">ลบไม่ได้ มีรอบที่ผู้ใช้ทำงานอยู่</div>
+
       <hr>
 
       <div class="data">

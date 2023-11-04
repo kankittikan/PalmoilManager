@@ -22,6 +22,11 @@
 <div class="wrapper">
   <div class="title">จัดการผู้ใช้</div>
 
+  <div th:if="${param.addSuccess}" style="color: green; text-align: center">เพิ่มผู้ใช้สำเร็จ</div>
+  <div th:if="${param.removeSuccess}" style="color: green; text-align: center">ลบผู้ใช้สำเร็จ</div>
+  <div th:if="${param.changeSuccess}" style="color: green; text-align: center">เปลี่ยนรหัสผ่านผู้ใช้สำเร็จ</div>
+
+
   <div class="main">
     <div class="field" style="overflow: scroll">
       <table>
