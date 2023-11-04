@@ -44,20 +44,21 @@
       <p>จำนวน</p>
       <input type="text" class="number" name="numberOfTransaction">
     </div>
+
+    <div class="add">
+      <div>
+        <p>รูป</p>
+        <input type="file" accept="image/png,image/jpeg,image/jpg" name="multipartFile">
+      </div>
+    </div>
+
+    <div class="btn">
+      <a href="#"><button type="submit">เพิ่มรายการ</button></a>
+    </div>
+
+</div>
+
   </form>
-
-<div class="add">
-  <div>
-    <p>รูป</p>
-    <input type="file" accept="image/png,image/jpeg,image/jpg" name="multipartFile">
-  </div>
-</div>
-
-  <div class="btn">
-    <a href="#"><button type="submit">เพิ่มรายการ</button></a>
-  </div>
-
-</div>
 
 <div class="wrapper" th:if="${param.notice}" >
   <p th:text="${param.notice}" style="color: red; font-weight: bold; font-size: 20px"></p>
