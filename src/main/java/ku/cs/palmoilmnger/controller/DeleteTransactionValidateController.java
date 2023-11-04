@@ -60,7 +60,7 @@ public class DeleteTransactionValidateController {
         Transaction transaction = transactionService.getTransactionById(idTransaction);
         WorkRound workRound = transaction.getWorkRound();
         transactionService.deleteTransaction(transaction);
-        System.out.println(workRound.getIdWorkRound());
+        //System.out.println(workRound.getIdWorkRound());
         return "redirect:/manager/menu/round/manageRound/palm/" + workRound.getIdWorkRound() + "?delete";
     }
 
@@ -69,7 +69,7 @@ public class DeleteTransactionValidateController {
         Transaction transaction = transactionService.getTransactionById(idTransaction);
         WorkRound workRound = transaction.getWorkRound();
         transactionService.deleteTransaction(transaction);
-        System.out.println(workRound.getIdWorkRound());
+        //System.out.println(workRound.getIdWorkRound());
         return "redirect:/manager/menu/round/manageRound/fertilize/" + workRound.getIdWorkRound() + "?delete";
     }
 
@@ -78,7 +78,7 @@ public class DeleteTransactionValidateController {
         Transaction transaction = transactionService.getTransactionById(idTransaction);
         WorkRound workRound = transaction.getWorkRound();
         transactionService.deleteTransaction(transaction);
-        System.out.println(workRound.getIdWorkRound());
+        //System.out.println(workRound.getIdWorkRound());
         return "redirect:/manager/menu/round/manageRound/foliage/" + workRound.getIdWorkRound() + "?delete";
     }
 }

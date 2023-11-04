@@ -40,7 +40,8 @@ public class SummaryController {
         try {
             summaryService.sumUpAnnual(summaryAnnualDTO);
         } catch (IOException | PlantationException e) {
-            return "redirect:/manager/summary/quarter?error";
+            //System.out.println(e.getMessage());
+            return "redirect:/manager/summary/year?error";
         }
         return "redirect:/pdf/summary.pdf";
     }

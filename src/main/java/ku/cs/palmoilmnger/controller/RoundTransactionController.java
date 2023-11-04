@@ -59,10 +59,10 @@ public class RoundTransactionController {
         WorkRound workRound = workRoundService.findById(round);
         RoundDTO roundDTO = workRoundService.transformToRoundDTO(workRound.getIdWorkRound());
 
-        System.out.println(workTypeService.getAllWorkTypes());
+        //System.out.println(workTypeService.getAllWorkTypes());
 
         List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ตัดแต่งทางใบ"));
-        System.out.println(descriptions);
+        //System.out.println(descriptions);
 
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());
@@ -81,7 +81,7 @@ public class RoundTransactionController {
         // System.out.println(workTypeService.getAllWorkTypes());
 
         List<Description> descriptions = descriptionService.getDescriptionsByWorkType(workTypeService.getWorkType("ใส่ปุ๋ย"));
-        System.out.println(descriptions);
+        //System.out.println(descriptions);
 
         model.addAttribute("idRound", roundDTO.getIdWorkRound());
         model.addAttribute("plotName", workRound.getPlantation().getName());

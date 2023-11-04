@@ -41,7 +41,7 @@ public class DeleteRoundValidateController {
         try {
             workRoundService.deleteRound(idRound);
         } catch (WorkRoundException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return "redirect:/manager/menu/round/"+plotId+"?cannotDelete";
         }
         return "redirect:/manager/menu/round/"+plotId+"?delete";

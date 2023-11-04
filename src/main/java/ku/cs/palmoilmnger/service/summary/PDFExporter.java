@@ -11,6 +11,7 @@ import ku.cs.palmoilmnger.model.SummaryDTO;
 import ku.cs.palmoilmnger.model.TransactionSummaryDTO;
 
 import java.awt.*;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,6 +36,8 @@ public abstract class PDFExporter {
         this.trimTransaction = trimTransaction;
         this.summaryDTO = summaryDTO;
 
+        File directory = new File("storage/pdf");
+        directory.mkdirs();
         PdfWriter.getInstance(document, new FileOutputStream("storage/pdf/summary.pdf"));
         FontFactory.register("static/font/Kanit-Light.ttf", "Kanit");
     }
