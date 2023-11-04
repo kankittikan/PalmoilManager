@@ -40,6 +40,10 @@ input {
     padding-bottom: 3rem;
 }
 
+.wrapper .text-center{
+    color: tomato;
+}
+
 @media only screen and (max-width: 650px){
     input {
         width: 20rem;
