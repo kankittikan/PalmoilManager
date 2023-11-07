@@ -71,8 +71,8 @@ public class AnnualPDFExporter extends PDFExporter {
         document.add(new Paragraph(String.format("%-20s%21.2f", "รวมรายรับ", summaryDTO.getSumOfIncome()) + "  บาท", font));
         document.add(new Paragraph(String.format("%-20s%27.2f", "รวมน้ำหนัก", summaryDTO.getSumOfWeight()) + "  ตัน", font));
         document.add(new Paragraph("\n"));
-        document.add(new Paragraph(String.format("%-20s%25.2f", "กำไรสุทธิ", summaryDTO.getNp()) + "  บาท", font));
-        document.add(new Paragraph(String.format("%-20s%27.2f", "อัตรากำไรสุทธิ", summaryDTO.getNpm()) + "  %", font));
+        document.add(new Paragraph(String.format("%-20s%25.2f", "กำไรสุทธิจากการดำเนินงาน", summaryDTO.getNp()) + "  บาท", font));
+        document.add(new Paragraph(String.format("%-20s%27.2f", "อัตรากำไรสุทธิจากการดำเนินงาน", summaryDTO.getNpm()) + "  %", font));
         document.add(new Paragraph(String.format("%-20s%26.2f", "อัตราผลผลิต", summaryDTO.getProductivityRate()) + "  ตันต่อไร่", font));
         document.close();
     }
