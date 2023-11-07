@@ -53,7 +53,7 @@ public class WorkRoundController {
 
         List<String> months = new ArrayList<>();
         for(int i = 1; i<=12; i++) {
-            months.add(String.valueOf(i));
+            months.add(String.format("%02d", i));
         }
         months.add(0, "ทุกเดือน");
 
@@ -80,7 +80,7 @@ public class WorkRoundController {
 
         List<String> months = new ArrayList<>();
         for(int i = 1; i<=12; i++) {
-            months.add(String.valueOf(i));
+            months.add(String.format("%02d", i));
         }
         months.add(0, "ทุกเดือน");
 
