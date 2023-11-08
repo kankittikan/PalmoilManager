@@ -3,6 +3,7 @@ package ku.cs.palmoilmnger.service;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import ku.cs.palmoilmnger.entity.Plantation;
 import ku.cs.palmoilmnger.exception.PlantationException;
+import ku.cs.palmoilmnger.exception.UserException;
 import ku.cs.palmoilmnger.model.PlantationDTO;
 import ku.cs.palmoilmnger.repository.PlantationRepository;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @Service
 public class PlantationService {
@@ -34,6 +36,10 @@ public class PlantationService {
         }
 
         if (rai <= 0) throw new PlantationException("จำนวนไร่ต้องมากกว่า 0");
+        if (rai > 100) throw new PlantationException("จำนวนไร่ต้องต่ำกว่า 100");
+
+        if(Pattern.compile("[\"\',/]").matcher(plantation.getName()).find()) throw new PlantationException("ชื่อแปลงห้ามมี / \" \'");
+        if(plantation.getName().length() < 3) throw new PlantationException("ชื่อแปลงห้ามน้อยกว่า 3 ตัว");
 
         Plantation record = new Plantation();
         record.setName(plantation.getName());

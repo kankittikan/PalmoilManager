@@ -24,6 +24,9 @@ public class WorkRoundService {
     @Autowired
     TransactionRepository transactionRepository;
 
+    @Autowired
+    DateTimeService dateTimeService;
+
 
 //    public void insertNew(WorkRound workRound) {
 //        workRoundRepository.save(workRound);
@@ -90,7 +93,7 @@ public class WorkRoundService {
             throw new WorkRoundException("ยังไม่ได้เลือกเดือน");
         }
         int year = Integer.parseInt(roundDTO.getYear());
-        int month = Integer.parseInt(roundDTO.getMonth());
+        int month = dateTimeService.getMonthTextToNumber(roundDTO.getMonth());
         String idRound = String.format("%03d%04d%02d", plantation.getIdPlantation(), year, month);
 
         // Get round By counting workRoundList

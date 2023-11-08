@@ -37,26 +37,13 @@
       <hr>
       <form method="post" th:action="@{/manager/menu/round/create/{name}(name=${plotId})}">
         <div class="field">
-          <select name="year" id="yearField" class="yearField">
-            <option value="0">เลือกปี</option>
+          <select name="year" id="yearField" class="yearField" th:onchange="'window.location.href = \'' + @{/manager/menu/round/create/{id}(id=${plotId})} + '/\' + this.value ' ">
             <!--        add by frontend-->
             <option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
           </select>
 
           <select name="month" id="monthField" class="monthField">
-            <option value="0">เลือกเดือน</option>
-            <option th:value="1">มกราคม</option>
-            <option th:value="2">กุมภาพันธ์</option>
-            <option th:value="3">มีนาคม</option>
-            <option th:value="4">เมษายน</option>
-            <option th:value="5">พฤษภาคม</option>
-            <option th:value="6">มิถุนายน</option>
-            <option th:value="7">กรกฎาคม</option>
-            <option th:value="8">สิงหาคม</option>
-            <option th:value="9">กันยายน</option>
-            <option th:value="10">ตุลาคม</option>
-            <option th:value="11">พฤศจิกายน</option>
-            <option th:value="12">ธันวาคม</option>
+            <option th:each="m : ${months}" th:text="${m}"></option>
           </select>
         </div>
 

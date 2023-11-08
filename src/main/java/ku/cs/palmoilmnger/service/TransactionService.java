@@ -55,6 +55,10 @@ public class TransactionService {
                 if (!transactionRepository.findByWorkRoundAndDescription(workRound, description).isEmpty())
                     throw new TransactionException("รายการนี้ซ้ำไม่ได้");
             }
+            if(description.getName().contains("บาท") && number >= 1000000) throw new TransactionException("จำนวนเงินห้ามเกิน 1 ล้านบาท");
+            if(description.getName().contains("ตัน") && number >= 15) throw new TransactionException("น้ำหนักห้ามเกิน 15 ตัน");
+            if(description.getName().contains("บาท/กก") && number >= 20) throw new TransactionException("ราคาปาล์มห้ามเกิน 20 บาท/กก");
+            if(description.getName().contains("กก") && number >= 30000) throw new TransactionException("ปริมาณปุ๋ยห้ามเกิน 30 ตัน");
 
             Transaction transaction = new Transaction();
             transaction.setIdTransaction(workRound.getIdWorkRound() + String.format("%03d", count));

@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
 public class UserService {
@@ -35,6 +36,15 @@ public class UserService {
     public void createManager(User user) throws UserException {
         if (!isNameNotAvailable(user.getName())) throw new UserException("ชื่อมีในระบบแล้ว");
         if (!isUsernameNotAvailable(user.getUsername())) throw new UserException("ชื่อผู้ใช้มีในระบบแล้ว");
+
+        if(user.getUsername().length() < 3) throw new UserException("ชื่อผู้ใช้ต้องมีอย่างน้อย 3 ตัว");
+        if(user.getName().length() < 3) throw new UserException("ชื่อจริงต้องมีอย่างน้อย 3 ตัว");
+        if(user.getPassword().length() < 3) throw new UserException("รหัสผ่านต้องมีอย่างน้อย 3 ตัว");
+
+        if(Pattern.compile("[\"\',/]").matcher(user.getUsername()).find()) throw new UserException("ชื่อผู้ใช้ห้ามประกอบด้วยตัวอักษรพิเศษ \" \'");
+        if(Pattern.compile("[0-9]").matcher(user.getName()).find()) throw new UserException("ชื่อจริงห้ามมีตัวเลข");
+        if(Pattern.compile("  +").matcher(user.getName()).find()) throw new UserException("ชื่อจริงห้ามช่องว่างเกิน 1 ช่อง");
+        if(Pattern.compile(" *").matcher(user.getPassword()).find()) throw new UserException("รหัสผ่านห้ามมีช่องว่าง");
 
         User record = new User();
         record.setName(user.getName());

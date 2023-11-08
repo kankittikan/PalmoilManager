@@ -97,11 +97,19 @@ public class WorkRoundController {
         return "round";
     }
 
-    @GetMapping("/menu/round/create/{id}")
-    public String getCreateRoundPage(Model model, @PathVariable int id) throws PlantationException {
+    @GetMapping("/menu/round/create/{id}/{year}")
+    public String getCreateRoundPage(Model model, @PathVariable int id, @PathVariable int year) throws PlantationException {
         Plantation checkPlant = plantationService.getPlantation(id);
 
-        model.addAttribute("years", dateTimeService.getYearListByRange(10));
+        List<Integer> years = dateTimeService.getYearListByRange(10);
+        if(year == dateTimeService.getYear()) {
+            model.addAttribute("months", dateTimeService.getAllMonthByNow());
+        }
+        else {
+            model.addAttribute("months", dateTimeService.getAllMonth());
+            years.add(0, year);
+        }
+        model.addAttribute("years", years);
         model.addAttribute("plotName", checkPlant.getName());
         model.addAttribute("plotId", checkPlant.getIdPlantation());
         return "createRound";
