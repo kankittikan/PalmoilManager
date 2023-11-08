@@ -41,10 +41,12 @@ public class UserService {
         if(user.getName().length() < 3) throw new UserException("ชื่อจริงต้องมีอย่างน้อย 3 ตัว");
         if(user.getPassword().length() < 3) throw new UserException("รหัสผ่านต้องมีอย่างน้อย 3 ตัว");
 
-        if(Pattern.compile("[\"\',/]").matcher(user.getUsername()).find()) throw new UserException("ชื่อผู้ใช้ห้ามประกอบด้วยตัวอักษรพิเศษ \" \'");
+        if(Pattern.compile("[\"\'/]").matcher(user.getUsername()).find()) throw new UserException("ชื่อผู้ใช้ห้ามประกอบด้วยตัวอักษรพิเศษ \" \' /");
+        if(Pattern.compile(" ").matcher(user.getUsername()).find()) throw new UserException("ชื่อผู้ใช้ห้ามมีเว้นว่าง");
         if(Pattern.compile("[0-9]").matcher(user.getName()).find()) throw new UserException("ชื่อจริงห้ามมีตัวเลข");
+        if(Pattern.compile("[\"\'/]").matcher(user.getName()).find()) throw new UserException("ชื่อจริงห้ามประกอบด้วยตัวอักษรพิเศษ \" \' /");
         if(Pattern.compile("  +").matcher(user.getName()).find()) throw new UserException("ชื่อจริงห้ามช่องว่างเกิน 1 ช่อง");
-        if(Pattern.compile(" *").matcher(user.getPassword()).find()) throw new UserException("รหัสผ่านห้ามมีช่องว่าง");
+        if(Pattern.compile(" +").matcher(user.getPassword()).find()) throw new UserException("รหัสผ่านห้ามมีช่องว่าง");
 
         User record = new User();
         record.setName(user.getName());
@@ -73,9 +75,12 @@ public class UserService {
     public void changePassword(ChangePassword changePassword) throws UserException {
         if (!changePassword.getPassword().equals(changePassword.getConfirmPassword()))
             throw new UserException("รหัสผ่านไม่ตรงกัน");
-
+    
         User record = userRepository.findByUsername(changePassword.getUsername());
         if (record == null) throw new UserException("ไม่พบผู้ใช้ในระบบ");
+        if(changePassword.getPassword().length() < 3) throw new UserException("รหัสผ่านต้องมีอย่างน้อย 3 ตัว");
+
+        if(Pattern.compile(" +").matcher(changePassword.getPassword()).find()) throw new UserException("รหัสผ่านห้ามมีช่องว่าง");
 
         String hashed = passwordEncoder.encode(changePassword.getPassword());
         record.setPassword(hashed);

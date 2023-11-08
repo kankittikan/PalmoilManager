@@ -85,6 +85,7 @@ public class AdminManageUserController {
             return "redirect:/admin/manageUser?changeSuccess";
         } catch (UserException e) {
             model.addAttribute("error", e.getMessage());
+            model.addAttribute("users", userService.getAllUsersRole("ROLE_MANAGER"));
         }
         return "changePassword";
     }
