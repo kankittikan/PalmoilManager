@@ -36,7 +36,7 @@ public class PlantationService {
         }
 
         if (rai <= 0) throw new PlantationException("จำนวนไร่ต้องมากกว่า 0");
-        if (rai > 100) throw new PlantationException("จำนวนไร่ต้องต่ำกว่า 100");
+        if (rai >= 100) throw new PlantationException("จำนวนไร่ต้องต่ำกว่า 100");
 
         if(Pattern.compile("[\"\',/]").matcher(plantation.getName()).find()) throw new PlantationException("ชื่อแปลงห้ามมี / \" \'");
         if(plantation.getName().length() < 3) throw new PlantationException("ชื่อแปลงห้ามน้อยกว่า 3 ตัว");
