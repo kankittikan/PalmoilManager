@@ -59,7 +59,7 @@ public class TransactionService {
             if(description.getName().contains("ตัน") && number > 15) throw new TransactionException("น้ำหนักห้ามเกิน 15 ตัน");
             if(description.getName().contains("บาท/กก") && number > 20) throw new TransactionException("ราคาปาล์มห้ามเกิน 20 บาท/กก");
             if(description.getName().contains("กก")) {
-                int maxWeight = (workRound.getPlantation().getNumOfRaiUnit() * 21) * 3;
+                int maxWeight = (workRound.getPlantation().getNumOfRaiUnit() * 21) * 4;
                 if(number > maxWeight) throw new TransactionException("ปริมาณปุ๋ยห้ามเกิน " + maxWeight + " กก ในแปลงนี้");
             }
 
