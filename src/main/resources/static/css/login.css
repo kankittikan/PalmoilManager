@@ -1,0 +1,119 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'poppins',sans-serif;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .title {
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 7rem;
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.wrapper .row{
+    height: 60px;
+    margin-bottom: 3rem;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+input {
+    width: 35rem;
+    height: 3rem;
+    background-color: rgb(252,252,252);
+    border: solid 1px rgb(194,194,194);
+    border-radius: 10px;
+
+    font-size: 3vh;
+    padding: 26px;
+}
+.wrapper .row-btn input{
+    width: 35rem;
+    padding-bottom: 3rem;
+}
+
+.wrapper .text-center{
+    color: tomato;
+}
+
+@media only screen and (max-width: 650px){
+    input {
+        width: 20rem;
+    }
+    .wrapper .row-btn .btn{
+        width: 20rem;
+        height: 3.5rem0
+    }
+    .wrapper .title {
+        font-size: 4vh;
+        font-weight: bold;
+    }
+
+}
+@media only screen and (max-width: 400px){
+    input {
+        width: 20rem;
+    }
+    .wrapper .row-btn .btn{
+        width: 20rem;
+        height: 3.5rem0
+    }
+    .wrapper .title {
+        font-size: 3vh;
+        font-weight: bold;
+    }
+
+}
+@media only screen and (max-width: 350px){
+    .wrapper .main .title p{
+    font-size: 3vh;
+    }
+    input {
+        width: 16rem;
+    }
+    .wrapper .row-btn .btn{
+        width: 16rem;
+        height: 3.5rem0
+    }
+    .wrapper .title {
+        font-size: 2.5vh;
+        font-weight: bold;
+    }
+
+}
+
+.wrapper .row-btn .btn {
+    background: rgb(137,129,33);
+    color: white;
+    border: none;
+    font-size: 2.5vh;
+    transition: 0.35s
+}
+.wrapper .row-btn .btn:hover {
+    font-weight: bolder;
+    background-color: rgb(76,75,22);
+    transition: 0.35s
+}
+
+.wrapper .row .error-username {
+    color: tomato;
+    margin-top: 3px;
+    padding-left: 2px;
+    margin-left: 10px;
+    border-left: 2px solid tomato;
+}
+.wrapper .row .error-password {
+    color: tomato;
+    padding-left: 2px;
+    margin-top: 3px;
+    margin-left: 10px;
+    border-left: 2px solid tomato;
+}

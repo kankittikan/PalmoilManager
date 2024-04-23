@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/foliageImageTransaction.css}"/>
+  <title>แสดงรูปภาพรายการ</title>
+</head>
+<body>
+
+<div class="nav">
+  <ul>
+    <li style="list-style: none;" sec:authorize="isAuthenticated()">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">รูป</div>
+</div>
+
+<div class="name">
+  <span th:text="${plotName}"></span>
+  <span th:text="${year}" style="margin-top: 5px;"></span>
+  <span th:text="${month}"></span>
+  <span th:text="${round}"></span>
+</div>
+
+<div class="main">
+  <img th:src="${imageName}" alt="">
+</div>
+
+<div class="footer">
+  <a href="#"><button>กลับ</button></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:rel="stylesheet" th:href="@{/css/round.css}"/>
+  <title>รอบ</title>
+</head>
+<body>
+<div class="nav">
+  <ul>
+    <li style="list-style: none;" sec:authorize="isAuthenticated()">
+      <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
+    </li>
+    <li style="list-style: none;">
+      <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+    </li>
+  </ul>
+</div>
+
+<div class="wrapper">
+  <div class="title">เลือกรอบ</div>
+
+  <div class="head">
+    <div class="plot-name" id="plot-name"><span th:text="${plotName}"></span></div>
+
+    <form th:action="@{/manager/menu/round/{id}(id=${plotId})}" method="post">
+      <div class="btn">
+
+        <select class="year-list" name="year">
+          <option th:each="y : ${years}" th:text="${y}"></option>
+        </select>
+
+        <select class="year-list" name="month">
+          <option th:each="y : ${months}" th:text="${y}"></option>
+        </select>
+
+        <button class="searchButton">ค้นหา</button>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="main">
+    <div class="table-round">
+      <table class="plotTable" id="plotTable">
+        <tr>
+          <th>ปี</th>
+          <th>เดือน</th>
+          <th>รอบ</th>
+          <th>จัดการ</th>
+          <th>จัดการ</th>
+        </tr>
+<!--        add by frontend-->
+        <tr th:each="round : ${rounds}">
+          <td th:text="${round.year}"></td>
+          <td th:text="${round.month}"></td>
+          <td th:text="${round.round}"></td>
+          <td><a th:href="@{/manager/menu/round/manageRound/{id}(id=${round.idWorkRound})}"><button class="manageRound">จัดการรอบ</button></a></td>
+          <td><a th:href="@{/manager/menu/round/ConfirmDeleteRound/{id}(id=${round.idWorkRound})}"><button class="deleteBtn">ลบรอบ</button></a></td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="btn">
+      <p th:if="${param.success}" style="color: green; font-size: 20px; font-weight: bold">สร้างรอบสำเร็จ</p>
+      <p th:if="${param.delete}" style="color: green; font-size: 20px; font-weight: bold">ลบรอบสำเร็จ</p>
+      <p th:if="${param.cannotDelete}" style="color: red; font-size: 20px; font-weight: bold">ไม่สามารถลบรอบได้</p>
+      <a th:href="@{/manager/menu/round/create/{name}/{year}(name=${plotId}, year=${years[0]})}"><button class="createRound" id="createRound">สร้างรอบ</button></a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="btn">
+      <a th:href="@{/manager/menu}"><button class="backBtn" id="backBtn">กลับ</button></a>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

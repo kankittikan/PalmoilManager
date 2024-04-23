@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+/* nav */
+a {
+    text-decoration: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(76,75,22);
+}
+.nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul .logout{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 4px;
+    transition: 0.35s
+}
+.nav ul .logout:hover{
+    transition: 0.35s;
+    background-color: rgb(137,129,33);
+}
+/*---*/
+
+/*main*/
+.wrapper {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*title*/
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
+/*main*/
+.wrapper {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*title*/
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
+/*box*/
+.wrapper .main .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+     border: solid 1px rgb(202,202,202);
+     border-radius: 8px;
+     width: 50vw;
+}
+
+/*header*/
+.wrapper .main .box .header{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.wrapper .main .box .header p{
+    font-size: 2.5vh;
+    font-weight: bolder;
+}
+.wrapper .main .box hr{
+  border: 0.5px solid rgb(202,202,202);
+  border-radius: 10px;
+  width: 95%;
+}
+
+/*data*/
+.wrapper .main .box .data{
+    border-top: 2rem;
+}
+.wrapper .main .data .header{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 2vw;
+    margin-left: 2vw;
+}
+.wrapper .main .data .header p{
+    color: rgb(153,153,153);
+}
+
+.wrapper .main .data .dataDelete{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 4vw;
+    margin-left: 4vw;
+}
+.wrapper .main .data .dataDelete span{
+    text-align: center;
+    margin-right: 4vw;
+    margin-left: 4vw;
+    color: rgb(102,102,102);
+    font-size: 18px;
+}
+
+/*btn*/
+.wrapper .btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+.wrapper .btn button{
+    margin: 1rem;
+}
+.wrapper .btn a .cancel{
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    background-color: rgb(231,177,10);
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    width: 7rem;
+    transition: 0.35s;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.wrapper .btn a .cancel:hover{
+    background-color: rgb(253,193,0);
+    transition: 0.35s;
+}
+
+.wrapper .btn a .enter{
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    background-color: rgb(137,129,33);
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    width: 7rem;
+    transition: 0.35s;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.wrapper .btn a .enter:hover{
+    background-color: rgb(76,75,22);
+    transition: 0.35s;
+}
+
+
+
+@media only screen and (max-width: 500px){
+    .wrapper .btn{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 400px){
+    .wrapper .main .box .header p{
+        font-size: 1.8vh;
+        font-weight: bolder;
+    }
+    .wrapper .main .data .dataDelete span{
+        text-align: center;
+        margin-right: 3vw;
+        margin-left: 3vw;
+        color: rgb(102,102,102);
+        font-size: 14px;
+    }
+}

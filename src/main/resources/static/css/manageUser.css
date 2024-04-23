@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+
+/* nav */
+a {
+    text-decoration: none;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(76,75,22);
+}
+.nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul .logout{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 4px;
+    transition: 0.35s
+}
+.nav ul .logout:hover{
+    transition: 0.35s;
+    background-color: rgb(137,129,33);
+}
+/*---*/
+
+/*main*/
+.wrapper {
+    margin-top: 7rem;
+    align-items: center;
+}
+.wrapper .title {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+    text-align: center;
+    font-size: 3vh;
+    font-weight: bolder;
+    margin-bottom: 5rem;
+}
+
+.wrapper .main {
+    display: flex;
+    flex-direction: row;
+    margin-left: 4vh;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .main .field table tr th{
+    padding: 1rem;
+}
+@media only screen and (max-width: 570px){
+    .wrapper .main .field table tr td {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px !important;
+    }
+        .wrapper .main .field table th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 8px;
+            font-size: 16px !important;
+        }
+    .wrapper .main .field table{
+        margin-top: 1rem;
+        margin-left: 3vw;
+        margin-right: 2vw;
+        width: 25rem;
+    }
+    .wrapper .main .field {
+        width: 26rem !important;
+    }
+}
+
+@media only screen and (max-width: 860px){
+    .wrapper .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper .main .btn button{
+    margin-bottom: -2rem !important;
+    }
+}
+@media only screen and (max-width: 470px){
+    .wrapper .main .field table tr td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        font-size: 10px !important;
+    }
+        .wrapper .main .field table th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 8px !important;
+            padding-right: 6px !important;
+            font-size: 12px !important;
+        }
+    .wrapper .main .field table{
+        margin-top: 1rem;
+        margin-left: 3vw;
+        margin-right: 2vw;
+        width: 25rem;
+    }
+    .wrapper .main .field {
+        width: 22rem !important;
+    }
+}
+@media only screen and (max-width: 375px){
+    .wrapper .main .field table tr td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        font-size: 10px !important;
+    }
+        .wrapper .main .field table th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 8px !important;
+            padding-right: 6px !important;
+            font-size: 12px !important;
+        }
+    .wrapper .main .field table{
+        margin-top: 1rem;
+        margin-left: 3vw;
+        margin-right: 2vw;
+        width: 25rem;
+    }
+    .wrapper .main .field {
+        width: 18rem !important;
+    }
+    .wrapper .main .btn button{
+        font-size: 2.5vh;
+        height: 40px !important;
+        width: 10rem !important;
+        transition: 0.35s;
+        margin-top: 3rem !important;
+        margin-bottom: 2rem;
+
+    }
+
+}
+
+/*field*/
+.wrapper .main .field {
+    display: flex;
+    justify-content: center;
+    border: solid 1px rgb(202,202,202);
+    border-radius: 8px;
+    background-color: white;
+    color: rgb(153,153,153);
+    overflow: scroll;
+    height: 400px;
+    width: 32rem;
+}
+.wrapper .main .field tr th, td {
+    font-size: 2.5vh;
+    border-bottom: 1px solid #ddd;
+}
+.wrapper .main .field table td{
+    cursor: pointer;
+    text-align: center;
+    color: rgb(102,102,102);
+    height: 1rem;
+    padding: 0 30px 0 30px;
+}
+.wrapper .main .field table th{
+    padding: 1rem 0 1rem 0;
+    cursor: pointer;
+    text-align: center;
+    color: rgb(102,102,102);
+    height: 10px;
+}
+
+/*button*/
+.wrapper .main .btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-item: center;
+    margin-left: 10px;
+}
+.wrapper .main .btn button{
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(137,129,33);
+    border: none;
+    height: 60px;
+    width: 20rem;
+    transition: 0.35s;
+
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    margin-right: 10px;
+
+}
+.wrapper .main .field table button{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    background-color: tomato;
+    border: none;
+    height: 2.5rem;
+    width: 6rem;
+    transition: 0.35s;
+}
+.wrapper .main .field table button a{
+    color: white;
+}
+.wrapper .main .field table button:hover{
+    transition: 0.35;
+    background-color: red;
+}
+.wrapper .main .btn button:hover{
+    transition: 0.35s;
+    background-color: rgb(76,75,22);
+}
+.wrapper .main .btn button a {
+    color: white;
+}
+
+/*footer*/
+.wrapper .footer .btn{
+    display: flex;
+    margin-top: 2rem;
+}
+.wrapper .footer .btn button{
+    cursor: pointer;
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-left: 6.5vw;
+    margin-top: 2rem;
+    background-color: rgb(231,177,10);
+    color: black;
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    width: 7rem;
+    transition: 0.35s;
+    margin-bottom: 10px;
+    transition: 0.35s;
+}
+.wrapper .footer .btn button a{
+    color: black;
+}
+.wrapper .footer .btn button:hover{
+    transition: 0.35s;
+    background-color: rgb(253,193,0);
+}

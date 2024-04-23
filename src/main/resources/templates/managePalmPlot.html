@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/managePalmPlot.css}"/>
+    <title>จัดการรอบตัดปาล์ม</title>
+</head>
+<body>
+
+<div class="nav">
+    <ul>
+        <li style="list-style: none;" sec:authorize="isAuthenticated()">
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
+        </li>
+        <li style="list-style: none;">
+            <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+        </li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">จัดการแปลง</div>
+    <div th:if="${param.error}" style="color: red; text-align: center">ลบไม่ได้ ในแปลงยังมีรอบ</div>
+    <div th:if="${param.success}" style="color: green; text-align: center">ลบสำเร็จ</div>
+
+    <div class="main">
+        <div class="field">
+            <table>
+                <tr>
+                    <th>ชื่อแปลง</th>
+                    <th>จำนวนไร่</th>
+                    <th>จัดการ</th>
+                </tr>
+                    <!--        frontend add-->
+                <tr th:each="plantation : ${plantations}">
+                    <td th:text="${plantation.name}"></td>
+                    <td th:text="${plantation.numOfRaiUnit}"></td>
+                    <td><a th:href="@{/admin/managePlantation/remove/{id}(id=${plantation.idPlantation})}"><button>ลบแปลง</button></a></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="btn">
+            <a th:href="@{/admin/managePlantation/create}"><button>เพิ่มแปลง</button></a>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="btn">
+            <a th:href="@{/admin/menu}"><button>กลับ</button></a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

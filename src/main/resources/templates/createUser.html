@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/createUser.css}"/>
+    <title>เพิ่มผู้ใช้</title>
+</head>
+<body>
+
+<div class="nav">
+    <ul>
+        <li style="list-style: none;" sec:authorize="isAuthenticated()">
+            <a href="#" style="color: white; font-weight: bold; font-size: 20px; margin-left: 1rem;"><span sec:authentication="name"></span></a>
+        </li>
+        <li style="list-style: none;">
+            <a th:href="@{/logout}" style="color: white; font-size: 18px; margin-right: 2rem;" class="logout">ออกจากระบบ</a>
+        </li>
+    </ul>
+</div>
+
+<div class="wrapper">
+    <div class="title">เพิ่มผู้ใช้</div>
+
+    <div class="main">
+        <form th:action="@{/admin/manageUser/create}" class="inputField" method="post">
+            <div class="field">
+                <p>ชื่อผู้ใช้</p>
+                <input type="text" name="username"/>
+            </div>
+            <div class="field">
+                <p>ชื่อจริง</p>
+                <input type="text" name="name"/>
+            </div>
+            <div class="field">
+                <p>รหัสผ่าน</p>
+                <input type="password" name="password"/>
+            </div>
+<!--            <div class="field">-->
+<!--                <p>ยืนยันรหัสผ่าน</p>-->
+<!--                <input type="password" name="confirmPassword"/>-->
+<!--            </div>-->
+                <div th:if="${createSuccess}" style="color: green">เพิ่มผู้ใช้สำเร็จ</div>
+                <div th:text="${createError}" style="color: red"></div>
+
+            <div class="footer">
+                <div class="btn">
+                    <button class="add" type="submit">เพิ่มผู้ใช้</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="btn">
+            <a th:href="@{/admin/manageUser}"><button>กลับ</button></a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
